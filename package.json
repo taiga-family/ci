@@ -7,7 +7,7 @@
     "format": "npm run prettier -- --write"
   },
   "workspaces": [
-    "package.json"
+    "."
   ],
   "devDependencies": {
     "lerna": "7.1.4",

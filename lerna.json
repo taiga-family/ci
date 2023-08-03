@@ -17,6 +17,7 @@
     "**/project.json",
     "**/ng-packages.json"
   ],
+  "packages": ["."],
   "command": {
     "version": {
       "allowBranch": "main",
