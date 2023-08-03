@@ -1,13 +1,16 @@
 name: Auto approve by two user
+description: Auto approve by two user
 
 inputs:
   token1:
+    description: Token for first approve
     required: true
   token2:
+    description: Token for second approve
     required: true
 
 runs:
-  using: "composite"
+  using: composite
   steps:
     - uses: hmarr/auto-approve-action@v3.2.1
       with:

@@ -1,4 +1,5 @@
 name: Auto approve by single user
+description: Auto approve by single user
 
 inputs:
   token:
