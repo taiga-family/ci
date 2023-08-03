@@ -1,5 +1,5 @@
 {
-  "name": "@taiga-ui/ci",
+  "name": "taiga-ui-ci",
   "version": "1.0.0",
   "private": true,
   "scripts": {

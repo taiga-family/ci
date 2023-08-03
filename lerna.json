@@ -4,8 +4,8 @@
   "concurrency": 1,
   "stream": true,
   "npmClient": "npm",
-  "changelog": true,
-  "private": false,
+  "changelog": false,
+  "private": true,
   "conventionalCommits": true,
   "ignoreChanges": [
     "**/node_modules/**",
