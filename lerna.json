@@ -4,7 +4,7 @@
   "concurrency": 1,
   "stream": true,
   "npmClient": "npm",
-  "changelog": false,
+  "changelog": true,
   "private": true,
   "conventionalCommits": true,
   "ignoreChanges": [
