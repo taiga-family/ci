@@ -2,9 +2,6 @@ name: Auto-cleanup cache from branch
 description: Auto-cleanup cache from branch
 
 inputs:
-  token:
-    description: Token
-    required: true
   branch-name:
     description: Branch name
     required: true
@@ -15,15 +12,10 @@ runs:
     - name: Git status
       shell: bash
       run: |
-
-        REPO=${{ github.repository }}
-        GH_TOKEN=${{ inputs.token }}
-        BRANCH="${{ inputs.branch-name }}"
-
         gh extension install actions/gh-actions-cache
 
         echo "Fetching list of cache key"
-        cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1)
+        cacheKeysForPR=$(gh actions-cache list -R ${{ github.repository }} -B ${{ inputs.branch-name }} | cut -f 1)
 
         ## Setting this to not fail the workflow while deleting cache keys.
         set +e
@@ -32,6 +24,6 @@ runs:
         for cacheKey in $cacheKeysForPR
         do
           echo "Delete: $cacheKey"
-          gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+          gh actions-cache delete $cacheKey -R ${{ github.repository }} -B ${{ inputs.branch-name }} --confirm
         done
         echo "Done"
