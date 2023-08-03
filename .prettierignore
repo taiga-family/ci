@@ -2,3 +2,4 @@
 **/coverage/**
 package-lock.json
 .husky
+CHANGELOG.md
