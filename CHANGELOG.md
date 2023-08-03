@@ -1,3 +1,6 @@
+- fix: update node action (490ee56)
+- fix: update cleanup-cache action (7c71cab)
+
 # [1.2.0](https://github.com/taiga-family/ci/compare/1.1.0...1.2.0) (2023-08-03)
 
 ### Features
