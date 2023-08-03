@@ -1,12 +1,13 @@
 {
   "name": "taiga-ui-ci",
-  "version": "1.3.2",
+  "version": "1.3.0",
   "private": true,
   "scripts": {
     "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
     "format": "npm run prettier -- --write"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "7.0.0",
     "prettier": "3.0.0",
     "release-it": "16.1.3"
   },
