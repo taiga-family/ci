@@ -22,7 +22,6 @@ runs:
       with:
         path: |
           **/node_modules/
-          !**/node_modules/.cache
         key: modules-cache__nodejs-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
 
     - shell: bash
