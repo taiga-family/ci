@@ -13,7 +13,7 @@ jobs:
       - name: Setup global variables
         uses: ./.github/actions/variables
       - name: Setup Node.js and Cache
-        uses: ./.github/actions/nodejs
+        uses: ./.github/actions/setup-node
 
       - name: Lint check
         run: |

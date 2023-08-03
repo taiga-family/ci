@@ -15,11 +15,11 @@ runs:
     - name: Git status
       shell: bash
       run: |
-        
+
         REPO=${{ github.repository }}
         GH_TOKEN=${{ inputs.token }}
         BRANCH="${{ inputs.branch-name }}"
-        
+
         gh extension install actions/gh-actions-cache
 
         echo "Fetching list of cache key"
