@@ -14,6 +14,7 @@ runs:
         review-message: "LGTM (Automated approved)"
         github-token: ${{ inputs.token1 }}
     - uses: hmarr/auto-approve-action@v3.2.1
-      if: input.token2 != null
+      if: ${{ input.token2 != '' }}
       with:
         review-message: "LGTM (Automated approved)"
+        github-token: ${{ inputs.token2 }}
