@@ -6,6 +6,7 @@ on:
 jobs:
   run-release:
     name: Release
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.3
@@ -14,8 +15,8 @@ jobs:
           persist-credentials: false
           ref: ${{ github.head_ref }}
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: ./.github/actions/setup-node
-      - uses: ./.github/actions/setup-git
+      - uses: ./actions/setup-node
+      - uses: ./actions/setup-git
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
