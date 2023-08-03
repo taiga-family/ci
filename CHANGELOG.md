@@ -1,5 +1,7 @@
 
 
+# [1.0.0](https://github.com/taiga-family/ci/compare/0.1.0...1.0.0) (2023-08-03)
+
 # [0.1.0](https://github.com/taiga-family/ci/compare/0.0.1...0.1.0) (2023-08-03)
 
 
