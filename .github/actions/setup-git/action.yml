@@ -1,0 +1,25 @@
+name: Setup git
+description: Setup git
+
+inputs:
+  name:
+    description: user name
+    required: false
+    default: taiga-family-bot
+  email:
+    description: user email
+    required: false
+    default: opensource@tinkoff.ru
+  token:
+    description: Token
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Setup GIT
+      shell: bash
+      run: |
+        git config --global user.name "${{ inputs.name }}"
+        git config --global user.email "${{ inputs.email }}"
+        git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
