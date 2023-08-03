@@ -1,16 +1,7 @@
-name: ⚠️ Release
+name: Auto release
 on:
-  workflow_dispatch:
-    inputs:
-      mode:
-        type: choice
-        description: version type
-        required: false
-        default: minor
-        options:
-          - patch
-          - minor
-          - major
+  push:
+    branches: [main]
 
 jobs:
   run-release:
@@ -30,7 +21,7 @@ jobs:
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - run: npx release-it --increment=${{ github.event.inputs.mode }} --ci
+      - run: npx release-it --increment --ci
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
