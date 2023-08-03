@@ -1,5 +1,5 @@
-name: Taiga-UI action for global variables
-description: CI variables
+name: Setup variables
+description: Setup variables
 
 runs:
   using: composite
