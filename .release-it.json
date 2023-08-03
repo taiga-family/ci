@@ -25,7 +25,9 @@
     }
   },
   "hooks": {
-    "after:@release-it/conventional-changelog:beforeRelease": ["npx prettier --write ./CHANGELOG.md"],
+    "after:@release-it/conventional-changelog:beforeRelease": [
+      "npx prettier --write ./CHANGELOG.md"
+    ],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 }
