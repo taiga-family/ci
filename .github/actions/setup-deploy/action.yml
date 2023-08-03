@@ -1,0 +1,31 @@
+name: Setup deploy
+description: Setup deploy
+
+inputs:
+  token:
+    description: Token
+    required: true
+  folder:
+    description: Folder from deploy
+    required: false
+    default: dist/demo
+  clean:
+    description: clean hosting folder
+    required: false
+    default: "true"
+  branch:
+    description: target branch
+    required: false
+    default: gh-pages
+
+runs:
+  using: composite
+  steps:
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.4.3
+      with:
+        token: ${{ inputs.token }}
+        branch: ${{ inputs.branch }}
+        folder: ${{ inputs.folder }}
+        clean: ${{ inputs.clean }}
+        silent: false
