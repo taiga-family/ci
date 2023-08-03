@@ -34,7 +34,7 @@ jobs:
           git config --global user.email "opensource@tinkoff.ru"
           git config remote.origin.url https://x-access-token:${{ secrets.TAIGA_FAMILY_BOT_PAT }}@github.com/$GITHUB_REPOSITORY
 
-      - run: npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
+      - run: npx release-it --increment=${{ github.event.inputs.mode }} --no-npm --ci
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
