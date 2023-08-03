@@ -1,0 +1,23 @@
+name: Setup project
+description: Setup project
+
+inputs:
+  token:
+    description: Token
+    required: true
+  organization:
+    description: organization
+    required: false
+    default: taiga-family
+  projectId:
+    description: projectId
+    required: false
+    default: 1
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/add-to-project@v0.5.0
+      with:
+        project-url: https://github.com/orgs/${{ inputs.organization }}/projects/${{ inputs.projectId }}
+        github-token: ${{ inputs.token }}
