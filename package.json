@@ -6,9 +6,12 @@
     "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
     "format": "npm run prettier -- --write"
   },
+  "workspaces": [
+    "package.json"
+  ],
   "devDependencies": {
+    "lerna": "7.1.4",
     "prettier": "3.0.0"
   },
-  "author": "",
   "license": "Apache-2.0"
 }

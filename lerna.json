@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "1.0.0",
+  "concurrency": 1,
+  "stream": true,
+  "npmClient": "npm",
+  "changelog": true,
+  "private": false,
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "commitHooks": false,
+      "createRelease": "github"
+    },
+    "publish": {
+      "yes": true,
+      "message": "chore(release): github actions [ci skip]"
+    }
+  }
+}

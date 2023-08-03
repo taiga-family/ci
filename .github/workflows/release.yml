@@ -1,0 +1,41 @@
+name: ⚠️ Release
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: version type
+        required: false
+        default: minor
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  run-release:
+    name: Release
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+    steps:
+      - uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+      - name: Setup Node.js and Cache
+        uses: ./.github/actions/nodejs
+
+      - name: Setup GIT username and NPM token
+        run: |
+          git config --global user.name "taiga-family-bot"
+          git config --global user.email "opensource@tinkoff.ru"
+          git config remote.origin.url https://x-access-token:${{ secrets.TAIGA_FAMILY_BOT_PAT }}@github.com/$GITHUB_REPOSITORY
+
+      - run: npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
+
+concurrency:
+  group: release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
