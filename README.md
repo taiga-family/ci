@@ -18,7 +18,7 @@ jobs:
     if: contains(github.head_ref, 'release/')
     steps:
       - uses: actions/checkout@v3
-      - uses: taiga-family/actions/two-approve@1.3.0
+      - uses: taiga-family/ci/actions/two-approve@1.3.0
         with:
           token1: ${{ secrets.APPROVER1_TOKEN }}
           token2: ${{ secrets.APPROVER2_TOKEN }}
