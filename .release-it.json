@@ -13,5 +13,9 @@
       "preset": "angular",
       "infile": "CHANGELOG.md"
     }
+  },
+  "hooks": {
+    "after:changelog": "npx prettier CHANGELOG.md --write && git add CHANGELOG.md",
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 }
