@@ -1,11 +1,13 @@
 # Changelog
 
-- chore: update .release-it.json (b742705)
+- feat: use different directories (672bcb8)
 
-* chore: update README.md (508e7ef)
+* chore: update .release-it.json (b742705)
 
-- fix: update node action (490ee56)
-- fix: update cleanup-cache action (7c71cab)
+- chore: update README.md (508e7ef)
+
+* fix: update node action (490ee56)
+* fix: update cleanup-cache action (7c71cab)
 
 # [1.2.0](https://github.com/taiga-family/ci/compare/1.1.0...1.2.0) (2023-08-03)
 
