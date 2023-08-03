@@ -1,0 +1,17 @@
+name: Setup npm
+description: Setup npm
+
+inputs:
+  token:
+    description: Token
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Setup GIT
+      shell: bash
+      run: |
+        npm config set '//registry.npmjs.org/:_authToken' "${{ inputs.token }}"
+        NPM_WHOAMI_OUTPUT=$(npm whoami)
+        echo "::debug::npm whoami: ${NPM_WHOAMI_OUTPUT}"
