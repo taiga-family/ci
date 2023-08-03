@@ -6,6 +6,17 @@
   "npmClient": "npm",
   "changelog": true,
   "private": false,
+  "conventionalCommits": true,
+  "ignoreChanges": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/tests/**",
+    "**/*.spec.ts",
+    "**/apps/**",
+    "**/CHANGELOG.md",
+    "**/project.json",
+    "**/ng-packages.json"
+  ],
   "command": {
     "version": {
       "allowBranch": "main",
