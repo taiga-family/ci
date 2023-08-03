@@ -46,11 +46,3 @@ runs:
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       run: npm ci --loglevel error --audit=false --fund=false
       shell: bash
-
-    - name: Verify that Cypress is installed correctly and is executable.
-      if: github.ref != 'refs/heads/main'
-      shell: bash
-      run: |
-        npx cypress cache path
-        npx cypress cache list
-        npx cypress verify
