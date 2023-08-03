@@ -1,10 +1,10 @@
-name: 🤖 Auto approve
+name: 🤖 Auto approve by two user
 
 inputs:
   token1:
     required: true
   token2:
-    required: false
+    required: true
 
 runs:
   using: "composite"
@@ -14,7 +14,6 @@ runs:
         review-message: "LGTM (Automated approved)"
         github-token: ${{ inputs.token1 }}
     - uses: hmarr/auto-approve-action@v3.2.1
-      if: ${{ input.token2 != '' }}
       with:
         review-message: "LGTM (Automated approved)"
         github-token: ${{ inputs.token2 }}

@@ -1,0 +1,13 @@
+name: 🤖 Auto approve by single user
+
+inputs:
+  token:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: hmarr/auto-approve-action@v3.2.1
+      with:
+        review-message: "LGTM (Automated approved)"
+        github-token: ${{ inputs.token }}
