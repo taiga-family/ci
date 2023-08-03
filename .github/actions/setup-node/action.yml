@@ -16,13 +16,22 @@ runs:
         node-version: ${{ inputs.node-version }}
         registry-url: "https://registry.npmjs.org"
 
+    - uses: actions/cache@v3.3.1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-nodejs-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nodejs-
+
     - name: Restore node_modules from cache
       id: cache-node-modules
       uses: actions/cache@v3.3.1
       with:
         path: |
           **/node_modules/
-        key: modules-cache__nodejs-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-nodejs-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nodejs-${{ inputs.node-version }}__
 
     - shell: bash
       run: echo "CYPRESS_CACHE_FOLDER=./node_modules/cache-cypress" >> $GITHUB_ENV
@@ -35,7 +44,7 @@ runs:
 
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
-      run: npm ci
+      run: npm ci --loglevel error --audit=false --fund=false
       shell: bash
 
     - name: Verify that Cypress is installed correctly and is executable.
