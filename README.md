@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: taiga-family/ci/./.github/actions/two-approve@1.0.0
         with:
-          token1: ${{ secrets.APPROVER_1 }}
-          token2: ${{ secrets.APPROVER_2 }}
+          token1: ${{ secrets.APPROVER1_TOKEN }}
+          token2: ${{ secrets.APPROVER2_TOKEN }}
 ```
 
 ### Global variables action
