@@ -1,3 +1,10 @@
+- ci: support auto release (53830b3)
+- refactor: description for actions (7274c29)
+- chore: fixup (05f8464)
+- feat: add rebase action (cc003eb)
+- fix: update node.js action (473a7d3)
+- feat: add cleanup cache action (c02c843)
+
 # Changelog
 
 ## <small>1.0.1 (2023-08-03)</small>
