@@ -1,3 +1,10 @@
+# Changelog
+
+## <small>1.0.1 (2023-08-03)</small>
+
+- chore: format .release-it.json ([5678ac5](https://github.com/taiga-family/ci/commit/5678ac5))
+- chore: format CHANGELOG.md ([9cad67c](https://github.com/taiga-family/ci/commit/9cad67c))
+
 # [1.0.0](https://github.com/taiga-family/ci/compare/0.1.0...1.0.0) (2023-08-03)
 
 # [0.1.0](https://github.com/taiga-family/ci/compare/0.0.1...0.1.0) (2023-08-03)
