@@ -1,0 +1,14 @@
+{
+  "name": "@taiga-ui/ci",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
+    "format": "npm run prettier -- --write"
+  },
+  "devDependencies": {
+    "prettier": "3.0.0"
+  },
+  "author": "",
+  "license": "Apache-2.0"
+}
