@@ -27,19 +27,13 @@ runs:
         node-version: ${{ inputs.node-version }}
         registry-url: "https://registry.npmjs.org"
 
-    - uses: actions/cache@v3.3.1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-nodejs-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-nodejs-
-
     - name: Restore node_modules from cache
       id: cache-node-modules
       uses: actions/cache@v3.3.1
       with:
         path: |
           **/node_modules/
+          !**/node_modules/.cache
         key: ${{ runner.os }}-nodejs-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-nodejs-${{ inputs.node-version }}__
