@@ -7,6 +7,17 @@ inputs:
     required: false
     default: 18.x
 
+outputs:
+  root-package-version:
+    description: Full version of root package.json (x.y.z)
+    value: ${{ steps.output.outputs.root-package-version }}
+  root-package-major-version:
+    description: Only major version of root package.json (x)
+    value: ${{ steps.output.outputs.root-package-major-version }}
+  is-release-candidate:
+    description: root package.json includes -rc
+    value: ${{ steps.output.outputs.is-release-candidate }}
+
 runs:
   using: composite
   steps:
