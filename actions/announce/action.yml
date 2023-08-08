@@ -26,6 +26,6 @@ runs:
         {
           "channel": "${{ inputs.channel }}"
           "username": "${{ inputs.username }}", 
-          "text": "New version [v${{ inputs.version }}](https://github.com/${{ $GITHUB_REPOSITORY }}/releases/tag/v${{ inputs.version }}) released :tada:", 
+          "text": "New version [v${{ inputs.version }}](https://github.com/$GITHUB_REPOSITORY/releases/tag/v${{ inputs.version }}) released :tada:", 
         }
         BODY
