@@ -34,9 +34,9 @@ runs:
         path: |
           **/node_modules/
           !**/node_modules/.cache
-        key: ${{ runner.os }}-nodejs-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
-          ${{ runner.os }}-nodejs-${{ inputs.node-version }}__
+          ${{ runner.os }}-node-${{ inputs.node-version }}__
 
     - shell: bash
       run: echo "CYPRESS_CACHE_FOLDER=./node_modules/cache-cypress" >> $GITHUB_ENV
