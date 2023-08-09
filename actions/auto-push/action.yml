@@ -5,7 +5,7 @@ inputs:
   username:
     description: commit username
     required: false
-    default: tinkoff-bot # todo: rename to taiga-family-bot
+    default: taiga-family-bot
   message:
     description: commit message
     required: false

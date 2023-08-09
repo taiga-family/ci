@@ -2,6 +2,8 @@ name: ⚠️ Auto release
 on:
   push:
     branches: [main]
+    paths:
+      - 'actions/**'
 
 jobs:
   run-release:
