@@ -1,0 +1,16 @@
+name: Auto remove label
+description: Auto remove label
+
+inputs:
+  label:
+    description: label
+    required: false
+    default: "state: need triage"
+
+runs:
+  using: composite
+  steps:
+    - name: Remove labels
+      uses: actions-ecosystem/action-remove-labels@v1.3.0
+      with:
+        labels: ${{ inputs.label }}

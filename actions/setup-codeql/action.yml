@@ -1,0 +1,12 @@
+name: CodeQL
+description: CodeQL
+
+runs:
+  using: composite
+  steps:
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2.21.3
+      with:
+        languages: javascript
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2.21.3

@@ -1,0 +1,16 @@
+name: Dependency review
+description: Dependency review
+
+inputs:
+  severity:
+    description: severity
+    required: false
+    default: "critical"
+
+runs:
+  using: composite
+  steps:
+    - name: Dependency Review
+      uses: actions/dependency-review-action@v3.0.7
+      with:
+        fail-on-severity: ${{ inputs.severity }}
