@@ -1,0 +1,25 @@
+name: Label when approved
+description: Label when approved
+
+inputs:
+  token:
+    description: Token
+    required: true
+  approvals:
+    description: count approvals
+    required: false
+    default: "2"
+  label:
+    description: label
+    required: false
+    default: "ready to merge"
+
+runs:
+  using: composite
+  steps:
+    - name: Set label
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: ${{ inputs.approvals }}
+        ADD_LABEL: ${{ inputs.label }}
+        GITHUB_TOKEN: ${{ inputs.token }}
