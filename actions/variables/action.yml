@@ -33,9 +33,6 @@ runs:
         export NX_BRANCH="${{ github.event.number }}"
         export DIST="dist/demo/browser"
         export TIMING="true"
-        export FORCE_COLOR="true"
-        export NX_VERBOSE_LOGGING="true"
-        export NODE_OPTIONS="--max-old-space-size=12288"
         export NX_REJECT_UNKNOWN_LOCAL_CACHE="0"
         export DIST_NEXT="dist/demo/browser/${{ github.base_ref }}"
         export REPO="https://github.com/$GITHUB_REPOSITORY"
@@ -71,11 +68,8 @@ runs:
         echo "REPO=$REPO" >> $GITHUB_ENV
         echo "NG_SERVER_PORT=$NG_SERVER_PORT" >> $GITHUB_ENV
         echo "IS_MAIN_BRANCH=$IS_MAIN_BRANCH" >> $GITHUB_ENV
-        echo "NODE_OPTIONS=$NODE_OPTIONS" >> $GITHUB_ENV
         echo "CI_COMMIT_SHA=$CI_COMMIT_SHA" >> $GITHUB_ENV
         echo "CACHE_DIST_KEY=$CACHE_DIST_KEY" >> $GITHUB_ENV
-        echo "NX_VERBOSE_LOGGING=$NX_VERBOSE_LOGGING" >> $GITHUB_ENV
-        echo "FORCE_COLOR=$FORCE_COLOR" >> $GITHUB_ENV
         echo "IS_RELEASE_BRANCH=$IS_RELEASE_BRANCH" >> $GITHUB_ENV
         echo "IS_DEPENDABOT=$IS_DEPENDABOT" >> $GITHUB_ENV
         echo "IS_OWNER_MODE=$IS_OWNER_MODE" >> $GITHUB_ENV
