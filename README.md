@@ -17,7 +17,7 @@ jobs:
       pull-requests: write
     if: contains(github.head_ref, 'release/')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.6.0
       - uses: taiga-family/ci/actions/two-approve@1.3.0
         with:
           token1: ${{ secrets.APPROVER1_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.6.0
       - uses: taiga-family/ci/actions/variables@1.3.0
 ```
 
@@ -42,6 +42,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.6.0
       - uses: taiga-family/ci/actions/setup-node@1.3.0
 ```

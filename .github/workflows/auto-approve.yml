@@ -6,10 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-    if: github.actor == 'taiga-family-bot' && contains(github.head_ref, 'renovate/')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.6.0
+      - uses: ./actions/variables
       - uses: ./actions/two-approve
+        if: env.TAIGA_FAMILY_BOT_IS_AUTHOR == 'true'
         with:
           token1: ${{ secrets.GITHUB_TOKEN }}
           token2: ${{ secrets.TAIGA_FAMILY_APPROVE_BOT_PAT }}
