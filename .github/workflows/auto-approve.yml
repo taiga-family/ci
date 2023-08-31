@@ -1,8 +1,8 @@
-name: 🤖 Auto approve for renovate
+name: 🤖 Auto approve by bot
 on: pull_request
 
 jobs:
-  automated-approve-pull-request:
+  automated-pull-request:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
