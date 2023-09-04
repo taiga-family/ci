@@ -7,7 +7,7 @@
     "format": "npm run prettier -- --write"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "7.0.0",
+    "@release-it/conventional-changelog": "7.0.1",
     "prettier": "3.0.3",
     "release-it": "16.1.5"
   },
