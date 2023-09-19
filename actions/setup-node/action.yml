@@ -6,6 +6,12 @@ inputs:
     description: Node.js version
     required: false
     default: 18.x
+  node-path:
+    description: nested node path
+    required: false
+    default: |
+      **/node_modules/
+      !**/node_modules/.cache
 
 outputs:
   root-package-version:
@@ -31,9 +37,7 @@ runs:
       id: cache-node-modules
       uses: actions/cache@v3.3.2
       with:
-        path: |
-          **/node_modules/
-          !**/node_modules/.cache
+        path: ${{ inputs.node-path }}
         key: ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-${{ inputs.node-version }}__
