@@ -1,0 +1,13 @@
+name: NPM install
+description: NPM install
+
+runs:
+  using: composite
+  steps:
+    - name: Run npm install
+      shell: bash
+      run: |
+        echo "Run npm install..."
+        rm -rf package-lock.json node_modules
+        npm install --force --loglevel error --audit=false --fund=false
+        git add .

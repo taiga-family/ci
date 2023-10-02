@@ -1,0 +1,30 @@
+name: Git sync submodule
+description: Git sync submodule
+
+runs:
+  using: composite
+  steps:
+    - name: Git sync submodule
+      shell: bash
+      run: |
+        git submodule deinit --all -f
+
+        git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
+        while read path_key path
+        do
+          rm -rf $path
+
+          git submodule update --recursive --init $path
+          git submodule update --recursive --remote $path
+          git add .
+
+          echo "${path} submodule update: "
+          ls -la $path
+          echo ""
+        done
+
+        if [[ `git status --porcelain` ]]; then
+          echo "We have new hash from git submodule"
+        else
+          echo "Nothing to update"
+        fi
