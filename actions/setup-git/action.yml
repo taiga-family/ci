@@ -14,11 +14,6 @@ inputs:
     description: Token
     required: true
 
-outputs:
-  git-has-been-changed:
-    description: Modified status
-    value: ${{ steps.output.outputs.git-has-been-changed }}
-
 runs:
   using: composite
   steps:
@@ -32,8 +27,3 @@ runs:
 
         echo "Last 5 tags:"
         git tag --sort=committerdate | tail -5
-
-    - id: output
-      shell: bash
-      run: |
-        echo "git-has-been-changed=$([[ "$(git status --porcelain)" ]] && echo "true" || echo "false")" >> $GITHUB_OUTPUT

@@ -1,0 +1,16 @@
+name: Git status
+description: Git status
+
+outputs:
+  modified:
+    description: Modified status
+    value: ${{ steps.output.outputs.modified }}
+
+runs:
+  using: composite
+  steps:
+    - name: Git status
+      id: output
+      shell: bash
+      run: |
+        echo "modified=$([[ "$(git status --porcelain)" ]] && echo "true" || echo "false")" >> $GITHUB_OUTPUT
