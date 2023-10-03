@@ -27,5 +27,5 @@ runs:
       run: |
         curl -X POST \
              -H "Content-Type: application/json" \
-             -d "{\"chat_id\": \"${{ inputs.chatId }}\", \"text\": \"New version [v${{ inputs.version }}](https://github.com/$GITHUB_REPOSITORY/releases/tag/v${{ inputs.version }}) released 🎉\", \"parse_mode\": \"${{ inputs.markdown }}\", \"message_thread_id\": \"${{ inputs.topicId }}\"}" \
+             -d "{\"chat_id\": \"${{ inputs.chatId }}\", \"text\": \"New version [v${{ inputs.version }}](https://github.com/$GITHUB_REPOSITORY/releases/tag/v${{ inputs.version }}) released 🎉\", \"parse_mode\": \"${{ inputs.parseMode }}\", \"message_thread_id\": \"${{ inputs.topicId }}\"}" \
              https://api.telegram.org/bot${{ inputs.token }}/sendMessage
