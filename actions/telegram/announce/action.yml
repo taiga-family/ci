@@ -8,6 +8,9 @@ inputs:
   token:
     description: Telegram bot token
     required: true
+  version:
+    description: Version announce
+    required: true
   topicId:
     description: Topic ID
     required: false
