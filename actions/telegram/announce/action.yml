@@ -1,0 +1,28 @@
+name: Announce telegram
+description: Release announcement
+
+inputs:
+  chatId:
+    description: Chat ID
+    required: true
+  token:
+    description: Telegram bot token
+    required: true
+  topicId:
+    description: Topic ID
+    required: false
+  parseMode:
+    description: html or markdown
+    default: markdown
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Announce
+      shell: bash
+      run: |
+        curl -X POST \
+             -H 'Content-Type: application/json' \
+             -d '{"chat_id": "${{ inputs.chatId }}", "text": "New version [v${{ inputs.version }}](https://github.com/$GITHUB_REPOSITORY/releases/tag/v${{ inputs.version }}) released 🎉", "parse_mode": "${{ inputs.markdown }}", "message_thread_id": "${{ inputs.topicId }}"}' \
+             https://api.telegram.org/bot${{ inputs.token }}/sendMessage
