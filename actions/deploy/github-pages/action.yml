@@ -1,5 +1,5 @@
-name: Setup deploy
-description: Setup deploy
+name: Setup github pages deploy
+description: Setup github pages deploy
 
 inputs:
   token:

@@ -6,6 +6,10 @@ inputs:
     description: Node.js version
     required: false
     default: 18.x
+  node-registry:
+    description: Registry
+    required: false
+    default: "https://registry.npmjs.org"
   node-path:
     description: nested node path
     required: false
@@ -31,7 +35,7 @@ runs:
       uses: actions/setup-node@v3.8.1
       with:
         node-version: ${{ inputs.node-version }}
-        registry-url: "https://registry.npmjs.org"
+        registry-url: ${{ inputs.node-registry }}
 
     - name: Restore node_modules from cache
       id: cache-node-modules

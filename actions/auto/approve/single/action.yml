@@ -3,6 +3,7 @@ description: Auto approve by single user
 
 inputs:
   token:
+    description: Token
     required: true
 
 runs:

@@ -1,5 +1,5 @@
-name: Label when approved
-description: Label when approved
+name: Auto set label when approved
+description: Auto set label when approved
 
 inputs:
   token:

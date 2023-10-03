@@ -1,5 +1,5 @@
-name: Auto approve by two user
-description: Auto approve by two user
+name: Auto approve by two users
+description: Auto approve by two users
 
 inputs:
   token1:
