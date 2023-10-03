@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.0
-      - uses: ./actions/auto-remove-label
+      - uses: ./actions/auto/remove-label

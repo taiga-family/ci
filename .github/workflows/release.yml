@@ -17,8 +17,8 @@ jobs:
           persist-credentials: false
           ref: ${{ github.head_ref }}
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: ./actions/setup-node
-      - uses: ./actions/setup-git
+      - uses: ./actions/setup/node
+      - uses: ./actions/setup/config/git
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 

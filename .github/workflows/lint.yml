@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - name: Setup global variables
-        uses: ./actions/variables
+        uses: ./actions/setup/variables
       - name: Setup Node.js and Cache
-        uses: ./actions/setup-node
+        uses: ./actions/setup/node
 
       - name: Lint check
         run: |

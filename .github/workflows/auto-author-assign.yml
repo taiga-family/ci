@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.0
-      - uses: ./actions/variables
+      - uses: ./actions/setup/variables
 
       - name: Auto assign
         if: env.IS_OWNER_MODE == 'true'
