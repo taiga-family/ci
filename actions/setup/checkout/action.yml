@@ -15,5 +15,5 @@ runs:
         fetch-depth: 0
         submodules: recursive
         persist-credentials: false
-        ref: ${{ $GITHUB_REF }}
+        ref: $GITHUB_REF
         token: ${{ inputs.token }}
