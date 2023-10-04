@@ -10,20 +10,23 @@ runs:
   using: composite
   steps:
     - shell: bash
+      id: checks
       run: |
-        export HAS_TOKEN=$([ -z "${{ inputs.token }}" ] && echo "false" || echo "true")
+        echo "has-token=$([ -z "${{ inputs.token }}" ] && echo "false" || echo "true")" >> $GITHUB_OUTPUT
 
     - name: Checkout with token
-      if: env.HAS_TOKEN == 'true'
+      if: steps.checks.outputs.has-token == 'true'
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
         submodules: recursive
         token: ${{ inputs.token }}
+        fetch-tags: true
 
     - name: Checkout without token
-      if: env.HAS_TOKEN == 'false'
+      if: steps.checks.outputs.has-token == 'false'
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
         submodules: recursive
+        fetch-tags: true
