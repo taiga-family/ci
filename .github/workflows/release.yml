@@ -1,5 +1,6 @@
 name: ⚠️ Auto release
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -22,7 +23,7 @@ jobs:
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - run: npx release-it --increment --ci --git.tagName=v${version}
+      - run: npx release-it --increment --ci
         env:
           GITHUB_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 

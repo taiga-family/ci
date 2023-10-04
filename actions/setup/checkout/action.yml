@@ -1,5 +1,5 @@
-name: Action for checkout
-description: Action for checkout
+name: Action for checkout git
+description: Action for checkout git
 
 inputs:
   token:
