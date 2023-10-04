@@ -11,20 +11,10 @@ runs:
   using: composite
   steps:
     - name: Checkout with token
-      if: ${{ inputs.token == '' }}
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
         submodules: recursive
         persist-credentials: false
         ref: $GITHUB_REF
-        token: ${{ inputs.token }}
-
-    - name: Checkout without token
-      if: ${{ inputs.token != '' }}
-      uses: actions/checkout@v4.1.0
-      with:
-        fetch-depth: 0
-        submodules: recursive
-        persist-credentials: false
-        ref: $GITHUB_REF
+        token: ${{ inputs.token || GITHUB_TOKEN }}
