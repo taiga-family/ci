@@ -4,6 +4,7 @@ description: Action for checkout git
 inputs:
   token:
     description: Token
+    default: $GITHUB_TOKEN
     required: false
 
 runs:
