@@ -16,6 +16,8 @@ runs:
       run: |
         export TOKEN=$([ -z "${{ inputs.token }}" ] && echo "$GITHUB_TOKEN" || echo "${{ inputs.token }}")
         export REF=$([ -z "${{ inputs.ref }}" ] && echo "$GITHUB_REF" || echo "${{ inputs.ref }}")
+        
+        echo $REF
 
     - name: Checkout with token
       uses: actions/checkout@v4.1.0
