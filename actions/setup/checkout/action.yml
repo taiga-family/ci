@@ -4,13 +4,14 @@ description: Action for checkout git
 inputs:
   token:
     description: Token
-    default: $GITHUB_TOKEN
+    default: ''
     required: false
 
 runs:
   using: composite
   steps:
-    - name: Checkout
+    - name: Checkout with token
+      if: ${{ inputs.token == '' }}
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
@@ -18,3 +19,12 @@ runs:
         persist-credentials: false
         ref: $GITHUB_REF
         token: ${{ inputs.token }}
+
+    - name: Checkout without token
+      if: ${{ inputs.token != '' }}
+      uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 0
+        submodules: recursive
+        persist-credentials: false
+        ref: $GITHUB_REF
