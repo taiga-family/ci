@@ -14,7 +14,7 @@ runs:
         export HAS_TOKEN=$([ -z "${{ inputs.token }}" ] && echo "false" || echo "true")
 
     - name: Checkout with token
-      if: env.HAS_TOKEN === 'true'
+      if: env.HAS_TOKEN == 'true'
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
@@ -22,7 +22,7 @@ runs:
         token: ${{ inputs.token }}
 
     - name: Checkout without token
-      if: env.HAS_TOKEN === 'false'
+      if: env.HAS_TOKEN == 'false'
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
