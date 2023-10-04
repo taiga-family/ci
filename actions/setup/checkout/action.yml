@@ -2,19 +2,26 @@ name: Action for checkout git
 description: Action for checkout git
 
 inputs:
+  ref:
+    description: Ref
+    required: false
   token:
     description: Token
-    default: ''
     required: false
 
 runs:
   using: composite
   steps:
+    - shell: bash
+      run: |
+        export TOKEN=$([ -z "${{ inputs.token }}" ] && echo "$GITHUB_TOKEN" || echo "${{ inputs.token }}")
+        export REF=$([ -z "${{ inputs.ref }}" ] && echo "$GITHUB_REF" || echo "${{ inputs.ref }}")
+
     - name: Checkout with token
       uses: actions/checkout@v4.1.0
       with:
         fetch-depth: 0
         submodules: recursive
         persist-credentials: false
-        ref: $GITHUB_REF
-        token: ${{ inputs.token || GITHUB_TOKEN }}
+        ref: $REF
+        token: $TOKEN
