@@ -5,6 +5,18 @@ inputs:
   token:
     description: Token
     required: false
+  fetch-depth:
+    description: Fetch depth
+    default: "1"
+    required: false
+  fetch-tags:
+    description: Fetch tags
+    default: "false"
+    required: false
+  submodules:
+    description: submodules
+    default: recursive
+    required: false
 
 runs:
   using: composite
@@ -14,19 +26,19 @@ runs:
       run: |
         echo "has-token=$([ -z "${{ inputs.token }}" ] && echo "false" || echo "true")" >> $GITHUB_OUTPUT
 
-    - name: Checkout with token
+    - uses: actions/checkout@v4.1.0
       if: steps.checks.outputs.has-token == 'true'
-      uses: actions/checkout@v4.1.0
       with:
-        fetch-depth: 0
-        submodules: recursive
         token: ${{ inputs.token }}
-        fetch-tags: true
+        persist-credentials: false
+        fetch-depth: ${{ inputs.fetch-depth }}
+        fetch-tags: ${{ inputs.fetch-tags }}
+        submodules: ${{ inputs.submodules }}
 
-    - name: Checkout without token
+    - uses: actions/checkout@v4.1.0
       if: steps.checks.outputs.has-token == 'false'
-      uses: actions/checkout@v4.1.0
       with:
-        fetch-depth: 0
-        submodules: recursive
-        fetch-tags: true
+        persist-credentials: false
+        fetch-depth: ${{ inputs.fetch-depth }}
+        fetch-tags: ${{ inputs.fetch-tags }}
+        submodules: ${{ inputs.submodules }}
