@@ -5,8 +5,14 @@ inputs:
   token:
     description: Token
     required: true
+  username:
+    required: false
+    description: Bot name
+    default: taiga-family-bot
   type:
-    description: Merge type
+    description: >
+      Represents available types of methods to use when merging a pull request.
+      One of: MERGE, STASH or REBASE
     required: false
     default: SQUASH
 
@@ -16,12 +22,13 @@ runs:
     - run: sleep 30s
       shell: bash
 
-    - uses: ridedott/merge-me-action@v2.8.35
+    - uses: ridedott/merge-me-action@v2.10.54
       continue-on-error: true
       with:
+        GITHUB_LOGIN: ${{ inputs.username }}
         GITHUB_TOKEN: ${{ inputs.token }}
         MERGE_METHOD: ${{ inputs.type }}
-        ENABLE_GITHUB_API_PREVIEW: true
+        ENABLE_GITHUB_API_PREVIEW: 'true'
         ENABLED_FOR_MANUAL_CHANGES: true
         MAXIMUM_RETRIES: 2
 
