@@ -18,7 +18,7 @@ jobs:
     if: contains(github.head_ref, 'release/')
     steps:
       - uses: actions/checkout@v3.6.0
-      - uses: taiga-family/ci/actions/auto/approve/double@1.3.0
+      - uses: taiga-family/ci/actions/auto/approve/double@v1.24.0
         with:
           token1: ${{ secrets.APPROVER1_TOKEN }}
           token2: ${{ secrets.APPROVER2_TOKEN }}
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.6.0
-      - uses: taiga-family/ci/actions/setup/variables@1.3.0
+      - uses: taiga-family/ci/actions/setup/variable@v1.24.0
 ```
 
 ### Node.js action
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.6.0
-      - uses: taiga-family/ci/actions/setup/node@1.3.0
+      - uses: taiga-family/ci/actions/setup/node@v1.24.0
 ```
 
 #### You can also see what else actions is inside `actions` directory
