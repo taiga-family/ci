@@ -26,7 +26,7 @@ runs:
       if: steps.waiter.outputs.conclusion == 'success'
       run: echo 'success'
 
-    - uses: actions/github-script@v5
+    - uses: actions/github-script@v6
       if: steps.waiter.outputs.conclusion == 'failure'
       continue-on-error: true
       with:
