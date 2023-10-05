@@ -37,7 +37,7 @@ runs:
         MERGE_METHOD: ${{ inputs.merge-method }}
         ENABLE_GITHUB_API_PREVIEW: true
         ENABLED_FOR_MANUAL_CHANGES: true
-        MAXIMUM_RETRIES: 5
+        MAXIMUM_RETRIES: 1
 
     - uses: actions/github-script@v6
       continue-on-error: true
