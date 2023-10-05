@@ -5,11 +5,11 @@ inputs:
   token:
     description: Token
     required: true
-  username:
+  login:
     required: false
     description: Bot name
     default: taiga-family-bot
-  type:
+  merge-method:
     description: >
       Represents available types of methods to use when merging a pull request.
       One of: MERGE, STASH or REBASE
@@ -19,6 +19,25 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Enable Pull Request Automerge
+      shell: bash
+      run: gh pr merge --merge --auto "${{ github.event.number }}"
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+
+    - run: sleep 120s
+      shell: bash
+
+    - uses: ridedott/merge-me-action@v2.10.54
+      continue-on-error: true
+      with:
+        GITHUB_LOGIN: ${{ inputs.login }}
+        GITHUB_TOKEN: ${{ inputs.token }}
+        MERGE_METHOD: ${{ inputs.merge-method }}
+        ENABLE_GITHUB_API_PREVIEW: true
+        ENABLED_FOR_MANUAL_CHANGES: true
+        MAXIMUM_RETRIES: 5
+
     - uses: actions/github-script@v6
       continue-on-error: true
       with:
@@ -30,16 +49,3 @@ runs:
             repo: context.repo.repo,
             body: '⚡️ Run auto merge for current branch!'
           })
-
-    - run: sleep 120s
-      shell: bash
-
-    - uses: ridedott/merge-me-action@v2.10.54
-      continue-on-error: true
-      with:
-        GITHUB_LOGIN: ${{ inputs.username }}
-        GITHUB_TOKEN: ${{ inputs.token }}
-        MERGE_METHOD: ${{ inputs.type }}
-        ENABLE_GITHUB_API_PREVIEW: true
-        ENABLED_FOR_MANUAL_CHANGES: true
-        MAXIMUM_RETRIES: 5
