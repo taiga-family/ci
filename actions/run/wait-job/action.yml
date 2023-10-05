@@ -1,0 +1,44 @@
+name: Action for wait job
+description: Action for wait job
+
+inputs:
+  token:
+    description: Token
+    required: true
+  job:
+    description: Job name
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: fountainhead/action-wait-for-check@v1.1.0
+      id: waiter
+      with:
+        token: ${{ inputs.token }}
+        checkName: ${{ inputs.job }}
+        ref: ${{ github.event.pull_request.head.sha || github.sha }}
+        timeoutSeconds: 10800
+        intervalSeconds: 15
+
+    - name: Do something with a passing build
+      shell: bash
+      if: steps.waiter.outputs.conclusion == 'success'
+      run: echo 'success'
+
+    - uses: actions/github-script@v5
+      if: steps.waiter.outputs.conclusion == 'failure'
+      continue-on-error: true
+      with:
+        github-token: ${{ github.token }}
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '⛔ ${{ matrix.value }} job has failed!'
+          })
+
+    - if: steps.waiter.outputs.conclusion == 'failure'
+      shell: bash
+      run: exit 1
