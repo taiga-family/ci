@@ -13,10 +13,27 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: sleep 30s
+      shell: bash
+
     - uses: ridedott/merge-me-action@v2.8.35
+      continue-on-error: true
       with:
         GITHUB_TOKEN: ${{ inputs.token }}
         MERGE_METHOD: ${{ inputs.type }}
         ENABLE_GITHUB_API_PREVIEW: true
         ENABLED_FOR_MANUAL_CHANGES: true
         MAXIMUM_RETRIES: 2
+
+    - uses: actions/github-script@v6
+      if: steps.waiter.outputs.conclusion == 'failure'
+      continue-on-error: true
+      with:
+        github-token: ${{ github.token }}
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '⚡️ Run auto merge for current branch!'
+          })
