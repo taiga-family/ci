@@ -19,17 +19,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: echo "Wait 30s" && sleep 30s
-      shell: bash
-
-    - uses: ridedott/merge-me-action@v2.10.54
-      continue-on-error: true
-      with:
-        GITHUB_LOGIN: ${{ inputs.username }}
-        GITHUB_TOKEN: ${{ inputs.token }}
-        MERGE_METHOD: ${{ inputs.type }}
-        MAXIMUM_RETRIES: 2
-
     - uses: actions/github-script@v6
       continue-on-error: true
       with:
@@ -41,3 +30,16 @@ runs:
             repo: context.repo.repo,
             body: '⚡️ Run auto merge for current branch!'
           })
+
+    - run: sleep 120s
+      shell: bash
+
+    - uses: ridedott/merge-me-action@v2.10.54
+      continue-on-error: true
+      with:
+        GITHUB_LOGIN: ${{ inputs.username }}
+        GITHUB_TOKEN: ${{ inputs.token }}
+        MERGE_METHOD: ${{ inputs.type }}
+        ENABLE_GITHUB_API_PREVIEW: true
+        ENABLED_FOR_MANUAL_CHANGES: true
+        MAXIMUM_RETRIES: 5
