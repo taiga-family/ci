@@ -16,7 +16,7 @@ runs:
     - run: sleep 30s
       shell: bash
 
-    - uses: ridedott/merge-me-action@v2.8.35
+    - uses: ridedott/merge-me-action@v2.10.54
       continue-on-error: true
       with:
         GITHUB_TOKEN: ${{ inputs.token }}
