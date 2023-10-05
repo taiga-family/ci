@@ -19,6 +19,7 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: actions/checkout@v4.1.0
     - name: Enable Pull Request Automerge
       shell: bash
       run: gh pr merge --merge --auto "${{ github.event.number }}"
