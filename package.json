@@ -1,6 +1,6 @@
 {
   "name": "taiga-ui-ci",
-  "version": "1.25.6",
+  "version": "1.25.7",
   "private": true,
   "scripts": {
     "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
