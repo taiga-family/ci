@@ -28,12 +28,11 @@ runs:
         GITHUB_LOGIN: ${{ inputs.username }}
         GITHUB_TOKEN: ${{ inputs.token }}
         MERGE_METHOD: ${{ inputs.type }}
-        ENABLE_GITHUB_API_PREVIEW: 'true'
+        ENABLE_GITHUB_API_PREVIEW: "true"
         ENABLED_FOR_MANUAL_CHANGES: true
         MAXIMUM_RETRIES: 2
 
     - uses: actions/github-script@v6
-      if: steps.waiter.outputs.conclusion == 'failure'
       continue-on-error: true
       with:
         github-token: ${{ github.token }}
