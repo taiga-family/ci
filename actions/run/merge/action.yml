@@ -1,0 +1,22 @@
+name: Action for merge me
+description: Action for merge me
+
+inputs:
+  token:
+    description: Token
+    required: true
+  type:
+    description: Merge type
+    required: false
+    default: SQUASH
+
+runs:
+  using: composite
+  steps:
+    - uses: ridedott/merge-me-action@v2.8.35
+      with:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        MERGE_METHOD: ${{ inputs.type }}
+        ENABLE_GITHUB_API_PREVIEW: true
+        ENABLED_FOR_MANUAL_CHANGES: true
+        MAXIMUM_RETRIES: 2
