@@ -33,7 +33,7 @@ runs:
         MAXIMUM_RETRIES: 1
 
     - id: string
-      uses: ASzc/change-string-case-action@v1
+      uses: ASzc/change-string-case-action@v5
       with:
         string: ${{ inputs.merge-method }}
     - name: Mark auto merge for Pull Request
