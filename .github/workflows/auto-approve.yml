@@ -10,7 +10,7 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.value }}
     steps:
-      - uses: ./actions/setup/checkout
+      - uses: actions/checkout@v4.1.0
       - uses: ./actions/setup/variables
       - id: matrix
         if: env.TAIGA_FAMILY_BOT_IS_AUTHOR == 'true'
