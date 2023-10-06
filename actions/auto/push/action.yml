@@ -23,6 +23,7 @@ runs:
     - name: Push
       uses: stefanzweifel/git-auto-commit-action@v4.16.0
       with:
+        repository: $GITHUB_REPOSITORY
         commit_user_name: "${{ inputs.username }}"
         commit_user_email: "${{ inputs.username }}@users.noreply.github.com"
         commit_author: "${{ inputs.username }} <${{ inputs.username }}@users.noreply.github.com>"
