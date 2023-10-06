@@ -24,7 +24,9 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
-        git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
+        git config --global user.name "${{ inputs.name }}"
+        git config --global user.email "${{ inputs.email }}"
+        git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
 
         git add .
         git status --untracked-files=no
