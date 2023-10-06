@@ -18,16 +18,7 @@ jobs:
 
       - name: Lint check
         run: |
-          sleep 3000
           npm run prettier -- --check
-
-  lint2:
-    name: Lint2
-    runs-on: ubuntu-latest
-    needs: [lint]
-    steps:
-      - name: Lint check
-        run: echo "Test"
 
 concurrency:
   group: lint-${{ github.head_ref }}
