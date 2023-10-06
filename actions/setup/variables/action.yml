@@ -46,7 +46,7 @@ runs:
         export SNAPSHOTS_CACHE_KEY="e2e-cache--${{ github.event.pull_request.head.sha || github.sha }}-${{ github.event.number }}"
         export CYPRESS_SNAPSHOTS_ARTIFACTS_KEY="cypress-e2e-artifacts--${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}-${{ github.event.number }}"
         export PLAYWRIGHT_SNAPSHOTS_ARTIFACTS_KEY="playwright-e2e-artifacts--${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}-${{ github.event.number }}"
-        export TAIGA_FAMILY_BOT_IS_AUTHOR="${{ github.actor == 'taiga-family-bot' && (contains(github.head_ref, 'release/') || contains(github.head_ref, 'renovate/')) }}"
+        export TAIGA_FAMILY_BOT_IS_AUTHOR="${{ github.actor == 'taiga-family-bot' }}"
 
         if [[ "$IS_FORK" == "false" && "$IS_DEPENDABOT" == "false" ]]; then
             export IS_OWNER_MODE="true"
