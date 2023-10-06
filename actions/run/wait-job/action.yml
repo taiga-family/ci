@@ -21,6 +21,9 @@ runs:
         timeoutSeconds: 10800
         intervalSeconds: 30
 
+    - run: echo "Current status ~ ${{ steps.waiter.outputs.conclusion }}"
+      shell: bash
+
     - name: Do something with a passing build
       shell: bash
       if: steps.waiter.outputs.conclusion == 'success'
