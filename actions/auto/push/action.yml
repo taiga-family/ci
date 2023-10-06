@@ -2,6 +2,9 @@ name: Auto-push action
 description: Auto-push action
 
 inputs:
+  token:
+    description: token
+    required: true
   username:
     description: commit username
     required: false
@@ -14,20 +17,14 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Git status
+    - name: Commit and push
       shell: bash
       run: |
+        git config user.name "${{ inputs.username }}"
+        git config user.email "taiga-ui@users.noreply.github.com"
+        git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
+
         git add .
         git status
-
-    - name: Push
-      uses: stefanzweifel/git-auto-commit-action@v4.16.0
-      with:
-        repository: $GITHUB_REPOSITORY
-        commit_user_name: "${{ inputs.username }}"
-        commit_user_email: "${{ inputs.username }}@users.noreply.github.com"
-        commit_author: "${{ inputs.username }} <${{ inputs.username }}@users.noreply.github.com>"
-        commit_message: "chore: ${{ inputs.message }} [bot]"
-        status_options: "--untracked-files=no"
-        commit_options: "--no-verify"
-        skip_fetch: true
+        git commit -m "${{ inputs.message }}"
+        git push
