@@ -39,6 +39,6 @@ runs:
             body: '⛔ ${{ matrix.value }} job has failed!'
           })
 
-    - if: steps.waiter.outputs.conclusion == 'failure'
+    - if: steps.waiter.outputs.conclusion == 'failure' || steps.waiter.outputs.conclusion == 'skipped'
       shell: bash
       run: exit 1
