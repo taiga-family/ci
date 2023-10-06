@@ -35,7 +35,7 @@ runs:
       if: steps.checks.outputs.has-token == 'true'
       with:
         token: ${{ inputs.token }}
-        ref: ${{ github.head_ref }}
+        ref: ${{ github.event.pull_request.head.ref || github.head_ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
         submodules: ${{ inputs.submodules }}
@@ -43,7 +43,7 @@ runs:
     - uses: actions/checkout@v4.1.0
       if: steps.checks.outputs.has-token == 'false'
       with:
-        ref: ${{ github.head_ref }}
+        ref: ${{ github.event.pull_request.head.ref || github.head_ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
         submodules: ${{ inputs.submodules }}
