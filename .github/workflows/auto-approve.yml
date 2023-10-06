@@ -13,7 +13,6 @@ jobs:
       - uses: actions/checkout@v4.1.0
       - uses: ./actions/setup/variables
       - id: matrix
-        if: env.TAIGA_FAMILY_BOT_IS_AUTHOR == 'true'
         run: echo "value=$JOBS_NAME" >> $GITHUB_OUTPUT
 
   wait:
@@ -24,6 +23,7 @@ jobs:
       matrix:
         value: ${{ fromJSON(needs.setup.outputs.matrix) }}
     steps:
+      - uses: actions/checkout@v4.1.0
       - uses: ./actions/run/wait-job
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -33,6 +33,7 @@ jobs:
     needs: [wait]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4.1.0
       - uses: ./actions/auto/approve/double
         with:
           token1: ${{ secrets.GITHUB_TOKEN }}

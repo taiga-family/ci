@@ -18,6 +18,7 @@ jobs:
 
       - name: Lint check
         run: |
+          sleep 3000
           npm run prettier -- --check
 
 concurrency:
