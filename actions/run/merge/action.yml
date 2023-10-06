@@ -22,19 +22,15 @@ runs:
     - run: sleep 120s
       shell: bash
 
-    - uses: actions/checkout@v4.1.0
-    - uses: imba-tjd/rebase-upstream-action@0.5
+    - uses: ridedott/merge-me-action@v2.10.54
+      continue-on-error: true
       with:
-        upstream: $GITHUB_REPOSITORY
-        branch: ${{ github.base_ref }}
-        push: false
-    - name: Abort rebase when merge conflict
-      if: failure()
-      shell: bash
-      run: |
-        git status
-        git rebase --abort
-        git status
+        GITHUB_LOGIN: ${{ inputs.login }}
+        GITHUB_TOKEN: ${{ inputs.token }}
+        MERGE_METHOD: ${{ inputs.merge-method }}
+        ENABLE_GITHUB_API_PREVIEW: true
+        ENABLED_FOR_MANUAL_CHANGES: true
+        MAXIMUM_RETRIES: 1
 
     - id: string
       uses: ASzc/change-string-case-action@v1
@@ -46,16 +42,6 @@ runs:
       run: gh pr merge --${{ steps.string.outputs.lowercase }} --auto "${{ github.event.number }}"
       env:
         GH_TOKEN: ${{ inputs.token }}
-
-    - uses: ridedott/merge-me-action@v2.10.54
-      continue-on-error: true
-      with:
-        GITHUB_LOGIN: ${{ inputs.login }}
-        GITHUB_TOKEN: ${{ inputs.token }}
-        MERGE_METHOD: ${{ inputs.merge-method }}
-        ENABLE_GITHUB_API_PREVIEW: true
-        ENABLED_FOR_MANUAL_CHANGES: true
-        MAXIMUM_RETRIES: 1
 
     - uses: actions/github-script@v6
       continue-on-error: true
