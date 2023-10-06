@@ -18,7 +18,7 @@ runs:
   using: composite
   steps:
     - name: Set label
-      uses: pullreminders/label-when-approved-action@master
+      uses: pullreminders/label-when-approved-action@v1.0.7
       env:
         APPROVALS: ${{ inputs.approvals }}
         ADD_LABEL: ${{ inputs.label }}
