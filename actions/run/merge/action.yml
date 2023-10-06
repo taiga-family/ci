@@ -20,9 +20,13 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@v4.1.0
-    - name: Enable Pull Request Automerge
+    - id: string
+      uses: ASzc/change-string-case-action@v1
+      with:
+        string: ${{ inputs.merge-method }}
+    - name: Mark auto merge for Pull Request
       shell: bash
-      run: gh pr merge --squash --auto "${{ github.event.number }}"
+      run: gh pr merge --${{ steps.string.outputs.lowercase }} --auto "${{ github.event.number }}"
       env:
         GH_TOKEN: ${{ inputs.token }}
 
