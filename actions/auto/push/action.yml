@@ -31,4 +31,9 @@ runs:
         git add .
         git status --untracked-files=no
         git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" -m "chore: ${{ inputs.message }} [bot]" --no-verify
-        git push origin ${{ github.head_ref }} &>/dev/null
+
+    - name: Push
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ inputs.token }}
+        branch: ${{ github.ref }}
