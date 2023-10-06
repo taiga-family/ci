@@ -5,10 +5,14 @@ inputs:
   token:
     description: token
     required: true
-  username:
+  name:
     description: commit username
     required: false
     default: taiga-family-bot
+  email:
+    description: user email
+    required: false
+    default: opensource@tinkoff.ru
   message:
     description: commit message
     required: false
@@ -20,11 +24,11 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
-        git config user.name "${{ inputs.username }}"
-        git config user.email "taiga-ui@users.noreply.github.com"
+        git config --global user.name "${{ inputs.name }}"
+        git config --global user.email "${{ inputs.email }}"
         git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
 
         git add .
-        git status
-        git commit -m "${{ inputs.message }}"
-        git push
+        git status --untracked-files=no
+        git commit -m "chore: ${{ inputs.message }} [bot]" --no-verify
+        git push origin ${{ github.head_ref }}
