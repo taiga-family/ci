@@ -31,4 +31,4 @@ runs:
         git add .
         git status --untracked-files=no
         git commit -m "chore: ${{ inputs.message }} [bot]" --no-verify
-        git push origin ${{ github.head_ref }}
+        git push origin ${{ github.head_ref }} &>/dev/null
