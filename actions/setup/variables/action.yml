@@ -62,7 +62,7 @@ runs:
             export IS_OWNER_MODE="false"
         fi
 
-        if [[ "$IS_FORK" == "false" && "$IS_DEPENDABOT" == "false" && "$IS_MAIN_BRANCH" == "false" && "$IS_TAIGA_FAMILY_BOT_PR_AUTHOR" == "true" ]]; then
+        if [[ "$IS_FORK" == "false" && "$IS_DEPENDABOT" == "false" && "$IS_MAIN_BRANCH" == "false" ]]; then
             export SUPPORT_AUTO_PUSH="true"
         else
             export SUPPORT_AUTO_PUSH="false"
