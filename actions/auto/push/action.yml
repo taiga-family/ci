@@ -2,6 +2,9 @@ name: Auto-push action
 description: Auto-push action
 
 inputs:
+  token:
+    description: token
+    required: true
   name:
     description: commit username
     required: false
@@ -23,6 +26,8 @@ runs:
       run: |
         git config --global user.name "${{ inputs.name }}"
         git config --global user.email "${{ inputs.email }}"
+        git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
+
         git add .
 
         if [[ `git status --porcelain` ]]; then
