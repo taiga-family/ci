@@ -2,9 +2,6 @@ name: Auto-push action
 description: Auto-push action
 
 inputs:
-  token:
-    description: token
-    required: true
   name:
     description: commit username
     required: false
@@ -24,11 +21,7 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
-        git config --global user.name "${{ inputs.name }}"
-        git config --global user.email "${{ inputs.email }}"
-        git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
-
         git add .
         git status --untracked-files=no
-        git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" -m "chore: ${{ inputs.message }} [bot]" --no-verify
-        git push -f origin ${{ github.head_ref }} &>/dev/null
+        git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" -m "chore: ${{ inputs.message }} [bot]" --no-verify || echo ""
+        git push -f origin ${{ github.head_ref }} || echo ""
