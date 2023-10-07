@@ -21,7 +21,15 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
+        git config --global user.name "${{ inputs.name }}"
+        git config --global user.email "${{ inputs.email }}"
         git add .
-        git status --untracked-files=no
-        git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" -m "chore: ${{ inputs.message }} [bot]" --no-verify || echo ""
-        git push -f origin ${{ github.head_ref }} || echo ""
+
+        if [[ `git status --porcelain` ]]; then
+           git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
+                      -m "chore: ${{ inputs.message }} [bot]" \
+                      --no-verify || echo ""
+           git push origin ${{ github.head_ref }} || echo ""
+        else
+           echo "Nothing to update"
+        fi
