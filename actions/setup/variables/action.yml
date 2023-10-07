@@ -38,7 +38,7 @@ runs:
         export NG_SERVER_PORT="3333"
         export NPM_CONFIG_CACHE="~/.npm"
         export NX_BRANCH="${{ github.event.number }}"
-        export ="${{ github.event.pull_request.user.login === 'taiga-family-bot' }}"
+        export IS_TAIGA_FAMILY_BOT_PR_AUTHOR="${{ github.event.pull_request.user.login == 'taiga-family-bot' }}"
         export DIST="dist/demo/browser"
         export TIMING="true"
         export NX_VERBOSE_LOGGING="true"
