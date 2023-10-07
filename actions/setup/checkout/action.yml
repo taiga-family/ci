@@ -45,7 +45,7 @@ runs:
       with:
         persist-credentials: false
         token: ${{ inputs.token }}
-        repository: ${{ inputs.repository }}
+        repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
         ref: ${{ github.event.pull_request.head.ref || github.head_ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
@@ -55,7 +55,7 @@ runs:
       if: steps.checks.outputs.has-token == 'false'
       with:
         persist-credentials: false
-        repository: ${{ inputs.repository }}
+        repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
         ref: ${{ github.event.pull_request.head.ref || github.head_ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
