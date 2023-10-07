@@ -17,6 +17,10 @@ inputs:
     description: submodules
     default: recursive
     required: false
+  repository:
+    required: false
+    description: repository
+    default: ${{ github.repository }}
 
 runs:
   using: composite
@@ -30,12 +34,18 @@ runs:
       run: |
         echo "has token ~ ${{ steps.checks.outputs.has-token }}"
         echo "ref ~ ${{ github.head_ref }}"
+        echo "${{ github.event.pull_request.head.ref }}"
+        echo "${{ github.head_ref }}"
+        echo "${{ github.repository }}"
+        echo "${{ github.event.repository.name }}"
+        echo "${{ github.event.pull_request.head.repo.full_name }}"
 
     - uses: actions/checkout@v4.1.0
       if: steps.checks.outputs.has-token == 'true'
       with:
         persist-credentials: false
         token: ${{ inputs.token }}
+        repository: ${{ inputs.repository }}
         ref: ${{ github.event.pull_request.head.ref || github.head_ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
@@ -45,6 +55,7 @@ runs:
       if: steps.checks.outputs.has-token == 'false'
       with:
         persist-credentials: false
+        repository: ${{ inputs.repository }}
         ref: ${{ github.event.pull_request.head.ref || github.head_ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
