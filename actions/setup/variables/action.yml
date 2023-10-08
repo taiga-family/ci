@@ -33,6 +33,7 @@ runs:
         export NG_SERVER_PORT="3333"
         export NPM_CONFIG_CACHE="~/.npm"
         export NX_BRANCH="${{ github.event.number }}"
+        export IS_TAIGA_FAMILY_BOT_ACTOR="${{ github.actor == 'taiga-family-bot' }}"
         export IS_TAIGA_FAMILY_BOT_PR_AUTHOR="${{ github.event.pull_request.user.login == 'taiga-family-bot' }}"
         export DIST="dist/demo/browser"
         export TIMING="true"
@@ -49,7 +50,6 @@ runs:
         export SNAPSHOTS_CACHE_KEY="e2e-cache--${{ github.event.pull_request.head.sha || github.sha }}-${{ github.event.number }}"
         export CYPRESS_SNAPSHOTS_ARTIFACTS_KEY="cypress-e2e-artifacts--${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}-${{ github.event.number }}"
         export PLAYWRIGHT_SNAPSHOTS_ARTIFACTS_KEY="playwright-e2e-artifacts--${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}-${{ github.event.number }}"
-        export IS_TAIGA_FAMILY_BOT_PR_AUTHOR="${{ github.actor == 'taiga-family-bot' }}"
 
         if [[ "$IS_FORK" == "false" && "$IS_DEPENDABOT" == "false" ]]; then
             export IS_OWNER_MODE="true"
@@ -80,9 +80,9 @@ runs:
         echo "IS_DEPENDABOT=$IS_DEPENDABOT" >> $GITHUB_ENV
         echo "IS_OWNER_MODE=$IS_OWNER_MODE" >> $GITHUB_ENV
         echo "IS_TAIGA_FAMILY_BOT_PR_AUTHOR=$IS_TAIGA_FAMILY_BOT_PR_AUTHOR" >> $GITHUB_ENV
+        echo "IS_TAIGA_FAMILY_BOT_ACTOR=$IS_TAIGA_FAMILY_BOT_ACTOR" >> $GITHUB_ENV
         echo "NX_REJECT_UNKNOWN_LOCAL_CACHE=$NX_REJECT_UNKNOWN_LOCAL_CACHE" >> $GITHUB_ENV
         echo "SUPPORT_AUTO_PUSH=$SUPPORT_AUTO_PUSH" >> $GITHUB_ENV
         echo "CYPRESS_SNAPSHOTS_ARTIFACTS_KEY=$CYPRESS_SNAPSHOTS_ARTIFACTS_KEY" >> $GITHUB_ENV
         echo "PLAYWRIGHT_SNAPSHOTS_ARTIFACTS_KEY=$PLAYWRIGHT_SNAPSHOTS_ARTIFACTS_KEY" >> $GITHUB_ENV
         echo "SNAPSHOTS_CACHE_KEY=$SNAPSHOTS_CACHE_KEY" >> $GITHUB_ENV
-        echo "TAIGA_FAMILY_BOT_IS_AUTHOR=$TAIGA_FAMILY_BOT_IS_AUTHOR" >> $GITHUB_ENV
