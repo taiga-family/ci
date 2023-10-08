@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4.1.0
       - uses: ./actions/setup/variables
       - id: matrix
-        if: env.TAIGA_FAMILY_BOT_IS_AUTHOR == 'true'
+        if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
         run: echo "value=$JOBS_NAME" >> $GITHUB_OUTPUT
 
   wait:
