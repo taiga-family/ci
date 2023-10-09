@@ -57,8 +57,19 @@ runs:
 
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      id: clean-install
+      continue-on-error: true
       run: npm ci --loglevel error --audit=false --fund=false --force
       shell: bash
+
+    - name: Retry clean install
+      shell: bash
+      if: steps.clean-install.outputs.conclusion != 'success'
+      run: |
+        sleep 300
+        npm cache clean --force
+        npm cache verify --force
+        npm ci --verbose --audit=false --fund=false --force
 
     - id: output
       shell: bash
