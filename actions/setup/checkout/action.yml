@@ -11,7 +11,7 @@ inputs:
     required: false
   fetch-tags:
     description: Fetch tags
-    default: "false"
+    default: "true"
     required: false
   submodules:
     description: submodules
