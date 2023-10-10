@@ -14,8 +14,10 @@ inputs:
     description: nested node path
     required: false
     default: |
+      ~/.npm
+      node_modules
       **/node_modules/
-      !**/node_modules/.cache
+      **/.eslintcache
 
 outputs:
   root-package-version:
@@ -37,14 +39,22 @@ runs:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.node-registry }}
 
+    - name: Set cache path
+      shell: bash
+      run: npm config set cache ~/.npm --global
+
     - name: Restore node_modules from cache
       id: cache-node-modules
       uses: actions/cache@v3.3.2
       with:
         path: ${{ inputs.node-path }}
         key: ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-${{ inputs.node-version }}__
+
+    - name: List the state of node modules
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      continue-on-error: true
+      shell: bash
+      run: npm list
 
     - shell: bash
       run: echo "CYPRESS_CACHE_FOLDER=./node_modules/cache-cypress" >> $GITHUB_ENV
@@ -59,17 +69,18 @@ runs:
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
       continue-on-error: true
-      run: npm ci --loglevel error --audit=false --fund=false --force
+      run: npm ci --loglevel error --audit=false --fund=false --cache=~/.npm
       shell: bash
 
     - name: Retry clean install
       shell: bash
       if: steps.clean-install.outputs.conclusion != 'success'
       run: |
+        rm -rf node_modules
+        npm --global cache verify
+        npm --global cache verify
         sleep 300
-        npm cache clean --force
-        npm cache verify --force
-        npm ci --verbose --audit=false --fund=false --force
+        npm ci --verbose --audit=false --fund=false --cache=~/.npm
 
     - id: output
       shell: bash
