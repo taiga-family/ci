@@ -74,7 +74,7 @@ runs:
 
     - name: Retry clean install
       shell: bash
-      if: steps.clean-install.outputs.conclusion != 'success'
+      if: steps.cache-node-modules.outputs.cache-hit != 'true' && steps.clean-install.outputs.conclusion != 'success'
       run: |
         rm -rf node_modules
         npm --global cache verify
