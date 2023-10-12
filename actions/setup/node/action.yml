@@ -63,18 +63,12 @@ runs:
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
       continue-on-error: true
-      run: npm ci --loglevel error --audit=false --fund=false --cache=~/.npm
-      shell: bash
-
-    - name: Retry clean install
-      shell: bash
-      if: steps.cache-node-modules.outputs.cache-hit != 'true' && steps.clean-install.outputs.conclusion != 'success'
       run: |
         rm -rf node_modules
         npm --global cache verify
         npm --global cache verify
-        sleep 300
-        npm ci --verbose --audit=false --fund=false --cache=~/.npm
+        npm ci --loglevel error --audit=false --fund=false --cache=~/.npm
+      shell: bash
 
     - id: output
       shell: bash
