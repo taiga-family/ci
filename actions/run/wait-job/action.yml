@@ -19,7 +19,7 @@ runs:
         checkName: ${{ inputs.job }}
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
         timeoutSeconds: 10800
-        intervalSeconds: 15
+        intervalSeconds: 90
 
     - run: echo "Current status ~ ${{ steps.waiter.outputs.conclusion }}"
       shell: bash
