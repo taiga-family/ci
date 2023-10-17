@@ -32,7 +32,7 @@ runs:
         echo "ref ~ ${{ github.event.pull_request.head.ref || github.head_ref }}"
         echo "repository ~ ${{ github.event.pull_request.head.repo.full_name || github.repository }}"
 
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
       if: steps.checks.outputs.has-token == 'true'
       with:
         persist-credentials: false
@@ -43,7 +43,7 @@ runs:
         fetch-tags: ${{ inputs.fetch-tags }}
         submodules: ${{ inputs.submodules }}
 
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
       if: steps.checks.outputs.has-token == 'false'
       with:
         persist-credentials: false
