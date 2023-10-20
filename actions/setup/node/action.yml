@@ -14,8 +14,8 @@ inputs:
     description: nested node path
     required: false
     default: |
-      ~/.npm
-      node_modules
+      .nx/
+      node_modules/
       **/node_modules/
       **/.eslintcache
 
@@ -65,7 +65,6 @@ runs:
       continue-on-error: true
       run: |
         rm -rf node_modules
-        npm --global cache verify
         npm --global cache verify
         npm ci --loglevel error --audit=false --fund=false --cache=~/.npm
       shell: bash
