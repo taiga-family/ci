@@ -1,2 +1,4 @@
 .idea
+.nx
+.angular
 node_modules
