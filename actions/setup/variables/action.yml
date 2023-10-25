@@ -37,7 +37,7 @@ runs:
         export IS_TAIGA_FAMILY_BOT_PR_AUTHOR="${{ github.event.pull_request.user.login == 'taiga-family-bot' }}"
         export DIST="dist/demo/browser"
         export TIMING="true"
-        export NX_VERBOSE_LOGGING="true"
+        export NX_VERBOSE_LOGGING="false"
         export NX_REJECT_UNKNOWN_LOCAL_CACHE="0"
         export NX_CLOUD_DISTRIBUTED_EXECUTION=false
         export NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT="1"
