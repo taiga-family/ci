@@ -37,6 +37,7 @@ runs:
         export IS_TAIGA_FAMILY_BOT_PR_AUTHOR="${{ github.event.pull_request.user.login == 'taiga-family-bot' }}"
         export DIST="dist/demo/browser"
         export TIMING="true"
+        export NODE_OPTIONS="--max-old-space-size=12288"
         export NX_VERBOSE_LOGGING="false"
         export NX_REJECT_UNKNOWN_LOCAL_CACHE="0"
         export NX_CLOUD_DISTRIBUTED_EXECUTION=false
@@ -77,6 +78,7 @@ runs:
         echo "DIST_NEXT=$DIST_NEXT" >> $GITHUB_ENV
         echo "TIMING=$TIMING" >> $GITHUB_ENV
         echo "REPO=$REPO" >> $GITHUB_ENV
+        echo "NODE_OPTIONS=$NODE_OPTIONS" >> $GITHUB_ENV
         echo "NG_SERVER_PORT=$NG_SERVER_PORT" >> $GITHUB_ENV
         echo "IS_MAIN_BRANCH=$IS_MAIN_BRANCH" >> $GITHUB_ENV
         echo "CI_COMMIT_SHA=$CI_COMMIT_SHA" >> $GITHUB_ENV
