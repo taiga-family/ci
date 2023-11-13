@@ -77,7 +77,6 @@ runs:
         echo "DIST_NEXT=$DIST_NEXT" >> $GITHUB_ENV
         echo "TIMING=$TIMING" >> $GITHUB_ENV
         echo "REPO=$REPO" >> $GITHUB_ENV
-        echo "NODE_OPTIONS=$NODE_OPTIONS" >> $GITHUB_ENV
         echo "NG_SERVER_PORT=$NG_SERVER_PORT" >> $GITHUB_ENV
         echo "IS_MAIN_BRANCH=$IS_MAIN_BRANCH" >> $GITHUB_ENV
         echo "CI_COMMIT_SHA=$CI_COMMIT_SHA" >> $GITHUB_ENV
