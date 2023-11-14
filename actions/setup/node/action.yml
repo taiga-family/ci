@@ -63,10 +63,7 @@ runs:
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
       continue-on-error: true
-      run: |
-        rm -rf node_modules
-        npm --global cache verify
-        npm ci --force --loglevel verbose --audit=false --fund=false --cache=~/.npm
+      run: npm ci --force --loglevel verbose --audit=false --fund=false
       shell: bash
 
     - id: output
