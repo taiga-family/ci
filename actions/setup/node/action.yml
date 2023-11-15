@@ -39,10 +39,6 @@ runs:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.node-registry }}
 
-    - name: Set cache path
-      shell: bash
-      run: npm config set cache ~/.npm --global
-
     - name: Restore node_modules from cache
       id: cache-node-modules
       uses: actions/cache@v3.3.2
