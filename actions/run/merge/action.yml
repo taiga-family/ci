@@ -33,7 +33,7 @@ runs:
       env:
         GH_TOKEN: ${{ inputs.token }}
 
-    - uses: actions/github-script@v6
+    - uses: actions/github-script@v7
       continue-on-error: true
       if: steps.auto-merge.outputs.conclusion == 'success'
       with:

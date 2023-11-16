@@ -24,7 +24,7 @@ runs:
     - run: echo "Current status ~ ${{ steps.waiter.outputs.conclusion }}"
       shell: bash
 
-    - uses: actions/github-script@v6
+    - uses: actions/github-script@v7
       if: steps.waiter.outputs.conclusion != 'success'
       continue-on-error: true
       with:
