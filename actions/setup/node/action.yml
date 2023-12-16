@@ -65,7 +65,7 @@ runs:
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
-      run: npm ci --force --audit=false --fund=false
+      run: npm ci --workspaces --include-workspace-root --audit=false --fund=false
       shell: bash
 
     - id: output
