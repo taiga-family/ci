@@ -10,6 +10,10 @@ inputs:
     description: Registry
     required: false
     default: "https://registry.npmjs.org"
+  npm-ci-flags:
+    description: NPM flags
+    required: false
+    default: ""
   node-path:
     description: nested node path
     required: false
@@ -66,7 +70,7 @@ runs:
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
-      run: npm ci --include-workspace-root --audit=false --fund=false
+      run: npm ci ${{ inputs.npm-ci-flags }} --include-workspace-root --audit=false --fund=false
       shell: bash
 
     - id: output
