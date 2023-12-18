@@ -51,6 +51,7 @@ runs:
 
     - shell: bash
       run: |
+        npm set strict-ssl false
         npm config set fetch-retries 5
         npm config set fetch-retry-mintimeout 600000
         npm config set fetch-retry-maxtimeout 1200000
