@@ -40,7 +40,7 @@ runs:
         export NX_VERBOSE_LOGGING="false"
         export NX_REJECT_UNKNOWN_LOCAL_CACHE="0"
         export NX_CLOUD_DISTRIBUTED_EXECUTION=false
-        export NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT="2"
+        export NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT="8"
         export DIST_NEXT="dist/demo/browser/${{ github.base_ref }}"
         export REPO="https://github.com/$GITHUB_REPOSITORY"
         export IS_MAIN_BRANCH="${{ github.ref == 'refs/heads/main' }}"
