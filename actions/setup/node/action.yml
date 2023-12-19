@@ -56,6 +56,8 @@ runs:
     - shell: bash
       run: |
         npm set strict-ssl false
+        npm config set fund false
+        npm config set audit false
         npm config set fetch-retries 5
         npm config set fetch-retry-mintimeout 600000
         npm config set fetch-retry-maxtimeout 1200000
@@ -70,7 +72,7 @@ runs:
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
-      run: npm ci ${{ inputs.npm-ci-flags }} --include-workspace-root --audit=false --fund=false
+      run: npm ci --workspaces --include-workspace-root ${{ inputs.npm-ci-flags }} || npm ci ${{ inputs.npm-ci-flags }}
       shell: bash
 
     - id: output
