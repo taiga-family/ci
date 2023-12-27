@@ -44,4 +44,4 @@ runs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: '⚡️ Run auto merge for current branch!'
-          })
+          });
