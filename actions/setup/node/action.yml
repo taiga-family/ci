@@ -45,7 +45,7 @@ runs:
 
     - name: Restore node_modules from cache
       id: cache-node-modules
-      uses: actions/cache@v4.0.0
+      uses: actions/cache@v4.0.1
       with:
         path: ${{ inputs.node-path }}
         key: ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
