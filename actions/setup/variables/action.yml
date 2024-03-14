@@ -37,6 +37,7 @@ runs:
         export IS_TAIGA_FAMILY_BOT_PR_AUTHOR="${{ github.event.pull_request.user.login == 'taiga-family-bot' }}"
         export DIST="dist/demo/browser"
         export TIMING="true"
+        export NX_REJECT_UNKNOWN_LOCAL_CACHE="0"
         export DIST_NEXT="dist/demo/browser/${{ github.base_ref }}"
         export REPO="https://github.com/$GITHUB_REPOSITORY"
         export IS_MAIN_BRANCH="${{ github.ref == 'refs/heads/main' }}"
@@ -64,6 +65,7 @@ runs:
         echo "TUI_CI=$TUI_CI" >> $GITHUB_ENV
         echo "NPM_CONFIG_CACHE=$NPM_CONFIG_CACHE" >> $GITHUB_ENV
         echo "NX_BRANCH=$NX_BRANCH" >> $GITHUB_ENV
+        echo "NX_REJECT_UNKNOWN_LOCAL_CACHE=$NX_REJECT_UNKNOWN_LOCAL_CACHE" >> $GITHUB_ENV
         echo "IS_FORK=$IS_FORK" >> $GITHUB_ENV
         echo "DIST=$DIST" >> $GITHUB_ENV
         echo "DIST_NEXT=$DIST_NEXT" >> $GITHUB_ENV
