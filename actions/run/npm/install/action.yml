@@ -8,6 +8,14 @@ runs:
       shell: bash
       run: |
         echo "Run npm install..."
-        rm -rf package-lock.json node_modules
-        npm install --force --loglevel error --audit=false --fund=false
+        rm -rf package-lock.json **/node_modules
+        npm config set audit false
+        npm config set loglevel error
+        npm config set fund false 
+
+        echo 'TODO: workaround for https://github.com/npm/cli/issues/7019'
+        npm i --workspaces --include-workspace-root || npm i
+        echo '------------------'
+        echo 'TODO: workaround for https://github.com/npm/cli/issues/6787#issuecomment-1751005219'
+        npm i --workspaces --include-workspace-root || npm i
         git add .
