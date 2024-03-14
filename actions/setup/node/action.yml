@@ -5,7 +5,7 @@ inputs:
   node-version:
     description: Node.js version
     required: false
-    default: 18.x
+    default: 20.x
   node-registry:
     description: Registry
     required: false
@@ -18,10 +18,8 @@ inputs:
     description: nested node path
     required: false
     default: |
-      .nx/
       node_modules/
       **/node_modules/
-      **/.eslintcache
 
 outputs:
   root-package-version:
@@ -48,7 +46,7 @@ runs:
       uses: actions/cache@v4.0.1
       with:
         path: ${{ inputs.node-path }}
-        key: ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}
+        key: "${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}"
 
     - shell: bash
       run: echo "CYPRESS_CACHE_FOLDER=./node_modules/cache-cypress" >> $GITHUB_ENV
