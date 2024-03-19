@@ -49,9 +49,6 @@ runs:
         key: "${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}"
 
     - shell: bash
-      run: echo "CYPRESS_CACHE_FOLDER=./node_modules/cache-cypress" >> $GITHUB_ENV
-
-    - shell: bash
       run: |
         npm set strict-ssl false
         npm config set fund false
