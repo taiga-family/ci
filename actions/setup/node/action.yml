@@ -61,7 +61,7 @@ runs:
         key: "${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}"
 
     - name: Load Nx cache state for NX_BASE
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       if: steps.cache-node-modules.outputs.cache-hit == 'true'
       with:
         path: ${{ inputs.nx-path }}
@@ -85,7 +85,7 @@ runs:
 
     - name: Save Nx cache state
       if: github.ref == 'refs/heads/main'
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: ${{ inputs.node-path }}
         key: "${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ github.sha }}"
