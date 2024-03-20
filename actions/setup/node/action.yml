@@ -53,6 +53,9 @@ runs:
         node -v
         npm -v
 
+    - shell: bash
+      run: echo "CYPRESS_CACHE_FOLDER=./node_modules/cache-cypress" >> $GITHUB_ENV
+
     - name: Restore node_modules from cache
       id: cache-node-modules
       uses: actions/cache@v4.0.2
