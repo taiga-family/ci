@@ -20,6 +20,12 @@ inputs:
     default: |
       node_modules/
       **/node_modules/
+  nx-path:
+    description: nx path
+    required: false
+    default: |
+      .angular/
+      .nx/
 
 outputs:
   root-package-version:
@@ -41,12 +47,25 @@ runs:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.node-registry }}
 
+    - shell: bash
+      run: |
+        echo "Show environment Node.js, npm ..."
+        node -v
+        npm -v
+
     - name: Restore node_modules from cache
       id: cache-node-modules
       uses: actions/cache@v4.0.2
       with:
         path: ${{ inputs.node-path }}
         key: "${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('**/package-lock.json') }}"
+
+    - name: Load Nx cache state for NX_BASE
+      uses: actions/cache/restore@v3
+      if: steps.cache-node-modules.outputs.cache-hit == 'true'
+      with:
+        path: ${{ inputs.nx-path }}
+        key: "${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ env.NX_BASE }}"
 
     - shell: bash
       run: |
@@ -58,17 +77,18 @@ runs:
         npm config set fetch-retry-maxtimeout 1200000
         npm config set fetch-timeout 1800000
 
-    - shell: bash
-      run: |
-        echo "Show environment Node.js, npm ..."
-        node -v
-        npm -v
-
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
       run: npm ci --workspaces --include-workspace-root ${{ inputs.npm-ci-flags }} || npm ci ${{ inputs.npm-ci-flags }}
       shell: bash
+
+    - name: Save Nx cache state
+      if: github.ref == 'refs/heads/main'
+      uses: actions/cache/save@v3
+      with:
+        path: ${{ inputs.node-path }}
+        key: "${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ github.sha }}"
 
     - id: output
       shell: bash
@@ -76,3 +96,6 @@ runs:
         echo "root-package-version=v$(node -p "require('./package.json')?.version")" >> $GITHUB_OUTPUT
         echo "root-package-major-version=$(node -p "parseInt(require('./package.json')?.version)")" >> $GITHUB_OUTPUT
         echo "is-release-candidate=$(node -p "require('./package.json')?.version?.includes('rc')")" >> $GITHUB_OUTPUT
+
+    - shell: bash
+      run: ls -la
