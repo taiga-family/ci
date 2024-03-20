@@ -99,3 +99,7 @@ runs:
 
     - shell: bash
       run: ls -la
+
+    - name: Confirm a package-lock.json actually resolves all dependencies in a package.json
+      shell: bash
+      run: npm ls
