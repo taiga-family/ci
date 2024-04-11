@@ -17,7 +17,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/add-to-project@v1.0.0
+    - uses: actions/add-to-project@v1.0.1
       with:
         project-url: https://github.com/orgs/${{ inputs.organization }}/projects/${{ inputs.projectId }}
         github-token: ${{ inputs.token }}
