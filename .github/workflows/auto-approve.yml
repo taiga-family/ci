@@ -10,7 +10,7 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.value }}
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - uses: ./actions/setup/variables
       - id: matrix
         if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
@@ -24,7 +24,7 @@ jobs:
       matrix:
         value: ${{ fromJSON(needs.setup.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - uses: ./actions/run/wait-job
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -34,7 +34,7 @@ jobs:
     needs: [wait]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - uses: ./actions/auto/approve/double
         with:
           token1: ${{ secrets.GITHUB_TOKEN }}

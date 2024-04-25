@@ -10,7 +10,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - name: Setup global variables
         uses: ./actions/setup/variables
       - name: Setup Node.js and Cache
