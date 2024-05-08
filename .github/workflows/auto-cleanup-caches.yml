@@ -12,7 +12,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.5
       - uses: ./actions/auto/cleanup-cache
         if: github.event_name == 'push'
         with:

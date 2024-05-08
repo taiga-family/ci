@@ -19,7 +19,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4.1.4
+    - uses: actions/checkout@v4.1.5
 
     - id: string
       uses: ASzc/change-string-case-action@v6
