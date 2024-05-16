@@ -108,6 +108,8 @@ runs:
       run: ls -la
 
     - name: Confirm a package-lock.json actually resolves all dependencies in a package.json
-      if: '${{ inputs.validate-peer-deps }}' == 'true'
       shell: bash
-      run: npm ls
+      run: |
+        if [[ "${{ inputs.validate-peer-deps }}" == "true" ]]; then
+          npm ls
+        fi
