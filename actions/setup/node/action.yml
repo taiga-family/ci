@@ -20,6 +20,10 @@ inputs:
     default: |
       node_modules/
       **/node_modules/
+  validate-peer-deps:
+    description: Validation peer dependencies
+    required: false
+    default: "true"
   nx-path:
     description: nx path
     required: false
@@ -104,5 +108,6 @@ runs:
       run: ls -la
 
     - name: Confirm a package-lock.json actually resolves all dependencies in a package.json
+      if: '${{ inputs.validate-peer-deps }}' == 'true'
       shell: bash
       run: npm ls
