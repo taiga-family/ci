@@ -12,7 +12,7 @@ inputs:
   email:
     description: user email
     required: false
-    default: opensource@tinkoff.ru
+    default: opensource@tbank.ru
   message:
     description: commit message
     required: false

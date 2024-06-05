@@ -32,7 +32,7 @@ runs:
     - shell: bash
       run: |
         echo "has token ~ ${{ steps.checks.outputs.has-token }}"
-        echo "ref ~ ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref }}"
+        echo "ref ~ ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref || github.ref }}"
         echo "repository ~ ${{ github.event.pull_request.head.repo.full_name || github.repository }}"
 
     - uses: actions/checkout@v4.1.6
@@ -41,7 +41,7 @@ runs:
         persist-credentials: false
         token: ${{ inputs.token }}
         repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
-        ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref }}
+        ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref || github.ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
         submodules: ${{ inputs.submodules }}
@@ -51,7 +51,7 @@ runs:
       with:
         persist-credentials: false
         repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
-        ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref }}
+        ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref || github.ref }}
         fetch-depth: ${{ inputs.fetch-depth }}
         fetch-tags: ${{ inputs.fetch-tags }}
         submodules: ${{ inputs.submodules }}

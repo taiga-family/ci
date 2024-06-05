@@ -9,7 +9,7 @@ inputs:
   email:
     description: user email
     required: false
-    default: opensource@tinkoff.ru
+    default: opensource@tbank.ru
   token:
     description: Token
     required: true
@@ -23,7 +23,3 @@ runs:
         git config user.name "${{ inputs.name }}"
         git config user.email "${{ inputs.email }}"
         git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
-        git remote update
-
-        echo "Last 5 tags:"
-        git tag --sort=committerdate | tail -5
