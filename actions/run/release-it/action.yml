@@ -44,7 +44,7 @@ runs:
         if [[ "${{ inputs.forcePush }}" == "true" ]]; then
 
           if [[ "${{ inputs.mode }}" != "prepatch" ]]; then
-              npx release-it "${{ nputs.mode }}" --increment --ci
+              npx release-it "${{ inputs.mode }}" --increment --ci
           else
               npx release-it --preRelease=alpha --ci
           fi
