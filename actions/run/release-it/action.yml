@@ -26,12 +26,12 @@ runs:
         token: ${{ inputs.githubToken }}
         ref: ${{ inputs.ref }}
         fetch-depth: 0
-    - uses: taiga-family/ciactions/setup/variables@main
-    - uses: taiga-family/ciactions/setup/node@main
-    - uses: taiga-family/ciactions/setup/config/git@main
+    - uses: taiga-family/ci/actions/setup/variables@main
+    - uses: taiga-family/ci/actions/setup/node@main
+    - uses: taiga-family/ci/actions/setup/config/git@main
       with:
         token: ${{ inputs.githubToken }}
-    - uses: taiga-family/ciactions/setup/config/npm@main
+    - uses: taiga-family/ci/actions/setup/config/npm@main
       with:
         token: ${{ inputs.npmToken }}
 
