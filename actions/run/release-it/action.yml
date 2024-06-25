@@ -21,17 +21,17 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: ./actions/setup/checkout
+    - uses: taiga-family/ci/actions/setup/checkout@main
       with:
         token: ${{ inputs.githubToken }}
         ref: ${{ inputs.ref }}
         fetch-depth: 0
-    - uses: ./actions/setup/variables
-    - uses: ./actions/setup/node
-    - uses: ./actions/setup/config/git
+    - uses: taiga-family/ciactions/setup/variables@main
+    - uses: taiga-family/ciactions/setup/node@main
+    - uses: taiga-family/ciactions/setup/config/git@main
       with:
         token: ${{ inputs.githubToken }}
-    - uses: ./actions/setup/config/npm
+    - uses: taiga-family/ciactions/setup/config/npm@main
       with:
         token: ${{ inputs.npmToken }}
 
