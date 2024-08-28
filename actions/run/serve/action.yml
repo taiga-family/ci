@@ -1,0 +1,39 @@
+name: Action for Node.js
+description: Node.js setup cache
+
+inputs:
+  protocol:
+    description: Port
+    required: false
+    default: http
+  port:
+    description: Port
+    required: true
+  directory:
+    description: Directory
+    required: true
+  replaceBaseUrlFrom:
+    description: baseUrl from
+    required: false
+    default: ""
+  replaceBaseUrlTo:
+    description: baseUrl to
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - uses: jacobtomlinson/gha-find-replace@v3
+      with:
+        find: '<base href="${{ inputs.replaceBaseUrlFrom }}">'
+        replace: '<base href="${{ inputs.replaceBaseUrlTo }}">'
+        include: '${{ inputs.directory }}/index.html'
+        regex: false
+
+    - shell: bash
+      run: |
+          npm install kill-port ws wait-on --force --no-save --no-audit --no-fund --ignore-scripts --loglevel silent
+          npx kill-port --port ${{ inputs.port }} || true
+          npx ws --port ${{ inputs.port }} --directory ${{ inputs.directory }} --spa index.html &
+          npx wait-on ${{ inputs.protocol }}://localhost:${{ inputs.port }}
