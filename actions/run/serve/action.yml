@@ -33,7 +33,7 @@ runs:
 
     - shell: bash
       run: |
-          npm install kill-port ws wait-on --force --no-save --no-audit --no-fund --ignore-scripts --loglevel silent
+          npm install kill-port local-web-server wait-on --force --no-save --no-audit --no-fund --ignore-scripts --loglevel silent
           npx kill-port --port ${{ inputs.port }} || true
           npx ws --port ${{ inputs.port }} --directory ${{ inputs.directory }} --spa index.html &
           npx wait-on ${{ inputs.protocol }}://localhost:${{ inputs.port }}
