@@ -1,0 +1,14 @@
+name: Action for Playwright
+description: Playwright
+
+inputs:
+  deps:
+    description: Dependencies
+    required: false
+    default: chromium
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: npx playwright install --with-deps ${{ inputs.deps }}
