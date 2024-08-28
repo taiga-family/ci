@@ -1,0 +1,28 @@
+name: Clone repo
+description: Clone repo
+
+inputs:
+  repo:
+    description: Repo
+    default: ${{ github.repository }}
+    required: false
+  depth:
+    description: Depth
+    required: false
+    default: 1
+  branch:
+    description: Branch
+    required: true
+  destination:
+    description: Destination
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        git clone \
+              --depth ${{ inputs.depth }} \
+              --branch ${{ inputs.branch }} \
+              https://github.com/${{ inputs.repo }}.git ${{ inputs.destination }}
