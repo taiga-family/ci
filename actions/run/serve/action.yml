@@ -29,7 +29,7 @@ runs:
   using: composite
   steps:
     - uses: jacobtomlinson/gha-find-replace@v3
-      if: inputs.replaceBaseUrlFrom == 'true'
+      if: inputs.replaceBaseUrl == 'true'
       with:
         find: '<base href="${{ inputs.replaceBaseUrlFrom }}">'
         replace: '<base href="${{ inputs.replaceBaseUrlTo }}">'
