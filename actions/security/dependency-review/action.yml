@@ -5,7 +5,7 @@ inputs:
   severity:
     description: severity
     required: false
-    default: "critical"
+    default: 'critical'
 
 runs:
   using: composite

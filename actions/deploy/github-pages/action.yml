@@ -12,7 +12,7 @@ inputs:
   clean:
     description: clean hosting folder
     required: false
-    default: "true"
+    default: 'true'
   branch:
     description: target branch
     required: false

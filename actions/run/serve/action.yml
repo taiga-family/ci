@@ -15,15 +15,15 @@ inputs:
   replaceBaseUrl:
     description: Enable replace baseUrl
     required: false
-    default: "true"
+    default: 'true'
   replaceBaseUrlFrom:
     description: baseUrl from
     required: false
-    default: ""
+    default: ''
   replaceBaseUrlTo:
     description: baseUrl to
     required: false
-    default: ""
+    default: ''
 
 runs:
   using: composite
@@ -33,7 +33,7 @@ runs:
       with:
         find: '<base href="${{ inputs.replaceBaseUrlFrom }}">'
         replace: '<base href="${{ inputs.replaceBaseUrlTo }}">'
-        include: "${{ inputs.directory }}/index.html"
+        include: '${{ inputs.directory }}/index.html'
         regex: false
 
     - shell: bash

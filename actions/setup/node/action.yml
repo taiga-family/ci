@@ -9,11 +9,11 @@ inputs:
   node-registry:
     description: Registry
     required: false
-    default: "https://registry.npmjs.org"
+    default: 'https://registry.npmjs.org'
   npm-ci-flags:
     description: NPM flags
     required: false
-    default: ""
+    default: ''
   node-path:
     description: nested node path
     required: false
@@ -23,7 +23,7 @@ inputs:
   validate-peer-deps:
     description: Validation peer dependencies
     required: false
-    default: "true"
+    default: 'true'
   nx-path:
     description: nx path
     required: false
@@ -72,7 +72,7 @@ runs:
       if: steps.cache-node-modules.outputs.cache-hit == 'true'
       with:
         path: ${{ inputs.nx-path }}
-        key: "${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ env.NX_BASE }}"
+        key: '${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ env.NX_BASE }}'
 
     - shell: bash
       run: |
@@ -95,7 +95,7 @@ runs:
       uses: actions/cache/save@v4
       with:
         path: ${{ inputs.node-path }}
-        key: "${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ github.sha }}"
+        key: '${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ github.sha }}'
 
     - id: output
       shell: bash

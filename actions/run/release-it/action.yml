@@ -4,19 +4,16 @@ description: Action for release
 inputs:
   ref:
     description: GitHub ref
-    required: true
+    required: false
   githubToken:
     description: GitHub token
     required: true
   npmToken:
     description: NPM token
-    required: true
-  forcePush:
-    description: GitHub token
-    required: true
+    required: false
   mode:
-    description: NPM token
-    required: true
+    description: Increment mode
+    required: false
 
 runs:
   using: composite
@@ -25,7 +22,7 @@ runs:
     - uses: taiga-family/ci/actions/setup/checkout@main
       with:
         token: ${{ inputs.githubToken }}
-        ref: ${{ inputs.ref }}
+        ref: ${{ inputs.ref || github.ref }}
         fetch-depth: 0
     - uses: taiga-family/ci/actions/setup/variables@main
     - uses: taiga-family/ci/actions/setup/node@main
@@ -33,6 +30,7 @@ runs:
       with:
         token: ${{ inputs.githubToken }}
     - uses: taiga-family/ci/actions/setup/config/npm@main
+      if: ${{ inputs.npmToken }}
       with:
         token: ${{ inputs.npmToken }}
 
@@ -40,14 +38,8 @@ runs:
       run: |
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
 
-        if [[ "${{ inputs.forcePush }}" == "true" ]]; then
-
-          if [[ "${{ inputs.mode }}" != "prepatch" ]]; then
-              npx release-it "${{ inputs.mode }}" --increment --ci
-          else
-              npx release-it --preRelease=alpha --ci
-          fi
-
+        if [[ "${{ inputs.mode }}" != "prepatch" ]]; then
+            npx release-it "${{ inputs.mode }}" --increment --ci
         else
-            npx release-it --increment --ci
+            npx release-it --preRelease=alpha --ci
         fi

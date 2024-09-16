@@ -9,7 +9,7 @@ inputs:
   node-registry:
     description: Registry
     required: false
-    default: "https://registry.npmjs.org"
+    default: 'https://registry.npmjs.org'
 
 outputs:
   root-package-version:

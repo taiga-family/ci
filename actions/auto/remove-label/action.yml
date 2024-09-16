@@ -5,7 +5,7 @@ inputs:
   label:
     description: label
     required: false
-    default: "state: need triage"
+    default: 'state: need triage'
 
 runs:
   using: composite

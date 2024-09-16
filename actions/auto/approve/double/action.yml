@@ -14,9 +14,9 @@ runs:
   steps:
     - uses: hmarr/auto-approve-action@v4.0.0
       with:
-        review-message: "LGTM (Automated approved)"
+        review-message: 'LGTM (Automated approved)'
         github-token: ${{ inputs.token1 }}
     - uses: hmarr/auto-approve-action@v4.0.0
       with:
-        review-message: "LGTM (Automated approved)"
+        review-message: 'LGTM (Automated approved)'
         github-token: ${{ inputs.token2 }}

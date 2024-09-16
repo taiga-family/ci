@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "actions/**"
+      - 'actions/**'
 
 jobs:
   run-release:
@@ -13,19 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.7
+      - uses: ./actions/run/release-it
         with:
-          fetch-depth: 0
-          persist-credentials: false
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: ./actions/setup/node
-      - uses: ./actions/setup/config/git
-        with:
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-
-      - run: npx release-it --increment --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}

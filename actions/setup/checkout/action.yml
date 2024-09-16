@@ -10,11 +10,11 @@ inputs:
     required: false
   fetch-depth:
     description: Fetch depth
-    default: "1"
+    default: '1'
     required: false
   fetch-tags:
     description: Fetch tags
-    default: "true"
+    default: 'true'
     required: false
   submodules:
     description: submodules

@@ -8,11 +8,11 @@ inputs:
   approvals:
     description: count approvals
     required: false
-    default: "2"
+    default: '2'
   label:
     description: label
     required: false
-    default: "ready to merge"
+    default: 'ready to merge'
 
 runs:
   using: composite

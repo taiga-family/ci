@@ -11,8 +11,7 @@ inputs:
     default: taiga-family-bot
   merge-method:
     description: >
-      Represents available types of methods to use when merging a pull request.
-      One of: MERGE, STASH or REBASE
+      Represents available types of methods to use when merging a pull request. One of: MERGE, STASH or REBASE
     required: false
     default: SQUASH
 
