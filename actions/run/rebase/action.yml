@@ -1,5 +1,5 @@
-name: Rebase
-description: Rebase
+name: Rebase action
+description: Rebase action
 
 runs:
   using: composite
