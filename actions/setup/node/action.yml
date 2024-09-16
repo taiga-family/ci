@@ -79,7 +79,7 @@ runs:
         npm set strict-ssl false --workspaces=false --include-workspace-root
         npm config set fund false --workspaces=false --include-workspace-root
         npm config set audit false --workspaces=false --include-workspace-root
-        npm config set fetch-retries 5 --workspaces=false --include-workspace-root
+        npm config set fetch-retries 10 --workspaces=false --include-workspace-root
         npm config set fetch-retry-mintimeout 600000 --workspaces=false --include-workspace-root
         npm config set fetch-retry-maxtimeout 1200000 --workspaces=false --include-workspace-root
         npm config set fetch-timeout 1800000 --workspaces=false --include-workspace-root

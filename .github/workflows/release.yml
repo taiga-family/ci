@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
       - uses: ./actions/run/release-it
         with:
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
