@@ -19,6 +19,10 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@v4.1.7
+      with:
+        token: ${{ inputs.githubToken }}
+        ref: ${{ inputs.ref || github.ref }}
+        persist-credentials: false
     - uses: taiga-family/ci/actions/setup/checkout@main
       with:
         token: ${{ inputs.githubToken }}
