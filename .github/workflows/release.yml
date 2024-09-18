@@ -16,7 +16,7 @@ jobs:
       - uses: ./actions/run/release-it
         with:
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-          mode: 'minor'
+          mode: minor
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
