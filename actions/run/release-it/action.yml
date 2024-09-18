@@ -42,8 +42,8 @@ runs:
       run: |
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
 
-        if [[ "${{ inputs.mode }}" != "prepatch" ]]; then
-            npx release-it "${{ inputs.mode }}" --increment --ci
-        else
+        if [[ "${{ inputs.mode }}" == "alpha" || "${{ inputs.mode }}" == "prerelease" ]]; then
             npx release-it --preRelease=alpha --ci
+        else
+            npx release-it "${{ inputs.mode }}" --increment --ci
         fi
