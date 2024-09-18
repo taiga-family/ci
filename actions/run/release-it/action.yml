@@ -14,6 +14,10 @@ inputs:
   mode:
     description: Increment mode
     required: false
+  flags:
+    description: Increment mode
+    default: '--ci'
+    required: false
 
 runs:
   using: composite
@@ -43,7 +47,7 @@ runs:
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
 
         if [[ "${{ inputs.mode }}" == "alpha" || "${{ inputs.mode }}" == "prerelease" ]]; then
-            npx release-it --preRelease=alpha --ci
+            npx release-it --preRelease=alpha ${{ inputs.flags }}
         else
-            npx release-it "${{ inputs.mode }}" --increment --ci
+            npx release-it "${{ inputs.mode }}" --increment ${{ inputs.flags }}
         fi
