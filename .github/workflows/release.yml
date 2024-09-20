@@ -17,7 +17,3 @@ jobs:
         with:
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           mode: minor
-
-concurrency:
-  group: release-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
