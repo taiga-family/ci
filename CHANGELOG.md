@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.80.0](https://github.com/taiga-family/ci/compare/v1.79.0...v1.80.0) (2024-09-20)
+
+### 🚀 Features
+
+- drop `--increment` mode
+  [(a41a476)](https://github.com/taiga-family/ci/commit/a41a47644fd8621437fe5d8ccd918aa65e158b94)
+
 ### [1.79.0](https://github.com/taiga-family/ci/compare/v1.78.0...v1.79.0) (2024-09-19)
 
 ### [1.78.0](https://github.com/taiga-family/ci/compare/v1.77.0...v1.78.0) (2024-09-19)
@@ -735,7 +742,17 @@ All notable changes to this project will be documented in this file. See
 
 ### [1.27.4](https://github.com/taiga-family/ci/compare/v1.27.3...v1.27.4) (2023-10-06)
 
+### 🐞 Bug Fixes
+
+- dont ignore skipped (#36)
+  [(32b45f2)](https://github.com/taiga-family/ci/commit/32b45f248d5cf0f6eee67649675bc2338af1a725)
+
 ### [1.27.3](https://github.com/taiga-family/ci/compare/v1.27.2...v1.27.3) (2023-10-06)
+
+### 🐞 Bug Fixes
+
+- dont ignore skipped (#35)
+  [(81aecad)](https://github.com/taiga-family/ci/commit/81aecad0d85e785aed2f0ff7a8fb84c62d5768af)
 
 ### [1.27.2](https://github.com/taiga-family/ci/compare/v1.27.1...v1.27.2) (2023-10-06)
 
