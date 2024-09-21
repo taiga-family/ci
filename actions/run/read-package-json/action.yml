@@ -1,0 +1,26 @@
+name: Read json file
+description: Read json file
+
+inputs:
+  path:
+    description: Path to package json
+    default: './package.json'
+    required: false
+
+outputs:
+  name:
+    description: name
+    value: ${{ steps.output.outputs.name }}
+  version:
+    description: version
+    value: ${{ steps.output.outputs.version }}
+
+runs:
+  using: composite
+  steps:
+    - name: Read package-json
+      id: output
+      shell: bash
+      run: |
+        echo "name=$(jq .name < ${{ inputs.path }})" >> $GITHUB_OUTPUT
+        echo "version=$(jq .version < ${{ inputs.path }})" >> $GITHUB_OUTPUT
