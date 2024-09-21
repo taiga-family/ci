@@ -46,7 +46,7 @@ runs:
            git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
                       -m "chore: ${{ inputs.message }} [bot]" \
                       --no-verify
-           git push -u origin ${{ github.head_ref }}
+           git push -u origin ${{ github.head_ref }} --force-with-lease
         else
            echo "Nothing to update"
         fi
