@@ -7,7 +7,7 @@ runs:
     - name: Try rebase locally for check affected
       uses: imba-tjd/rebase-upstream-action@0.5
       with:
-        upstream: $GITHUB_REPOSITORY
+        upstream: ${{ github.repository }}
         branch: ${{ github.base_ref }}
         push: false
 
