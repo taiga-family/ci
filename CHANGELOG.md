@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.83.0](https://github.com/taiga-family/ci/compare/v1.82.0...v1.83.0) (2024-09-21)
+
+### 🚀 Features
+
+- upgrade node.js [(e6b2e37)](https://github.com/taiga-family/ci/commit/e6b2e37792f9cb34c1c61bd8d2cf1ae808fc65fd)
+
 ### [1.82.0](https://github.com/taiga-family/ci/compare/v1.81.0...v1.82.0) (2024-09-21)
 
 ### 🐞 Bug Fixes
