@@ -21,6 +21,7 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: actions/checkout@v4.1.7
     - name: Commit and push
       shell: bash
       run: |
@@ -32,7 +33,7 @@ runs:
 
         git config --global user.name "${{ inputs.name }}"
         git config --global user.email "${{ inputs.email }}"
-        git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
+        git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
 
         git add .
 

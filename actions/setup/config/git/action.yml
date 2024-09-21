@@ -22,5 +22,5 @@ runs:
       run: |
         git config user.name "${{ inputs.name }}"
         git config user.email "${{ inputs.email }}"
-        git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/$GITHUB_REPOSITORY
+        git config remote.origin.url https://x-access-token:${{ inputs.token }}@github.com/${{ github.repository }}
         git config --global push.followTags true
