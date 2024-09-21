@@ -24,6 +24,8 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
+        
+        git rev-parse --abbrev-ref HEAD
 
         if [[ "${{ github.event.pull_request.head.repo.full_name != github.repository }}" == "true" ]]; then
             echo "Auto push doesn't support"
