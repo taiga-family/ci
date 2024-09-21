@@ -25,7 +25,7 @@ runs:
       shell: bash
       run: |
         
-        git rev-parse --abbrev-ref HEAD
+        git checkout ${{ github.head_ref }}
 
         if [[ "${{ github.event.pull_request.head.repo.full_name != github.repository }}" == "true" ]]; then
             echo "Auto push doesn't support"
@@ -42,7 +42,7 @@ runs:
            git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
                       -m "chore: ${{ inputs.message }} [bot]" \
                       --no-verify
-           git push origin ${{ github.head_ref }} --force-with-lease
+           git push -u origin ${{ github.head_ref }} --force-with-lease
         else
            echo "Nothing to update"
         fi
