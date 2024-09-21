@@ -29,7 +29,7 @@ runs:
             echo "Auto push doesn't support when base_ref is empty"
             exit 0;
         fi
-        
+
         if [[ "${{ github.event.pull_request.head.repo.full_name != github.repository }}" == "true" ]]; then
             echo "Auto push doesn't support from fork"
             exit 0;

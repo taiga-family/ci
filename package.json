@@ -2,13 +2,13 @@
     "name": "taiga-ui-ci",
     "version": "1.81.0",
     "private": true,
-    "prettier": "@taiga-ui/prettier-config",
     "license": "Apache-2.0",
     "scripts": {
         "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
         "format": "npm run prettier -- --write",
         "bump": "npx syncer"
     },
+    "prettier": "@taiga-ui/prettier-config",
     "devDependencies": {
         "@taiga-ui/auto-changelog-config": "0.203.1",
         "@taiga-ui/prettier-config": "0.203.1",
