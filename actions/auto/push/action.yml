@@ -21,7 +21,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4.1.7
     - name: Commit and push
       shell: bash
       run: |
@@ -41,7 +40,7 @@ runs:
            git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
                       -m "chore: ${{ inputs.message }} [bot]" \
                       --no-verify
-           git push origin refs/heads/${{ github.head_ref }}
+           git push origin ${{ github.ref_name }}
         else
            echo "Nothing to update"
         fi
