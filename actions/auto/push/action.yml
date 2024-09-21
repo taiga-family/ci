@@ -25,13 +25,17 @@ runs:
       shell: bash
       run: |
 
-        git checkout ${{ github.head_ref }}
-
+        if [[ "${{ github.base_ref }}" == "" ]]; then
+            echo "Auto push doesn't support when base_ref is empty"
+            exit 0;
+        fi
+        
         if [[ "${{ github.event.pull_request.head.repo.full_name != github.repository }}" == "true" ]]; then
-            echo "Auto push doesn't support"
+            echo "Auto push doesn't support from fork"
             exit 0;
         fi
 
+        git checkout ${{ github.head_ref }}
         git config --global user.name "${{ inputs.name }}"
         git config --global user.email "${{ inputs.email }}"
         git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
@@ -42,7 +46,7 @@ runs:
            git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
                       -m "chore: ${{ inputs.message }} [bot]" \
                       --no-verify
-           git push -u origin ${{ github.head_ref }} --force-with-lease
+           git push -u origin ${{ github.head_ref }}
         else
            echo "Nothing to update"
         fi
