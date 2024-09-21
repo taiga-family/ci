@@ -35,12 +35,15 @@ runs:
             exit 0;
         fi
 
+        git add .
+        git remote update
+        git fetch
         git checkout ${{ github.head_ref }}
+        git status --porcelain
+
         git config --global user.name "${{ inputs.name }}"
         git config --global user.email "${{ inputs.email }}"
         git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
-
-        git add .
 
         if [[ `git status --porcelain` ]]; then
            git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
