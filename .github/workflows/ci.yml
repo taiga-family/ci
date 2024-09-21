@@ -18,6 +18,8 @@ jobs:
       - uses: ./actions/setup/variables
       - uses: ./actions/setup/node
 
+      - run: git rev-parse --abbrev-ref HEAD
+
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
               npm run prettier -- --write
