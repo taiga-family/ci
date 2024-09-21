@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.81.0](https://github.com/taiga-family/ci/compare/v1.80.0...v1.81.0) (2024-09-21)
+
+### 🚀 Features
+
+- add new action [(4d606cd)](https://github.com/taiga-family/ci/commit/4d606cdd3c7482084c3f7b0f103c4628466b7e7b)
+
 ### [1.80.0](https://github.com/taiga-family/ci/compare/v1.79.0...v1.80.0) (2024-09-20)
 
 ### 🚀 Features
