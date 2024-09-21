@@ -35,6 +35,8 @@ runs:
             exit 0;
         fi
 
+        export GITHUB_TOKEN=${{ inputs.token }};
+        
         git add .
         git remote update
         git fetch
@@ -43,13 +45,13 @@ runs:
 
         git config --global user.name "${{ inputs.name }}"
         git config --global user.email "${{ inputs.email }}"
-        git config remote.origin.url https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
+        git remote set-url --push origin https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
 
         if [[ `git status --porcelain` ]]; then
            git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
                       -m "chore: ${{ inputs.message }} [bot]" \
                       --no-verify
-           git push -u origin ${{ github.head_ref }} --force-with-lease
+           git push -u origin ${{ github.head_ref }}
         else
            echo "Nothing to update"
         fi
