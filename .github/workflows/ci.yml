@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.7
         with:
-          token:  ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           ref: ${{ github.ref }}
           persist-credentials: false
           fetch-depth: 0

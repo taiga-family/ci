@@ -24,7 +24,7 @@ runs:
     - name: Commit and push
       shell: bash
       run: |
-        
+
         git checkout ${{ github.head_ref }}
 
         if [[ "${{ github.event.pull_request.head.repo.full_name != github.repository }}" == "true" ]]; then
