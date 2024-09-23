@@ -6,7 +6,7 @@
     "scripts": {
         "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
         "format": "npm run prettier -- --write",
-        "bump": "npx syncer"
+        "release": "npx syncer"
     },
     "prettier": "@taiga-ui/prettier-config",
     "devDependencies": {
