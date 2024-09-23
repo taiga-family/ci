@@ -1,7 +1,14 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+[`conventional commits`](https://www.conventionalcommits.org/) guidelines.
+
+### [1.84.0](https://github.com/taiga-family/ci/compare/v1.83.0...v1.84.0) (2024-09-23)
+
+### 🐞 Bug Fixes
+
+- revert node.js for renovate
+  [(f0331df)](https://github.com/taiga-family/ci/commit/f0331dfee0aa213dbfdadc60f8fa2b7a930cbdbc)
 
 ### [1.83.0](https://github.com/taiga-family/ci/compare/v1.82.0...v1.83.0) (2024-09-21)
 
