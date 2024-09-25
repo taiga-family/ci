@@ -1,10 +1,8 @@
 name: ⚠️ Auto release
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'actions/**'
+  schedule:
+    - cron: '0 7 * * 1'
 
 jobs:
   run-release:
@@ -16,4 +14,3 @@ jobs:
       - uses: ./actions/run/release-it
         with:
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-          mode: minor
