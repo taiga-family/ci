@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+### [1.87.0](https://github.com/taiga-family/ci/compare/v1.86.0...v1.87.0) (2024-09-26)
+
+### 🚀 Features
+
+- drop custom checkout [(21e9a0b)](https://github.com/taiga-family/ci/commit/21e9a0bcc2731e50d2ee6d46cc450d36f2a568aa)
+
 ### [1.86.0](https://github.com/taiga-family/ci/compare/v1.85.0...v1.86.0) (2024-09-25)
 
 ### [1.85.0](https://github.com/taiga-family/ci/compare/v1.84.0...v1.85.0) (2024-09-24)
