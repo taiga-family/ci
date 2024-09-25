@@ -22,7 +22,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4.1.7
+    - uses: actions/checkout@v4.2.0
       with:
         token: ${{ inputs.githubToken }}
         ref: ${{ inputs.ref || github.ref }}
