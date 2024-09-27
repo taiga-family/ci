@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+### [1.87.2](https://github.com/taiga-family/ci/compare/v1.87.1...v1.87.2) (2024-09-27)
+
+### 🚀 Features
+
+- revert setup checkout [(fef1e4f)](https://github.com/taiga-family/ci/commit/fef1e4fabff7d4c4617e447c9a96d5c67f7fe4a8)
+
 ### [1.87.1](https://github.com/taiga-family/ci/compare/v1.87.0...v1.87.1) (2024-09-27)
 
 ### 🚀 Features
