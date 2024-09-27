@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+### [1.87.4](https://github.com/taiga-family/ci/compare/v1.87.3...v1.87.4) (2024-09-27)
+
 ### [1.87.3](https://github.com/taiga-family/ci/compare/v1.87.2...v1.87.3) (2024-09-27)
 
 ### 🚀 Features
