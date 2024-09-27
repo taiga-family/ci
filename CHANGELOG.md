@@ -3,7 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+### [1.87.5](https://github.com/taiga-family/ci/compare/v1.87.4...v1.87.5) (2024-09-27)
+
+### 🚀 Features
+
+- drop action [(ec201e3)](https://github.com/taiga-family/ci/commit/ec201e35d28e6410e76c404940fd4f4cd4862781)
+
 ### [1.87.4](https://github.com/taiga-family/ci/compare/v1.87.3...v1.87.4) (2024-09-27)
+
+### 🚀 Features
+
+- update push action [(807a334)](https://github.com/taiga-family/ci/commit/807a33446cde0a94a832f20ac46b3df7beaca369)
 
 ### [1.87.3](https://github.com/taiga-family/ci/compare/v1.87.2...v1.87.3) (2024-09-27)
 
