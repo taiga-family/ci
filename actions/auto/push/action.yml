@@ -21,11 +21,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: taiga-family/ci/actions/setup/checkout@main
-      with:
-        token: ${{ inputs.token }}
-        ref: ${{ github.ref }}
-        fetch-depth: 0
     - name: Commit and push
       shell: bash
       run: |
@@ -43,9 +38,6 @@ runs:
         export GITHUB_TOKEN=${{ inputs.token }};
 
         git add .
-        git remote update
-        git fetch
-        git checkout ${{ github.head_ref }}
         git status --porcelain
 
         git config --global user.name "${{ inputs.name }}"
