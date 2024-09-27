@@ -1,0 +1,57 @@
+name: Action for checkout git
+description: Action for checkout git
+
+inputs:
+  ref:
+    description: Ref
+    required: false
+  token:
+    description: Token
+    required: false
+  fetch-depth:
+    description: Fetch depth
+    default: '1'
+    required: false
+  fetch-tags:
+    description: Fetch tags
+    default: 'true'
+    required: false
+  submodules:
+    description: submodules
+    default: recursive
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      id: checks
+      run: |
+        echo "has-token=$([ -z "${{ inputs.token }}" ] && echo "false" || echo "true")" >> $GITHUB_OUTPUT
+
+    - shell: bash
+      run: |
+        echo "has token ~ ${{ steps.checks.outputs.has-token }}"
+        echo "ref ~ ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref || github.ref }}"
+        echo "repository ~ ${{ github.event.pull_request.head.repo.full_name || github.repository }}"
+
+    - uses: actions/checkout@v4.2.0
+      if: steps.checks.outputs.has-token == 'true'
+      with:
+        persist-credentials: false
+        token: ${{ inputs.token }}
+        repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+        ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref || github.ref }}
+        fetch-depth: ${{ inputs.fetch-depth }}
+        fetch-tags: ${{ inputs.fetch-tags }}
+        submodules: ${{ inputs.submodules }}
+
+    - uses: actions/checkout@v4.2.0
+      if: steps.checks.outputs.has-token == 'false'
+      with:
+        persist-credentials: false
+        repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+        ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.head_ref || github.ref }}
+        fetch-depth: ${{ inputs.fetch-depth }}
+        fetch-tags: ${{ inputs.fetch-tags }}
+        submodules: ${{ inputs.submodules }}

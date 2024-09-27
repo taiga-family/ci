@@ -21,6 +21,11 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: taiga-family/ci/actions/setup/checkout@main
+      with:
+        token: ${{ inputs.token }}
+        ref: ${{ github.ref }}
+        fetch-depth: 0
     - name: Commit and push
       shell: bash
       run: |
