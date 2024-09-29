@@ -22,7 +22,7 @@ runs:
   using: composite
   steps:
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4.6.7
+      uses: JamesIves/github-pages-deploy-action@v4.6.8
       with:
         token: ${{ inputs.token }}
         branch: ${{ inputs.branch }}
