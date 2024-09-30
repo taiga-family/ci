@@ -9,7 +9,7 @@ inputs:
   email:
     description: user email
     required: false
-    default: opensource@tbank.ru
+    default: 41898282+github-actions[bot]@users.noreply.github.com
   token:
     description: Token
     required: true
