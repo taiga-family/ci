@@ -1,3 +1,9 @@
+### [1.87.7](https://github.com/taiga-family/ci/compare/v1.87.6...v1.87.7) (2024-09-30)
+
+### 🐞 Bug Fixes
+
+- drop tbank [(5613fee)](https://github.com/taiga-family/ci/commit/5613feec698e5bf66d657e2ed71e86a1903655e3)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See
