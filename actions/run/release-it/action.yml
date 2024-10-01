@@ -42,8 +42,6 @@ runs:
     - shell: bash
       run: |
 
-        git fetch --prune --prune-tags origin
-
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
         export HISTORY="$(git log $(git describe --tags --abbrev=0)..@ --no-merges --oneline --grep='^feat' --grep='^fix' --grep='^refactor' --grep='^deprecate')"
 
