@@ -1,3 +1,16 @@
+### [1.89.0](https://github.com/taiga-family/ci/compare/v1.88.0...v1.89.0) (2024-10-01)
+
+### 🚀 Features
+
+- change interval wait to 60s
+  [(823672e)](https://github.com/taiga-family/ci/commit/823672e5341c4543a1f745a63086339e75113b79)
+
+### 🐞 Bug Fixes
+
+- remove redundant fetch tags
+  [(da6088d)](https://github.com/taiga-family/ci/commit/da6088df6c2a8ecb06678318a041ef8b59552a7f)
+- remove redundant log [(962cb94)](https://github.com/taiga-family/ci/commit/962cb940fb00a6ef41d17f7bf9d68a16c20be030)
+
 ### [1.88.0](https://github.com/taiga-family/ci/compare/v1.87.8...v1.88.0) (2024-10-01)
 
 ### 🚀 Features
