@@ -43,7 +43,7 @@ runs:
       run: |
 
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
-        export HISTORY="$(git log $(git describe --tags --abbrev=0)..@ --no-merges --oneline --grep='^feat' --grep='^fix' --grep='^refactor' --grep='^deprecate')"
+        export HISTORY="$(git log $(git describe --tags --abbrev=0)..@ --no-merges --oneline --grep='^feat' --grep='^fix' --grep='^refactor' --grep='^perf' --grep='^breaking' --grep='^deprecate')"
 
         if [[ "${{ inputs.mode }}" == "" ]]; then
           if [[ "$HISTORY" == "" ]]; then
