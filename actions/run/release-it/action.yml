@@ -39,10 +39,23 @@ runs:
 
     - shell: bash
       run: |
+
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
+        export HISTORY="$(git log $(git describe --tags --abbrev=0)..@ --no-merges --oneline --grep='^feat' --grep='^fix' --grep='^refactor' --grep='^deprecate')"
+
+        if [[ "${{ inputs.mode }}" == "" ]]; then
+          if [[ "$HISTORY" == "" ]]; then
+            echo "Nothing found for release..."
+            exit 0;
+          else
+            echo "History found: \n"
+            printf '%s\n' "$HISTORY"
+            echo "\n\n"
+          fi;
+        fi;
 
         if [[ "${{ inputs.mode }}" == "alpha" || "${{ inputs.mode }}" == "prerelease" ]]; then
-            npx release-it --preRelease=alpha --ci ${{ inputs.flags }}
+          npx release-it --preRelease=alpha --ci ${{ inputs.flags }}
         else
-            npx release-it ${{ inputs.mode }} --ci ${{ inputs.flags }}
+          npx release-it ${{ inputs.mode }} --ci ${{ inputs.flags }}
         fi
