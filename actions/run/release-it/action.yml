@@ -27,6 +27,7 @@ runs:
         token: ${{ inputs.githubToken }}
         ref: ${{ inputs.ref || github.ref }}
         persist-credentials: false
+        fetch-depth: 0
     - uses: taiga-family/ci/actions/setup/variables@main
     - uses: taiga-family/ci/actions/setup/node@main
     - uses: taiga-family/ci/actions/setup/config/git@main
@@ -41,8 +42,7 @@ runs:
       run: |
 
         git fetch --prune --prune-tags origin
-        git describe --tags --always
-   
+
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
         export HISTORY="$(git log $(git describe --tags --abbrev=0)..@ --no-merges --oneline --grep='^feat' --grep='^fix' --grep='^refactor' --grep='^deprecate')"
 
