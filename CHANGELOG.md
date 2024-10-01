@@ -1,3 +1,9 @@
+### [1.91.0](https://github.com/taiga-family/ci/compare/v1.90.0...v1.91.0) (2024-10-01)
+
+### 🚀 Features
+
+- remove redundant flags [(76b7417)](https://github.com/taiga-family/ci/commit/76b7417e2a3bd30c7ac1cf949b25f6b2ff83a97d)
+
 ### [1.90.0](https://github.com/taiga-family/ci/compare/v1.89.0...v1.90.0) (2024-10-01)
 
 ### 🚀 Features
