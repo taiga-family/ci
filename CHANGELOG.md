@@ -1,3 +1,10 @@
+### [1.88.0](https://github.com/taiga-family/ci/compare/v1.87.8...v1.88.0) (2024-10-01)
+
+### 🚀 Features
+
+- run release it for by grepped history
+  [(e71deac)](https://github.com/taiga-family/ci/commit/e71deacd237d121ef1db6094446468cd7959ac5a)
+
 ### [1.87.8](https://github.com/taiga-family/ci/compare/v1.87.7...v1.87.8) (2024-10-01)
 
 ### 🚀 Features
