@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.0
-      - uses: ./actions/run/release-it
+      - uses: taiga-family/ci/actions/run/release-it@main
         with:
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 

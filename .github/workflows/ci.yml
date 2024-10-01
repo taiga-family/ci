@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v4.2.0
         with:
           persist-credentials: false
-      - uses: ./actions/setup/variables
-      - uses: ./actions/setup/node
+      - uses: taiga-family/ci/actions/setup/variables@main
+      - uses: taiga-family/ci/actions/setup/node@main
 
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
