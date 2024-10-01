@@ -1,3 +1,10 @@
+### [1.87.8](https://github.com/taiga-family/ci/compare/v1.87.7...v1.87.8) (2024-10-01)
+
+### 🚀 Features
+
+- drop annoying notifications (#230)
+  [(e4d78a1)](https://github.com/taiga-family/ci/commit/e4d78a1325047fa7b27f924059b01b4ea07c99b8)
+
 ### [1.87.7](https://github.com/taiga-family/ci/compare/v1.87.6...v1.87.7) (2024-09-30)
 
 ### 🐞 Bug Fixes
