@@ -1,3 +1,10 @@
+### [1.90.0](https://github.com/taiga-family/ci/compare/v1.89.0...v1.90.0) (2024-10-01)
+
+### 🚀 Features
+
+- grep perf and breaking commits
+  [(52cfdac)](https://github.com/taiga-family/ci/commit/52cfdaca9a830fe00a5fb7668937e0faeae456ca)
+
 ### [1.89.0](https://github.com/taiga-family/ci/compare/v1.88.0...v1.89.0) (2024-10-01)
 
 ### 🚀 Features
