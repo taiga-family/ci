@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.0
+        with:
+          persist-credentials: false
       - uses: ./actions/setup/variables
       - uses: ./actions/setup/node
 
@@ -25,5 +27,5 @@ jobs:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
-  group: ci-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
