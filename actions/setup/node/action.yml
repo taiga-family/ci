@@ -104,9 +104,6 @@ runs:
         echo "root-package-major-version=$(node -p "parseInt(require('./package.json')?.version)")" >> $GITHUB_OUTPUT
         echo "is-release-candidate=$(node -p "require('./package.json')?.version?.includes('rc')")" >> $GITHUB_OUTPUT
 
-    - shell: bash
-      run: ls -la
-
     - name: Confirm a package-lock.json actually resolves all dependencies in a package.json
       shell: bash
       run: |
