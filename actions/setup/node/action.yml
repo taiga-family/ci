@@ -76,13 +76,13 @@ runs:
 
     - shell: bash
       run: |
-        npm set strict-ssl false --workspaces=false --include-workspace-root
-        npm config set fund false --workspaces=false --include-workspace-root
-        npm config set audit false --workspaces=false --include-workspace-root
-        npm config set fetch-retries 10 --workspaces=false --include-workspace-root
-        npm config set fetch-retry-mintimeout 600000 --workspaces=false --include-workspace-root
-        npm config set fetch-retry-maxtimeout 1200000 --workspaces=false --include-workspace-root
-        npm config set fetch-timeout 1800000 --workspaces=false --include-workspace-root
+        npm set strict-ssl false
+        npm config set fund false
+        npm config set audit false
+        npm config set fetch-retries 10
+        npm config set fetch-retry-mintimeout 600000
+        npm config set fetch-retry-maxtimeout 1200000
+        npm config set fetch-timeout 1800000
 
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
