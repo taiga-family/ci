@@ -1,3 +1,10 @@
+### [1.92.0](https://github.com/taiga-family/ci/compare/v1.91.0...v1.92.0) (2024-10-02)
+
+### 🚀 Features
+
+- add output when was the version updated
+  [(dcb1f1f)](https://github.com/taiga-family/ci/commit/dcb1f1f0c60beb02d05c24899883591372655eda)
+
 ### [1.91.0](https://github.com/taiga-family/ci/compare/v1.90.0...v1.91.0) (2024-10-01)
 
 ### 🚀 Features
