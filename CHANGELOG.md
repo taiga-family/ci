@@ -1,3 +1,10 @@
+### [1.93.0](https://github.com/taiga-family/ci/compare/v1.92.0...v1.93.0) (2024-10-02)
+
+### 🚀 Features
+
+- update `CYPRESS_CACHE_FOLDER` value (#246)
+  [(2417de7)](https://github.com/taiga-family/ci/commit/2417de776de3e89093aef56fa8d769df1512855d)
+
 ### [1.92.0](https://github.com/taiga-family/ci/compare/v1.91.0...v1.92.0) (2024-10-02)
 
 ### 🚀 Features
