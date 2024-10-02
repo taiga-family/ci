@@ -19,6 +19,11 @@ inputs:
     required: false
     default: ''
 
+outputs:
+  release:
+    description: was the version updated
+    value: ${{ steps.output.outputs.released }}
+
 runs:
   using: composite
   steps:
@@ -40,14 +45,17 @@ runs:
         token: ${{ inputs.npmToken }}
 
     - shell: bash
+      id: output
       run: |
 
         export GITHUB_TOKEN="${{ inputs.githubToken }}"
         export HISTORY="$(git log $(git describe --tags --abbrev=0)..@ --no-merges --oneline --grep='^feat' --grep='^fix' --grep='^refactor' --grep='^perf' --grep='^breaking' --grep='^deprecate')"
+        export prev_version=$(node -p "require('./package.json')?.version")
 
         if [[ "${{ inputs.mode }}" == "" ]]; then
           if [[ "$HISTORY" == "" ]]; then
             echo "Nothing found for release..."
+            echo "released=false" >> $GITHUB_OUTPUT
             exit 0;
           else
             echo "History found: \n"
@@ -60,4 +68,12 @@ runs:
           npx release-it --preRelease=alpha --ci ${{ inputs.flags }}
         else
           npx release-it ${{ inputs.mode }} --ci ${{ inputs.flags }}
+        fi
+
+        export new_version=$(node -p "require('./package.json')?.version")
+
+        if [[ "$new_version" != "$prev_version" ]]; then
+          echo "released=true" >> $GITHUB_OUTPUT
+        else
+          echo "released=false" >> $GITHUB_OUTPUT
         fi
