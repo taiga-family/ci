@@ -1,3 +1,10 @@
+### [1.93.2](https://github.com/taiga-family/ci/compare/v1.93.1...v1.93.2) (2024-10-05)
+
+### 🐞 Bug Fixes
+
+- **deps**: update actions/cache action to v4.1.0 (#253)
+  [(24fb3ed)](https://github.com/taiga-family/ci/commit/24fb3ed333d17a14d5ae4ce0bab9f9fc163ea89d)
+
 ### [1.93.1](https://github.com/taiga-family/ci/compare/v1.93.0...v1.93.1) (2024-10-03)
 
 ### 🐞 Bug Fixes
