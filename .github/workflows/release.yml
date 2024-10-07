@@ -21,7 +21,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.0
+      - uses: actions/checkout@v4.2.1
       - uses: taiga-family/ci/actions/run/release-it@main
         with:
           mode: ${{ github.event.inputs.mode }}
