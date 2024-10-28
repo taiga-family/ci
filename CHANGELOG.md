@@ -1,3 +1,20 @@
+### [1.93.5](https://github.com/taiga-family/ci/compare/v1.93.4...v1.93.5) (2024-10-24)
+
+### 🐞 Bug Fixes
+
+- update actions/setup-node action to v4.1.0 (#268)
+  [(10e6a9b)](https://github.com/taiga-family/ci/commit/10e6a9bfa124543d6eb91daba4283ba1bb549799)
+- update actions/checkout action to v4.2.2 (#267)
+  [(d0b9833)](https://github.com/taiga-family/ci/commit/d0b98335dd423f74827da454b0bd6d1c40bf755c)
+- update github/codeql-action action to v3.27.0 (#265)
+  [(8b927cf)](https://github.com/taiga-family/ci/commit/8b927cf1e655fab8fad541656faafe695cc45b68)
+- update actions/cache action to v4.1.2 (#264)
+  [(2c4dfc1)](https://github.com/taiga-family/ci/commit/2c4dfc18764923470b1c331b9cde1c438328f670)
+- update actions/dependency-review-action action to v4.3.5 (#263)
+  [(21a6ce7)](https://github.com/taiga-family/ci/commit/21a6ce7ed78b7b6145f0cd801e953ff04d4257f0)
+- update imba-tjd/rebase-upstream-action action to v0.10 (#262)
+  [(f77c624)](https://github.com/taiga-family/ci/commit/f77c624687b7700b573b4e9fe01a6b4f1359dab8)
+
 ### [1.93.4](https://github.com/taiga-family/ci/compare/v1.93.3...v1.93.4) (2024-10-18)
 
 ### 🐞 Bug Fixes
