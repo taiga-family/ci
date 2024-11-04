@@ -1,6 +1,6 @@
 {
     "name": "taiga-ui-ci",
-    "version": "1.93.5",
+    "version": "1.93.6",
     "private": true,
     "license": "Apache-2.0",
     "scripts": {

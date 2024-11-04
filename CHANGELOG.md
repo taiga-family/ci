@@ -1,3 +1,12 @@
+### [1.93.6](https://github.com/taiga-family/ci/compare/v1.93.5...v1.93.6) (2024-11-02)
+
+### 🐞 Bug Fixes
+
+- update imba-tjd/rebase-upstream-action action to v0.11 (#270)
+  [(d31a758)](https://github.com/taiga-family/ci/commit/d31a75895eb99e7419ceb00bfe995bdf96dc57ad)
+- update actions/dependency-review-action action to v4.4.0 (#269)
+  [(e8dfd72)](https://github.com/taiga-family/ci/commit/e8dfd727f3de69bac2da296b9eeed8a393717e9e)
+
 ### [1.93.5](https://github.com/taiga-family/ci/compare/v1.93.4...v1.93.5) (2024-10-24)
 
 ### 🐞 Bug Fixes
