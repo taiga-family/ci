@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4.2.0
       - uses: taiga-family/ci/actions/run/release-it@main
         with:
-          mode: ${{ github.event.inputs.mode }}
+          mode: ${{ github.event.inputs.mode || 'minor' }}
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
