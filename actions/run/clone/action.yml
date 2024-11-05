@@ -24,7 +24,7 @@ runs:
       run: |
         git config --global http.postBuffer 524288000  # Set a larger buffer size
         git config --global core.compression 0         # Disable compression
-  
+
         git clone \
               --depth ${{ inputs.depth }} \
               --branch ${{ inputs.branch }} \
