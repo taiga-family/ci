@@ -1,3 +1,10 @@
+### [1.94.0](https://github.com/taiga-family/ci/compare/v1.93.6...v1.94.0) (2024-11-05)
+
+### 🚀 Features
+
+- increase git buffer for fast download git branch (#274)
+  [(7266875)](https://github.com/taiga-family/ci/commit/72668758d966763590076daefe82c12978f1b4ed)
+
 ### [1.93.6](https://github.com/taiga-family/ci/compare/v1.93.5...v1.93.6) (2024-11-02)
 
 ### 🐞 Bug Fixes
