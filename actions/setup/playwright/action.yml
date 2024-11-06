@@ -2,13 +2,29 @@ name: Action for Playwright
 description: Playwright
 
 inputs:
+  playwright-version:
+    description: pw version
+    required: true
   deps:
-    description: Dependencies
+    description: Concrete dependencies instead all
     required: false
-    default: chromium
+    default: ''
 
 runs:
   using: composite
   steps:
-    - shell: bash
-      run: npx playwright install --with-deps ${{ inputs.deps }}
+    - uses: actions/cache@v4.1.2
+      id: playwright-cache
+      with:
+        path: |
+          ~/Library/Caches/ms-playwright
+          ~/.cache/ms-playwright
+          **/node_modules/playwright
+        key: ${{ runner.os }}-playwright-${{ inputs.playwright-version }}
+
+    - name: Clean install Playwright dependencies
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        npx playwright install --with-deps ${{ inputs.deps }}
+        npx playwright install-deps
