@@ -35,11 +35,13 @@ runs:
             exit 0;
         fi
 
-
         git add .
-        git remote update
-        git fetch
-        git checkout ${{ github.head_ref }}
+        git stash
+        git remote update &> /dev/null
+        git fetch &> /dev/null
+        git checkout -t -b ${{ github.head_ref }} origin/${{ github.head_ref }} || echo 'Already exists'
+        git stash pop || echo 'Already updated'
+        git add .
         git status --porcelain
 
         git config --global user.name "${{ inputs.name }}"
