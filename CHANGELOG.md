@@ -1,3 +1,10 @@
+### [1.96.0](https://github.com/taiga-family/ci/compare/v1.95.0...v1.96.0) (2024-11-11)
+
+### 🐞 Bug Fixes
+
+- safety push looses commit (#280)
+  [(2728a96)](https://github.com/taiga-family/ci/commit/2728a96973391bda50b995ccb35ef2cbb4bf6d55)
+
 ### [1.95.0](https://github.com/taiga-family/ci/compare/v1.94.0...v1.95.0) (2024-11-09)
 
 ### 🚀 Features
