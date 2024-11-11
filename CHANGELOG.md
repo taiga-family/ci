@@ -1,3 +1,17 @@
+### [1.95.0](https://github.com/taiga-family/ci/compare/v1.94.0...v1.95.0) (2024-11-09)
+
+### 🚀 Features
+
+- improve playwright action (#277)
+  [(c2b353e)](https://github.com/taiga-family/ci/commit/c2b353ed37f55ce94c60dffd8f4525c68bfd56f5)
+
+### 🐞 Bug Fixes
+
+- update jamesives/github-pages-deploy-action action to v4.6.9 (#279)
+  [(6e8efa4)](https://github.com/taiga-family/ci/commit/6e8efa40f4d21cee2b205f1a9ef7f6ff73f377be)
+- update github/codeql-action action to v3.27.1 (#278)
+  [(c79258d)](https://github.com/taiga-family/ci/commit/c79258d2fb04794a53cfd8e9aefd5c41ae4a794e)
+
 ### [1.94.0](https://github.com/taiga-family/ci/compare/v1.93.6...v1.94.0) (2024-11-05)
 
 ### 🚀 Features
