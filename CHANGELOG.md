@@ -1,3 +1,10 @@
+### [1.98.0](https://github.com/taiga-family/ci/compare/v1.97.0...v1.98.0) (2024-11-18)
+
+### 🐞 Bug Fixes
+
+- hashFiles function returns nothing instead of hash (#287)
+  [(9fa3e32)](https://github.com/taiga-family/ci/commit/9fa3e326b846123780129288b43cd880ad6c6476)
+
 ### [1.97.0](https://github.com/taiga-family/ci/compare/v1.96.0...v1.97.0) (2024-11-14)
 
 ### 🐞 Bug Fixes
