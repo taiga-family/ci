@@ -1,3 +1,10 @@
+### [1.99.0](https://github.com/taiga-family/ci/compare/v1.98.0...v1.99.0) (2024-11-20)
+
+### 🚀 Features
+
+- add `PLAYWRIGHT_BLOB_ARTIFACTS_KEY` unique key id (#288)
+  [(7bbdfe6)](https://github.com/taiga-family/ci/commit/7bbdfe6f58f9e74fc706c3a10efbdacc519abbb8)
+
 ### [1.98.0](https://github.com/taiga-family/ci/compare/v1.97.0...v1.98.0) (2024-11-18)
 
 ### 🐞 Bug Fixes
