@@ -1,3 +1,12 @@
+### [1.101.0](https://github.com/taiga-family/ci/compare/v1.100.0...v1.101.0) (2024-11-28)
+
+### 🐞 Bug Fixes
+
+- update jamesives/github-pages-deploy-action action to v4.7.1 (#293)
+  [(5201f0c)](https://github.com/taiga-family/ci/commit/5201f0c5d5b036039ef8bad0d67c7f1de8fe873e)
+- update jamesives/github-pages-deploy-action action to v4.7.0 (#292)
+  [(f261715)](https://github.com/taiga-family/ci/commit/f261715cd771a8d58f822d732e6552774dbffe17)
+
 ### [1.100.0](https://github.com/taiga-family/ci/compare/v1.99.0...v1.100.0) (2024-11-21)
 
 ### 🐞 Bug Fixes
