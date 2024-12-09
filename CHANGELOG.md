@@ -1,3 +1,14 @@
+### [1.102.0](https://github.com/taiga-family/ci/compare/v1.101.0...v1.102.0) (2024-12-05)
+
+### 🐞 Bug Fixes
+
+- update actions/cache action to v4.2.0 (#297)
+  [(5f84692)](https://github.com/taiga-family/ci/commit/5f8469286506101fabf5d934d45c966e775c81e0)
+- update jamesives/github-pages-deploy-action action to v4.7.2 (#296)
+  [(454f499)](https://github.com/taiga-family/ci/commit/454f49940f023cafd13a694e2c381b0f6eda2c89)
+- update github/codeql-action action to v3.27.6 (#295)
+  [(0a24849)](https://github.com/taiga-family/ci/commit/0a24849436076f2880ef4e2583c0c7d300b89520)
+
 ### [1.101.0](https://github.com/taiga-family/ci/compare/v1.100.0...v1.101.0) (2024-11-28)
 
 ### 🐞 Bug Fixes
