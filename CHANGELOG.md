@@ -1,3 +1,14 @@
+### [1.103.0](https://github.com/taiga-family/ci/compare/v1.102.0...v1.103.0) (2024-12-13)
+
+### 🐞 Bug Fixes
+
+- update github/codeql-action action to v3.27.9 (#301)
+  [(c902aaa)](https://github.com/taiga-family/ci/commit/c902aaa5454264a05fcdc5ca27f1ae26326b05e9)
+- update github/codeql-action action to v3.27.8 (#300)
+  [(7986525)](https://github.com/taiga-family/ci/commit/7986525eb7701226c5da6ba71162acd002e22283)
+- update github/codeql-action action to v3.27.7 (#299)
+  [(42d7ed8)](https://github.com/taiga-family/ci/commit/42d7ed863c6db952779781deba835d0695a1da33)
+
 ### [1.102.0](https://github.com/taiga-family/ci/compare/v1.101.0...v1.102.0) (2024-12-05)
 
 ### 🐞 Bug Fixes
