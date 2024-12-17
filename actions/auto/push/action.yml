@@ -36,7 +36,7 @@ runs:
         fi
 
         git add .
-        git stash
+        git stash || echo 'No local changes to save'
         git remote update &> /dev/null
         git fetch &> /dev/null
         git checkout -t -b ${{ github.head_ref }} origin/${{ github.head_ref }} || echo 'Already exists'
