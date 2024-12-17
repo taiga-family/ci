@@ -1,3 +1,10 @@
+### [1.104.0](https://github.com/taiga-family/ci/compare/v1.103.0...v1.104.0) (2024-12-17)
+
+### 🐞 Bug Fixes
+
+- prevent error when find untracked files (#303)
+  [(59ffd71)](https://github.com/taiga-family/ci/commit/59ffd712955a82815c731779108a8c00b1f7c29f)
+
 ### [1.103.0](https://github.com/taiga-family/ci/compare/v1.102.0...v1.103.0) (2024-12-13)
 
 ### 🐞 Bug Fixes
