@@ -1,3 +1,5 @@
+### [1.106.0](https://github.com/taiga-family/ci/compare/v1.105.0...v1.106.0) (2024-12-29)
+
 ### [1.105.0](https://github.com/taiga-family/ci/compare/v1.104.0...v1.105.0) (2024-12-20)
 
 ### 🐞 Bug Fixes
