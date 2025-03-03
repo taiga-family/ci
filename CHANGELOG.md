@@ -1,3 +1,10 @@
+### [1.114.0](https://github.com/taiga-family/ci/compare/v1.113.0...v1.114.0) (2025-02-28)
+
+### 🐞 Bug Fixes
+
+- update actions/cache action to v4.2.2 (#343)
+  [(fcdbe6b)](https://github.com/taiga-family/ci/commit/fcdbe6ba2a2141b4443df5afbad3781ee776490a)
+
 ### [1.113.0](https://github.com/taiga-family/ci/compare/v1.112.0...v1.113.0) (2025-02-21)
 
 ### 🐞 Bug Fixes
