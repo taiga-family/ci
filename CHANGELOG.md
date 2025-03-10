@@ -1,3 +1,15 @@
+### [1.115.0](https://github.com/taiga-family/ci/compare/v1.114.0...v1.115.0) (2025-03-07)
+
+### 🚀 Features
+
+- `NX_REJECT_UNKNOWN_LOCAL_CACHE` is not supported with the new database cache (#346)
+  [(a4f25cf)](https://github.com/taiga-family/ci/commit/a4f25cfa21760274dfa1721eb62482ad70ae8f83)
+
+### 🐞 Bug Fixes
+
+- update github/codeql-action action to v3.28.11 (#348)
+  [(fa0e8a7)](https://github.com/taiga-family/ci/commit/fa0e8a744f41375410c8da25860362764efab5f5)
+
 ### [1.114.0](https://github.com/taiga-family/ci/compare/v1.113.0...v1.114.0) (2025-02-28)
 
 ### 🐞 Bug Fixes
