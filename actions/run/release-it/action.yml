@@ -20,7 +20,7 @@ inputs:
     default: ''
 
 outputs:
-  release:
+  released:
     description: was the version updated
     value: ${{ steps.output.outputs.released }}
 
