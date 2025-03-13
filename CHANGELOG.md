@@ -1,3 +1,9 @@
+### [1.116.0](https://github.com/taiga-family/ci/compare/v1.115.0...v1.116.0) (2025-03-13)
+
+### 🐞 Bug Fixes
+
+- typo (#352) [(1c55bc6)](https://github.com/taiga-family/ci/commit/1c55bc6ddfba060e99d12e480c8d7513891d0f9a)
+
 ### [1.115.0](https://github.com/taiga-family/ci/compare/v1.114.0...v1.115.0) (2025-03-07)
 
 ### 🚀 Features
