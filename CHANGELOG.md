@@ -1,3 +1,10 @@
+### [1.117.0](https://github.com/taiga-family/ci/compare/v1.116.0...v1.117.0) (2025-03-17)
+
+### 🐞 Bug Fixes
+
+- update actions/setup-node action to v4.3.0 (#353)
+  [(b0aba70)](https://github.com/taiga-family/ci/commit/b0aba704b0ba1b91acca161e0142ad1f927a5132)
+
 ### [1.116.0](https://github.com/taiga-family/ci/compare/v1.115.0...v1.116.0) (2025-03-13)
 
 ### 🐞 Bug Fixes
