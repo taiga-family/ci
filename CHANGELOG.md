@@ -1,3 +1,10 @@
+### [1.120.0](https://github.com/taiga-family/ci/compare/v1.119.0...v1.120.0) (2025-04-04)
+
+### 🐞 Bug Fixes
+
+- update actions/dependency-review-action action to v4.6.0 (#361)
+  [(503f106)](https://github.com/taiga-family/ci/commit/503f1063678c52fe27127bccbbb38139d737b76d)
+
 ### [1.119.0](https://github.com/taiga-family/ci/compare/v1.118.0...v1.119.0) (2025-03-24)
 
 ### 🐞 Bug Fixes
