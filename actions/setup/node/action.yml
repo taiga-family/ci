@@ -46,7 +46,7 @@ runs:
   using: composite
   steps:
     - name: Use Node.js ${{ inputs.node-version }}
-      uses: actions/setup-node@v4.3.0
+      uses: actions/setup-node@v4.4.0
       with:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.node-registry }}
