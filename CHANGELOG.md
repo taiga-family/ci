@@ -1,3 +1,14 @@
+### [1.121.0](https://github.com/taiga-family/ci/compare/v1.120.0...v1.121.0) (2025-04-14)
+
+### 🐞 Bug Fixes
+
+- update actions/setup-node action to v4.4.0 (#367)
+  [(358a6db)](https://github.com/taiga-family/ci/commit/358a6dbd4ddb105648155416823c03e20ae5f4e7)
+- update github/codeql-action action to v3.28.15 (#366)
+  [(3162129)](https://github.com/taiga-family/ci/commit/3162129bee4fff0cca83a74c905fd6a73c399b17)
+- update github/codeql-action action to v3.28.14 (#364)
+  [(db315ef)](https://github.com/taiga-family/ci/commit/db315efa961f8c30de09fc5eae7a0cbb97323979)
+
 ### [1.120.0](https://github.com/taiga-family/ci/compare/v1.119.0...v1.120.0) (2025-04-04)
 
 ### 🐞 Bug Fixes
