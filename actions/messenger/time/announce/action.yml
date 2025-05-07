@@ -24,5 +24,5 @@ runs:
       run: |
         curl --http1.1 -X POST \
              -H "Content-Type: application/json" \
-             -d "{\"text\": \"New version [${{ inputs.version }}](https://github.com/${{ github.repository }}/releases/tag/${{ inputs.version }}) released :tada:\", \"username\": \"${{ inputs.username }}\", \"channel\": \"${{ inputs.channel }}\"}" \
+             -d "{\"text\": \"New version [${{ inputs.version }}](https://github.com/${{ github.repository }}/releases/tag/${{ inputs.version }}) released :tada:\", \"username\": \"${{ inputs.username }}\"}" \
              ${{ inputs.url }}
