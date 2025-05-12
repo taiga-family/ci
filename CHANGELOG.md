@@ -1,3 +1,12 @@
+### [1.125.0](https://github.com/taiga-family/ci/compare/v1.124.0...v1.125.0) (2025-05-12)
+
+### 🐞 Bug Fixes
+
+- fix announce request (#376)
+  [(2deb4cb)](https://github.com/taiga-family/ci/commit/2deb4cb475dfe3c6f2cccefb1c7be44172decbc9)
+- update actions/dependency-review-action action to v4.7.0 (#377)
+  [(1032c9c)](https://github.com/taiga-family/ci/commit/1032c9cd2ab5612e83486251d8798c07542cce95)
+
 ### [1.124.0](https://github.com/taiga-family/ci/compare/v1.123.0...v1.124.0) (2025-05-02)
 
 ### 🐞 Bug Fixes
