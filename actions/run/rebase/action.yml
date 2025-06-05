@@ -5,7 +5,7 @@ runs:
   using: composite
   steps:
     - name: Try rebase locally for check affected
-      uses: imba-tjd/rebase-upstream-action@0.11
+      uses: imba-tjd/rebase-upstream-action@0.12
       with:
         upstream: ${{ github.repository }}
         branch: ${{ github.base_ref }}
