@@ -1,3 +1,12 @@
+### [1.128.0](https://github.com/taiga-family/ci/compare/v1.127.0...v1.128.0) (2025-06-05)
+
+### 🐞 Bug Fixes
+
+- update imba-tjd/rebase-upstream-action action to v0.12 (#385)
+  [(754a4a2)](https://github.com/taiga-family/ci/commit/754a4a2cc08e2b513e23ad023e3e2f0427b3a77f)
+- update github/codeql-action action to v3.28.19 (#384)
+  [(4e3ddfc)](https://github.com/taiga-family/ci/commit/4e3ddfce5069837069556cd880b60382dc77896e)
+
 ### [1.127.0](https://github.com/taiga-family/ci/compare/v1.126.0...v1.127.0) (2025-05-26)
 
 ### [1.126.0](https://github.com/taiga-family/ci/compare/v1.125.0...v1.126.0) (2025-05-16)
