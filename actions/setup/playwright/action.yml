@@ -2,8 +2,12 @@ name: Action for Playwright
 description: Playwright
 
 inputs:
+  version:
+    description: pw version
+    required: true
   playwright-version:
     description: pw version
+    deprecationMessage: Please use just version field
     required: true
   deps:
     description: Concrete dependencies instead all
@@ -20,7 +24,7 @@ runs:
           ~/Library/Caches/ms-playwright
           ~/.cache/ms-playwright
           **/node_modules/playwright
-        key: ${{ runner.os }}-playwright-${{ inputs.playwright-version }}
+        key: ${{ runner.os }}-playwright-${{ inputs.playwright-version || inputs.version }}
 
     - name: Clean install Playwright dependencies
       if: steps.playwright-cache.outputs.cache-hit != 'true'
