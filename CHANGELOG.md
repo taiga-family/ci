@@ -1,3 +1,10 @@
+### [1.133.0](https://github.com/taiga-family/ci/compare/v1.132.0...v1.133.0) (2025-07-10)
+
+### 🚀 Features
+
+- add new input params for playwright action (#396)
+  [(3fbe2a8)](https://github.com/taiga-family/ci/commit/3fbe2a812edd5a5ef95d93da134df11ebb11c5de)
+
 ### [1.132.0](https://github.com/taiga-family/ci/compare/v1.131.0...v1.132.0) (2025-07-04)
 
 ### 🐞 Bug Fixes
