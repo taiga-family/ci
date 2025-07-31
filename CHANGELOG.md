@@ -1,3 +1,10 @@
+### [1.138.0](https://github.com/taiga-family/ci/compare/v1.137.0...v1.138.0) (2025-07-31)
+
+### 🚀 Features
+
+- upgrade node to 22.x (#412)
+  [(07b6f51)](https://github.com/taiga-family/ci/commit/07b6f5129d9a86bc6473e892b58f34dc5ce09811)
+
 ### [1.137.0](https://github.com/taiga-family/ci/compare/v1.136.0...v1.137.0) (2025-07-31)
 
 ### 🐞 Bug Fixes
