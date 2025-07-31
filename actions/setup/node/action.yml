@@ -65,7 +65,9 @@ runs:
       uses: actions/cache@v4.2.3
       with:
         path: ${{ inputs.node-path }}
-        key: ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('package-lock.json') }}__${{ hashFiles('**/package-lock.json') }}
+        key:
+          ${{ runner.os }}-node-${{ inputs.node-version }}__${{ hashFiles('package-lock.json') }}__${{
+          hashFiles('**/package-lock.json') }}
 
     - name: Load Nx cache state for NX_BASE
       uses: actions/cache@v4
