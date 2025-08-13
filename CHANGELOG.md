@@ -1,3 +1,17 @@
+### [1.140.0](https://github.com/taiga-family/ci/compare/v1.139.0...v1.140.0) (2025-08-13)
+
+### 🚀 Features
+
+- automatic detect version of playwright in action (#428)
+  [(4dd1d1d)](https://github.com/taiga-family/ci/commit/4dd1d1d70bc76a8e7ac21a1910d7e13ab8bc9704)
+
+### 🐞 Bug Fixes
+
+- update github/codeql-action action to v3.29.9 (#427)
+  [(2c9324b)](https://github.com/taiga-family/ci/commit/2c9324b1e9a4a7959fa900c82baacd18780448dc)
+- update actions/checkout action to v4.3.0 (#425)
+  [(e98e4a5)](https://github.com/taiga-family/ci/commit/e98e4a5b21e2ef59f578677e16afaedb05f2235f)
+
 ### [1.139.0](https://github.com/taiga-family/ci/compare/v1.138.0...v1.139.0) (2025-08-08)
 
 ### 🐞 Bug Fixes
