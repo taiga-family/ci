@@ -1,3 +1,10 @@
+### [1.141.0](https://github.com/taiga-family/ci/compare/v1.140.0...v1.141.0) (2025-08-13)
+
+### 🚀 Features
+
+- add reusable playwright checker action (#429)
+  [(6e936d2)](https://github.com/taiga-family/ci/commit/6e936d25210ad19fb2e36769d42226f476c4f04c)
+
 ### [1.140.0](https://github.com/taiga-family/ci/compare/v1.139.0...v1.140.0) (2025-08-13)
 
 ### 🚀 Features
