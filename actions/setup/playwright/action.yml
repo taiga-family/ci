@@ -3,11 +3,7 @@ description: Playwright
 
 inputs:
   version:
-    description: pw version
-    required: true
-  playwright-version:
-    description: pw version
-    deprecationMessage: Please use just version field
+    description: custom version
     required: true
   deps:
     description: Concrete dependencies instead all
@@ -17,6 +13,14 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Detect Playwright version
+      id: detect-pw
+      shell: bash
+      run: |
+        VERSION=$(npm ls @playwright/test --depth=0 --json 2>/dev/null \
+          | jq -r '.dependencies["@playwright/test"].version // ""' 2>/dev/null)
+        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
     - uses: actions/cache@v4.2.4
       id: playwright-cache
       with:
@@ -24,7 +28,7 @@ runs:
           ~/Library/Caches/ms-playwright
           ~/.cache/ms-playwright
           **/node_modules/playwright
-        key: ${{ runner.os }}-playwright-${{ inputs.playwright-version || inputs.version }}
+        key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version || inputs.version }}
 
     - name: Clean install Playwright dependencies
       if: steps.playwright-cache.outputs.cache-hit != 'true'
