@@ -1,5 +1,5 @@
-name: Combine and Check Playwright Diffs
-description: Combines Playwright failed screenshots, uploads diff artifacts, and fails if diffs exist.
+name: Check Playwright Diffs
+description: Uploads diff artifacts, and fails if diffs exist.
 
 inputs:
   pw-result:
@@ -16,12 +16,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Combine images to get diff reports
-      run: |
-        npm install @taiga-ui/testing canvas --no-save --silent --force
-        npx ts-node -e "import { tuiCombinePlaywrightFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();"
-      shell: bash
-
     - name: Upload artifacts / ${{ inputs.playwright-snapshots-artifacts-key }}
       uses: actions/upload-artifact@v4.6.2
       with:
