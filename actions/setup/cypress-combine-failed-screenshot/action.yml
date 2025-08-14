@@ -1,4 +1,4 @@
-name: Combine Playwright Diffs
+name: Combine Cypress Diffs
 description: Combines Playwright failed screenshots
 
 runs:
@@ -7,5 +7,5 @@ runs:
     - name: Combine images to get diff reports
       run: |
         npm install @taiga-ui/testing canvas --no-save --silent --force
-        npx ts-node -e "import { tuiCombineCypressFailedScreenshots as run } from './projects/testing/visual-testing'; run();";
+        npx ts-node -e "import { tuiCombineCypressFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();";
       shell: bash
