@@ -1,3 +1,10 @@
+### [1.144.0](https://github.com/taiga-family/ci/compare/v1.143.0...v1.144.0) (2025-08-14)
+
+### 🚀 Features
+
+- add upload/download artifact action (#433)
+  [(cd378f6)](https://github.com/taiga-family/ci/commit/cd378f6438dd0c0bfe8c3026c55ed3ae68eb3193)
+
 ### [1.143.0](https://github.com/taiga-family/ci/compare/v1.142.0...v1.143.0) (2025-08-14)
 
 ### [1.142.0](https://github.com/taiga-family/ci/compare/v1.141.0...v1.142.0) (2025-08-14)
