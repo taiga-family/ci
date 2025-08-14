@@ -1,3 +1,10 @@
+### [1.142.0](https://github.com/taiga-family/ci/compare/v1.141.0...v1.142.0) (2025-08-14)
+
+### 🐞 Bug Fixes
+
+- inject playwright variable from nested workspace (#431)
+  [(4284fb5)](https://github.com/taiga-family/ci/commit/4284fb5a911adead5f623f75294147593bebb17b)
+
 ### [1.141.0](https://github.com/taiga-family/ci/compare/v1.140.0...v1.141.0) (2025-08-13)
 
 ### 🚀 Features
