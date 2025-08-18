@@ -1,3 +1,15 @@
+### [1.146.0](https://github.com/taiga-family/ci/compare/v1.145.0...v1.146.0) (2025-08-18)
+
+### 🚀 Features
+
+- auto install compilation dependencies for canvas (#436)
+  [(76c9fb6)](https://github.com/taiga-family/ci/commit/76c9fb69e0976a7b5240a88dbfd072016ee44316)
+
+### 🐞 Bug Fixes
+
+- update github/codeql-action action to v3.29.10 (#437)
+  [(e3a13da)](https://github.com/taiga-family/ci/commit/e3a13da11d7d3ba54b087a58f11741746c0cf776)
+
 ### [1.145.0](https://github.com/taiga-family/ci/compare/v1.144.0...v1.145.0) (2025-08-14)
 
 ### [1.144.0](https://github.com/taiga-family/ci/compare/v1.143.0...v1.144.0) (2025-08-14)
