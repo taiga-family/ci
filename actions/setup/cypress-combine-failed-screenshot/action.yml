@@ -4,6 +4,16 @@ description: Combines Playwright failed screenshots
 runs:
   using: composite
   steps:
+    - name: Compiling dependencies / Linux
+      if: runner.os == 'Linux'
+      run: sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+      shell: bash
+
+    - name: Compiling dependencies / MacOS
+      if: runner.os == 'macOS'
+      run: brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman python-setuptools
+      shell: bash
+
     - name: Combine images to get diff reports
       run: |
         npm install @taiga-ui/testing canvas --no-save --silent --force
