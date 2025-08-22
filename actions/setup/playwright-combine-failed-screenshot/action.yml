@@ -6,7 +6,7 @@ runs:
   steps:
     - name: Compiling dependencies / Linux
       if: runner.os == 'Linux'
-      run: sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+      run: sudo apt-get update && sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
       shell: bash
 
     - name: Compiling dependencies / MacOS
