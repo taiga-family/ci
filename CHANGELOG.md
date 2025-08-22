@@ -1,3 +1,14 @@
+### [1.147.0](https://github.com/taiga-family/ci/compare/v1.146.0...v1.147.0) (2025-08-22)
+
+### 🐞 Bug Fixes
+
+- apt-get update to fix C/C++ workflow (#440)
+  [(df51b3c)](https://github.com/taiga-family/ci/commit/df51b3cf7960f3eb813057dfde11223845a922b3)
+- update github/codeql-action action to v3.29.11 (#439)
+  [(c48daa9)](https://github.com/taiga-family/ci/commit/c48daa9f379d3078148adc1daca8d8e6fb62510b)
+- update actions/dependency-review-action action to v4.7.2 (#438)
+  [(630291a)](https://github.com/taiga-family/ci/commit/630291a79bb0b1a149e92265a3102d25b8a5ac05)
+
 ### [1.146.0](https://github.com/taiga-family/ci/compare/v1.145.0...v1.146.0) (2025-08-18)
 
 ### 🚀 Features
