@@ -1,3 +1,10 @@
+### [1.149.0](https://github.com/taiga-family/ci/compare/v1.148.0...v1.149.0) (2025-08-25)
+
+### 🐞 Bug Fixes
+
+- possible fix a wrong hash (#445)
+  [(7caebf2)](https://github.com/taiga-family/ci/commit/7caebf29488b925f0732a862c499e129f6d97366)
+
 ### [1.148.0](https://github.com/taiga-family/ci/compare/v1.147.0...v1.148.0) (2025-08-22)
 
 ### 🚀 Features
