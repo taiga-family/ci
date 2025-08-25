@@ -1,3 +1,9 @@
+### [1.150.0](https://github.com/taiga-family/ci/compare/v1.149.0...v1.150.0) (2025-08-25)
+
+### 🐞 Bug Fixes
+
+- revert experiments [(d923934)](https://github.com/taiga-family/ci/commit/d9239345fb5e749e710f9d547f7b14cdaf5e603c)
+
 ### [1.149.0](https://github.com/taiga-family/ci/compare/v1.148.0...v1.149.0) (2025-08-25)
 
 ### 🐞 Bug Fixes
