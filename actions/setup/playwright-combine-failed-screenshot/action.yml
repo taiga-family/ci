@@ -10,7 +10,7 @@ runs:
       uses: actions/cache@v4
       with:
         path: /var/cache/apt/archives
-        key: ${{ runner.os }}-apt-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-apt-${{ hashFiles('package-lock.json', '**/package-lock.json') }}
         restore-keys: ${{ runner.os }}-apt-
 
     - name: Compiling dependencies / Linux
@@ -26,7 +26,7 @@ runs:
       uses: actions/cache@v4
       with:
         path: ~/Library/Caches/Homebrew
-        key: ${{ runner.os }}-brew-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-brew-${{ hashFiles('package-lock.json', '**/package-lock.json') }}
         restore-keys: ${{ runner.os }}-brew-
 
     - name: Compiling dependencies / MacOS
