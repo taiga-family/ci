@@ -11,6 +11,6 @@ runs:
   using: composite
   steps:
     - name: Dependency Review
-      uses: actions/dependency-review-action@v4.7.2
+      uses: actions/dependency-review-action@v4.7.3
       with:
         fail-on-severity: ${{ inputs.severity }}
