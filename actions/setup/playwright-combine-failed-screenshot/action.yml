@@ -37,6 +37,6 @@ runs:
 
     - name: Combine images to get diff reports
       run: |
-        npm install @taiga-ui/testing canvas --no-save --silent --force
+        npm install @taiga-ui/testing canvas sharp --no-save --silent --force
         npx ts-node -e "import { tuiCombinePlaywrightFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();"
       shell: bash
