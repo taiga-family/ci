@@ -1,3 +1,15 @@
+### [1.151.0](https://github.com/taiga-family/ci/compare/v1.150.0...v1.151.0) (2025-08-27)
+
+### 🚀 Features
+
+- drop useless canvas dependencies (#448)
+  [(d43b1fe)](https://github.com/taiga-family/ci/commit/d43b1fef758da9aed40a8d10dbc4dc575ab26064)
+
+### 🐞 Bug Fixes
+
+- update actions/dependency-review-action action to v4.7.3 (#447)
+  [(948d941)](https://github.com/taiga-family/ci/commit/948d941fd62ec254996fc50137f12efb3ffcd638)
+
 ### [1.150.0](https://github.com/taiga-family/ci/compare/v1.149.0...v1.150.0) (2025-08-25)
 
 ### 🐞 Bug Fixes
