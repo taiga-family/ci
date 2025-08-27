@@ -4,39 +4,8 @@ description: Combines Playwright failed screenshots
 runs:
   using: composite
   steps:
-    - name: Cache APT packages
-      if: runner.os == 'Linux'
-      id: cache-apt
-      uses: actions/cache@v4
-      with:
-        path: /var/cache/apt/archives
-        key: ${{ runner.os }}-apt-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: ${{ runner.os }}-apt-
-
-    - name: Compiling dependencies / Linux
-      if: runner.os == 'Linux' && steps.cache-apt.outputs.cache-hit != 'true'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-      shell: bash
-
-    - name: Cache Homebrew packages
-      if: runner.os == 'macOS'
-      id: cache-brew
-      uses: actions/cache@v4
-      with:
-        path: ~/Library/Caches/Homebrew
-        key: ${{ runner.os }}-brew-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: ${{ runner.os }}-brew-
-
-    - name: Compiling dependencies / MacOS
-      if: runner.os == 'macOS' && steps.cache-brew.outputs.cache-hit != 'true'
-      run: |
-        brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman python-setuptools
-      shell: bash
-
     - name: Combine images to get diff reports
       run: |
-        npm install @taiga-ui/testing canvas --no-save --silent --force
+        npm install @taiga-ui/testing --no-save --silent --force
         npx ts-node -e "import { tuiCombineCypressFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();";
       shell: bash
