@@ -1,3 +1,14 @@
+### [1.154.0](https://github.com/taiga-family/ci/compare/v1.153.0...v1.154.0) (2025-09-11)
+
+### 🐞 Bug Fixes
+
+- npm package-lock.json files shared by multiple platforms can cause installation problems due to npm bug #4828 (#459)
+  [(1280bc6)](https://github.com/taiga-family/ci/commit/1280bc6b42ac0ff01a38b9fd6d5e171780061a8f)
+- update github/codeql-action action to v3.30.3 (#457)
+  [(dc73028)](https://github.com/taiga-family/ci/commit/dc7302842170b0efadd56821dd1cae8fabfd1fea)
+- update github/codeql-action action to v3.30.2 (#456)
+  [(2f5f5e0)](https://github.com/taiga-family/ci/commit/2f5f5e096d21026d67bff23e7f872730da581ff0)
+
 ### [1.153.0](https://github.com/taiga-family/ci/compare/v1.152.0...v1.153.0) (2025-09-05)
 
 ### 🐞 Bug Fixes
