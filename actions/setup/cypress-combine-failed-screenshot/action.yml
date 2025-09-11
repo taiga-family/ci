@@ -6,6 +6,6 @@ runs:
   steps:
     - name: Combine images to get diff reports
       run: |
-        npm install @taiga-ui/testing --no-save --silent --force
+        npm install --cpu=$(node -p process.arch) --os=$(node -p process.platform) @taiga-ui/testing sharp --no-save --force
         npx ts-node -e "import { tuiCombineCypressFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();";
       shell: bash
