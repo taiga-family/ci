@@ -1,3 +1,10 @@
+### [1.155.0](https://github.com/taiga-family/ci/compare/v1.154.0...v1.155.0) (2025-09-16)
+
+### 🐞 Bug Fixes
+
+- ensure that root package-lock.json will be included (#461)
+  [(62f532a)](https://github.com/taiga-family/ci/commit/62f532af1b6616ede7e6a7b487048b57a6077290)
+
 ### [1.154.0](https://github.com/taiga-family/ci/compare/v1.153.0...v1.154.0) (2025-09-11)
 
 ### 🐞 Bug Fixes
