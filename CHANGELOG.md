@@ -1,3 +1,14 @@
+### [1.156.0](https://github.com/taiga-family/ci/compare/v1.155.0...v1.156.0) (2025-09-19)
+
+### 🚀 Features
+
+- run `npm audit` as part of the Node.js setup action (#464)
+  [(12069ea)](https://github.com/taiga-family/ci/commit/12069ea8382485317a27fca4ed2428017c535f63)
+
+### 🐞 Bug Fixes
+
+- revert (#462) [(68a4776)](https://github.com/taiga-family/ci/commit/68a477600785d7f4ce0d8d3ffdc3f155896602a4)
+
 ### [1.155.0](https://github.com/taiga-family/ci/compare/v1.154.0...v1.155.0) (2025-09-16)
 
 ### 🐞 Bug Fixes
