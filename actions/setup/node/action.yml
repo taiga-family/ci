@@ -110,3 +110,39 @@ runs:
         if [[ "${{ inputs.validate-peer-deps }}" == "true" ]]; then
           npm ls
         fi
+
+    - id: audit
+      continue-on-error: true
+      shell: bash
+      run: |
+        npm audit --audit-level=high > audit.txt
+        exit_code=$(echo $?)
+        echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+        
+        cat audit.txt
+        echo "Exit code: $exit_code"
+
+    - name: Delete previous comment
+      uses: actions/github-script@v6
+      continue-on-error: true
+      with:
+        script: |
+          github.rest.issues.deleteComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            comment_id: 'npm-audit'
+          });
+
+    - name: Comment PR if issues found
+      if: steps.audit.outputs.exit_code != '0'
+      uses: peter-evans/create-or-update-comment@v4
+      continue-on-error: true
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-id: npm-audit
+        body-file: audit.txt
+
+    - name: Fail if audit failed
+      if: steps.audit.outputs.exit_code != '0'
+      shell: bash
+      run: exit 1
