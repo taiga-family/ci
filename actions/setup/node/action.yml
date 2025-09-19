@@ -115,7 +115,8 @@ runs:
       continue-on-error: true
       shell: bash
       run: |
-        npm audit --audit-level=critical > audit.txt
+        set +e
+        npm audit --audit-level=critical > npm-audit.txt
         exit_code=$(echo $?)
         echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
 
@@ -126,11 +127,21 @@ runs:
       continue-on-error: true
       with:
         script: |
-          github.rest.issues.deleteComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            comment_id: 'npm-audit'
-          });
+          try {
+              await github.rest.issues.deleteComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: 'npm-audit'
+            });
+
+            console.log('Comment deleted successfully');
+          } catch (error) {
+            if (error.status !== 404) {
+              throw error;
+            }
+
+            console.log('Comment was already deleted or never existed');
+          }
 
     - uses: peter-evans/create-or-update-comment@v4
       if: steps.audit.outputs.exit_code != '0'
@@ -138,4 +149,8 @@ runs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         comment-id: npm-audit
-        body-file: audit.txt
+        body-file: npm-audit.txt
+
+    - continue-on-error: true
+      shell: bash
+      run: rm npm-audit.txt
