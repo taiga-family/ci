@@ -1,3 +1,10 @@
+### [1.157.0](https://github.com/taiga-family/ci/compare/v1.156.0...v1.157.0) (2025-09-19)
+
+### 🐞 Bug Fixes
+
+- clean up npm audit report file after comment is posted to the pull request (#466)
+  [(96ffc6a)](https://github.com/taiga-family/ci/commit/96ffc6a47342b28d0b0cf99b88ef1d9daabb13d9)
+
 ### [1.156.0](https://github.com/taiga-family/ci/compare/v1.155.0...v1.156.0) (2025-09-19)
 
 ### 🚀 Features
