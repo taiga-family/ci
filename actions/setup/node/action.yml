@@ -118,11 +118,11 @@ runs:
       run: |
         set +e
         npm audit --audit-level=critical > npm-audit.txt
-        exit_code=$?
+        exit_code=$(echo $?)
         echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
         echo "Exit code: $exit_code"
 
-          AUDIT_SUMMARY=$(grep -E "(vulnerabilities|low|moderate|high|critical)" npm-audit.txt | head -n 1 || echo "No vulnerabilities found")
+          AUDIT_SUMMARY=$(grep -E "(vulnerabilities|low|moderate|high|critical)" npm-audit.txt | tail -n 1 || echo "No vulnerabilities found")
           AUDIT_CONTENT=$(cat npm-audit.txt | sed 's/&/&amp;/g; s/</&lt;/g; s/>/&gt;/g; s/"/&quot;/g; s/'"'"'/&#39;/g')
 
           if [ $exit_code -eq 0 ]; then
