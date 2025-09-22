@@ -1,3 +1,10 @@
+### [1.160.0](https://github.com/taiga-family/ci/compare/v1.159.0...v1.160.0) (2025-09-22)
+
+### 🐞 Bug Fixes
+
+- correct reuse of a comment id (#472)
+  [(25c5cea)](https://github.com/taiga-family/ci/commit/25c5cea97dd90de09161eb3be7e6c7def0c56abd)
+
 ### [1.159.0](https://github.com/taiga-family/ci/compare/v1.158.0...v1.159.0) (2025-09-22)
 
 ### 🐞 Bug Fixes
