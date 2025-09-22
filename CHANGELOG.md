@@ -1,3 +1,9 @@
+### [1.161.0](https://github.com/taiga-family/ci/compare/v1.160.0...v1.161.0) (2025-09-22)
+
+### 🐞 Bug Fixes
+
+- improve message [(76948ef)](https://github.com/taiga-family/ci/commit/76948ef8e144d4a7714196b69197504cafdabd86)
+
 ### [1.160.0](https://github.com/taiga-family/ci/compare/v1.159.0...v1.160.0) (2025-09-22)
 
 ### 🐞 Bug Fixes
