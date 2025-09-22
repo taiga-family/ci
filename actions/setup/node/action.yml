@@ -118,66 +118,52 @@ runs:
       run: |
         set +e
         npm audit --audit-level=critical > npm-audit.txt
-        exit_code=$(echo $?)
+        exit_code=$?
         echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
-
-        cat npm-audit.txt
         echo "Exit code: $exit_code"
 
-    - uses: actions/github-script@v6
+          AUDIT_SUMMARY=$(grep -E "(vulnerabilities|low|moderate|high|critical)" npm-audit.txt | head -n 1 || echo "No vulnerabilities found")
+          AUDIT_CONTENT=$(cat npm-audit.txt | sed 's/&/&amp;/g; s/</&lt;/g; s/>/&gt;/g; s/"/&quot;/g; s/'"'"'/&#39;/g')
+
+          if [ $exit_code -eq 0 ]; then
+            HEADER="✅ NPM Audit Good"
+          else
+            HEADER="🚨 NPM Audit Error"
+          fi
+
+          {
+              echo "<h3>$HEADER</h3>"
+              echo "<p><strong>$AUDIT_SUMMARY</strong></p>"
+              echo
+              echo "<details>"
+              echo "<summary>Show details</summary>"
+              echo
+              echo '```'
+              echo "$AUDIT_CONTENT"
+              echo '```'
+              echo
+              echo "</details>"
+          } > npm-audit.txt
+
+    - uses: peter-evans/find-comment@v3
+      if: github.event.pull_request.number
+      continue-on-error: true
+      id: fc
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body-includes: NPM Audit
+
+    - uses: peter-evans/create-or-update-comment@v4
       if: github.event.pull_request.number
       continue-on-error: true
       with:
-        script: |
-          try {
-              await github.rest.issues.deleteComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: 'npm-audit'
-            });
-
-            console.log('Comment deleted successfully');
-          } catch (error) {
-            if (error.status !== 404) {
-              throw error;
-            }
-
-            console.log('Comment was already deleted or never existed');
-          }
-
-    - name: Create formatted audit comment
-      if: steps.audit.outputs.exit_code != '0' && github.event.pull_request.number
-      shell: bash
-      run: |
-        AUDIT_CONTENT=$(cat npm-audit.txt | sed 's/&/&amp;/g; s/</&lt;/g; s/>/&gt;/g; s/"/&quot;/g; s/'"'"'/&&#39;/g')
-        AUDIT_SUMMARY=$(head -n 5 npm-audit.txt | grep -E "(vulnerabilities|low|moderate|high|critical)")
-
-        cat > npm-audit.txt << EOF
-
-        <h3>🚨 NPM Audit Error</h3>
-        <p><strong>$AUDIT_SUMMARY</strong></p>
-
-        <details>
-        <summary>Show details</summary>
-
-        \`\`\`
-        $AUDIT_CONTENT
-        \`\`\`
-
-        </details>
-
-        EOF
-
-    - uses: peter-evans/create-or-update-comment@v4
-      if: steps.audit.outputs.exit_code != '0' && github.event.pull_request.number
-      continue-on-error: true
-      with:
         issue-number: ${{ github.event.pull_request.number }}
-        comment-id: npm-audit
+        comment-id: ${{ steps.fc.outputs.comment-id }}
         body-file: npm-audit.txt
         edit-mode: replace
 
-    - name: Cleanup npm audit
-      if: steps.audit.outputs.exit_code != '0' && github.event.pull_request.number
+    - name: Cleanup audit files
+      if: github.event.pull_request.number
+      continue-on-error: true
       shell: bash
-      run: rm npm-audit.txt
+      run: rm -f npm-audit.txt
