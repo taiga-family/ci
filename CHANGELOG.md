@@ -1,3 +1,9 @@
+### [1.159.0](https://github.com/taiga-family/ci/compare/v1.158.0...v1.159.0) (2025-09-22)
+
+### 🐞 Bug Fixes
+
+- wrong filename (#469) [(6de55e9)](https://github.com/taiga-family/ci/commit/6de55e9eea77a90b720d84125f3f5dd1126fdd01)
+
 ### [1.158.0](https://github.com/taiga-family/ci/compare/v1.157.0...v1.158.0) (2025-09-22)
 
 ### 🐞 Bug Fixes
