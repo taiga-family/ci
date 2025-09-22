@@ -114,6 +114,7 @@ runs:
     - id: audit
       continue-on-error: true
       shell: bash
+      if: github.event.pull_request.number
       run: |
         set +e
         npm audit --audit-level=critical > npm-audit.txt
@@ -124,6 +125,7 @@ runs:
         echo "Exit code: $exit_code"
 
     - uses: actions/github-script@v6
+      if: github.event.pull_request.number
       continue-on-error: true
       with:
         script: |
@@ -143,13 +145,37 @@ runs:
             console.log('Comment was already deleted or never existed');
           }
 
+    - name: Create formatted audit comment
+      if: steps.audit.outputs.exit_code != '0' && github.event.pull_request.number
+      shell: bash
+      run: |
+        AUDIT_CONTENT=$(cat audit.txt | sed 's/&/&amp;/g; s/</&lt;/g; s/>/&gt;/g; s/"/&quot;/g; s/'"'"'/&&#39;/g')
+        AUDIT_SUMMARY=$(head -n 5 audit.txt | grep -E "(vulnerabilities|low|moderate|high|critical)")
+
+        cat > npm-audit.txt << EOF
+
+        <h3>🚨 NPM Audit Error</h3>
+        <p><strong>$AUDIT_SUMMARY</strong></p>
+
+        <details>
+        <summary>Show details</summary>
+
+        \`\`\`
+        $AUDIT_CONTENT
+        \`\`\`
+
+        </details>
+
+        EOF
+
     - uses: peter-evans/create-or-update-comment@v4
-      if: steps.audit.outputs.exit_code != '0'
+      if: steps.audit.outputs.exit_code != '0' && github.event.pull_request.number
       continue-on-error: true
       with:
         issue-number: ${{ github.event.pull_request.number }}
         comment-id: npm-audit
         body-file: npm-audit.txt
+        edit-mode: replace
 
     - continue-on-error: true
       shell: bash
