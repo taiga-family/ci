@@ -177,6 +177,7 @@ runs:
         body-file: npm-audit.txt
         edit-mode: replace
 
-    - continue-on-error: true
+    - name: Cleanup npm audit
+      if: steps.audit.outputs.exit_code != '0' && github.event.pull_request.number
       shell: bash
       run: rm npm-audit.txt
