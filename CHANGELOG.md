@@ -1,3 +1,10 @@
+### [1.158.0](https://github.com/taiga-family/ci/compare/v1.157.0...v1.158.0) (2025-09-22)
+
+### 🐞 Bug Fixes
+
+- a lots of noisy comments from npm audit (#467)
+  [(1a20ed2)](https://github.com/taiga-family/ci/commit/1a20ed21ccdae3aeed718d2391c3d434387ad5c1)
+
 ### [1.157.0](https://github.com/taiga-family/ci/compare/v1.156.0...v1.157.0) (2025-09-19)
 
 ### 🐞 Bug Fixes
