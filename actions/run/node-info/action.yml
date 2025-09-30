@@ -4,12 +4,13 @@ description: Node.js workspace
 inputs:
   node-version:
     description: Node.js version
+    deprecationMessage: 'Not relevant'
     required: false
-    default: 22.x
+    default: 24.x
   node-registry:
     description: Registry
+    deprecationMessage: 'Not relevant'
     required: false
-    default: 'https://registry.npmjs.org'
 
 outputs:
   root-package-version:
@@ -25,11 +26,8 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Use Node.js ${{ inputs.node-version }}
-      uses: actions/setup-node@v4.4.0
-      with:
-        node-version: ${{ inputs.node-version }}
-        registry-url: ${{ inputs.node-registry }}
+    - uses: taiga-family/ci/actions/setup/variables@main
+    - uses: taiga-family/ci/actions/setup/node@main
 
     - id: output
       shell: bash
