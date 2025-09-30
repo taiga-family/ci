@@ -1,3 +1,10 @@
+### [1.163.0](https://github.com/taiga-family/ci/compare/v1.162.0...v1.163.0) (2025-09-30)
+
+### 🚀 Features
+
+- upgrade to latest Node.js (#480)
+  [(d7791b0)](https://github.com/taiga-family/ci/commit/d7791b0beafcf28dac3b5806460bd5b78d8d132f)
+
 ### [1.162.0](https://github.com/taiga-family/ci/compare/v1.161.0...v1.162.0) (2025-09-26)
 
 ### 🐞 Bug Fixes
