@@ -5,8 +5,8 @@ runs:
   using: composite
   steps:
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3.31.0
+      uses: github/codeql-action/init@v3.31.1
       with:
         languages: javascript
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3.31.0
+      uses: github/codeql-action/analyze@v3.31.1
