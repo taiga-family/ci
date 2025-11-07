@@ -1,3 +1,15 @@
+### [1.169.0](https://github.com/taiga-family/ci/compare/v1.168.0...v1.169.0) (2025-11-07)
+
+### 🚀 Features
+
+- add audit input param (#514)
+  [(fd872e8)](https://github.com/taiga-family/ci/commit/fd872e8c99ba81675f6fdf3957fee0fd6095358c)
+
+### 🐞 Bug Fixes
+
+- update jamesives/github-pages-deploy-action action to v4.7.4 (#512)
+  [(b7390be)](https://github.com/taiga-family/ci/commit/b7390beca2d8f64f37dbbc652fda2ce5ec5ac3a6)
+
 ### [1.168.0](https://github.com/taiga-family/ci/compare/v1.167.0...v1.168.0) (2025-11-01)
 
 ### 🐞 Bug Fixes
