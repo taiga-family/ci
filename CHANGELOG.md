@@ -1,3 +1,12 @@
+### [1.172.0](https://github.com/taiga-family/ci/compare/v1.171.0...v1.172.0) (2025-11-20)
+
+### 🐞 Bug Fixes
+
+- update github/codeql-action action to v3.31.4 (#529)
+  [(20cee1c)](https://github.com/taiga-family/ci/commit/20cee1c9d7927e09415ead935f5ab5d9bfb1a462)
+- update actions/checkout action to v4.3.1 (#528)
+  [(c2c8949)](https://github.com/taiga-family/ci/commit/c2c8949d616876a6a47d65c6587c61f4722949d6)
+
 ### [1.171.0](https://github.com/taiga-family/ci/compare/v1.170.0...v1.171.0) (2025-11-14)
 
 ### 🐞 Bug Fixes
