@@ -1,3 +1,15 @@
+### [1.174.0](https://github.com/taiga-family/ci/compare/v1.173.0...v1.174.0) (2025-12-01)
+
+### 🚀 Features
+
+- correct validate dependency tree (#536)
+  [(a5002a2)](https://github.com/taiga-family/ci/commit/a5002a2fd984fe43658987db1434ac16b9146041)
+
+### 🐞 Bug Fixes
+
+- update github/codeql-action action to v3.31.6 (#535)
+  [(5438fdd)](https://github.com/taiga-family/ci/commit/5438fdd66618930246df8f06b775fda15aacafc7)
+
 ### [1.173.0](https://github.com/taiga-family/ci/compare/v1.172.0...v1.173.0) (2025-11-26)
 
 ### 🐞 Bug Fixes
