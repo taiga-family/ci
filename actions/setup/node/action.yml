@@ -20,6 +20,10 @@ inputs:
     default: |
       node_modules/
       **/node_modules/
+  validate-peer-deps:
+    description: Validation peer dependencies
+    required: false
+    default: 'true'
   nx-path:
     description: nx path
     required: false
@@ -80,12 +84,12 @@ runs:
         npm config set fund false
         npm config set audit false
         npm config set fetch-retries 10
-        npm config set prefer-offline true
         npm config set fetch-retry-mintimeout 600000
         npm config set fetch-retry-maxtimeout 1200000
         npm config set fetch-timeout 1800000
 
     - name: Clean install dependencies
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
       id: clean-install
       run: npm ci ${{ inputs.npm-ci-flags }}
       shell: bash
@@ -103,6 +107,13 @@ runs:
         echo "root-package-version=v$(node -p "require('./package.json')?.version")" >> $GITHUB_OUTPUT
         echo "root-package-major-version=$(node -p "parseInt(require('./package.json')?.version)")" >> $GITHUB_OUTPUT
         echo "is-release-candidate=$(node -p "require('./package.json')?.version?.includes('rc')")" >> $GITHUB_OUTPUT
+
+    - name: Confirm a package-lock.json actually resolves all dependencies in a package.json
+      shell: bash
+      run: |
+        if [[ "${{ inputs.validate-peer-deps }}" == "true" ]]; then
+          npm ls
+        fi
 
     - id: audit
       continue-on-error: true
