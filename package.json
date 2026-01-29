@@ -10,10 +10,10 @@
     },
     "prettier": "@taiga-ui/prettier-config",
     "devDependencies": {
-        "@taiga-ui/auto-changelog-config": "0.401.0",
-        "@taiga-ui/prettier-config": "0.401.0",
-        "@taiga-ui/release-it-config": "0.401.0",
-        "@taiga-ui/syncer": "0.401.0"
+        "@taiga-ui/auto-changelog-config": "0.402.0",
+        "@taiga-ui/prettier-config": "0.402.0",
+        "@taiga-ui/release-it-config": "0.402.0",
+        "@taiga-ui/syncer": "0.402.0"
     },
     "syncer": {
         "includePaths": [
