@@ -1,3 +1,10 @@
+### [1.186.0](https://github.com/taiga-family/ci/compare/v1.185.0...v1.186.0) (2026-02-12)
+
+### 🚀 Features
+
+- add pull request notify (#586)
+  [(f2f243f)](https://github.com/taiga-family/ci/commit/f2f243f9a33dff58bf69594ab3cf5969d43a9d9e)
+
 ### [1.185.0](https://github.com/taiga-family/ci/compare/v1.184.0...v1.185.0) (2026-02-06)
 
 ### [1.184.0](https://github.com/taiga-family/ci/compare/v1.183.0...v1.184.0) (2026-01-29)
