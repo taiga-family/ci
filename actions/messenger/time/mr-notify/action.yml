@@ -1,0 +1,76 @@
+name: MR Notify Action
+description: Send webhook notification about newly opened PR (non-fork, non-bot) with optional custom message override
+
+inputs:
+  webhook:
+    description: 'Webhook URL to POST { text: <message> }'
+    required: true
+  message:
+    description: Optional message override. If set, it will be sent as-is
+    required: false
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Notify via webhook
+      uses: actions/github-script@v7
+      env:
+        WEBHOOK_URL: ${{ inputs.webhook }}
+        MESSAGE: ${{ inputs.message }}
+      with:
+        script: |
+          const pr = context.payload.pull_request;
+          const webhookUrl = process.env.WEBHOOK_URL;
+
+          if (!pr) {
+            throw new Error('No pull_request in event payload provided');
+          }
+
+          if (!webhookUrl) {
+            throw new Error('Input "webhook" is required');
+          }
+
+
+          const isFork = pr.head?.repo?.full_name !== pr.base?.repo?.full_name;
+
+          if (isFork) {
+            core.info('Skip fork PR');
+
+            return;
+          }
+
+          const ghLogin = pr.user?.login ?? '';
+
+          if (!ghLogin || ghLogin.includes('-bot')) {
+            core.info(`Skip bot user: ${ghLogin}`);
+
+            return;
+          }
+
+          const loginMap = {
+            splincode: 'm.ivanov4',
+            waterplea: 'a.inkin',
+            nsbarsukov: 'n.barsukov',
+            vladimirpotekhin: 'v.potekhin',
+            mdlufy: 'g.d.panov',
+            sayranovv: 'e.sayranov',
+          };
+
+          const author = loginMap[ghLogin] ?? ghLogin;
+          const title = pr.title ?? '(no title)';
+          const url = pr.html_url;
+          const number = pr.number;
+          const text = (process.env.MESSAGE || '').trim() || `:merged-arrow: Новый Pull request от @${author}\n:github-logo: [#${number} ${title}](${url})`;
+
+          const res = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({text}),
+          });
+
+          if (!res.ok) {
+            throw new Error(`Webhook failed: ${res.status} ${res.statusText}\n${await res.text()}`);
+          }
+
+          core.info('Notification sent successfully.');
