@@ -1,3 +1,10 @@
+### [1.191.0](https://github.com/taiga-family/ci/compare/v1.190.0...v1.191.0) (2026-03-12)
+
+### 🚀 Features
+
+- add label community contribution (#594)
+  [(3d10ead)](https://github.com/taiga-family/ci/commit/3d10eadcdf32d789d93383ca20fe3d1b5318a11b)
+
 ### [1.190.0](https://github.com/taiga-family/ci/compare/v1.189.0...v1.190.0) (2026-03-06)
 
 ### [1.189.0](https://github.com/taiga-family/ci/compare/v1.188.0...v1.189.0) (2026-02-23)
