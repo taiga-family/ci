@@ -1,3 +1,10 @@
+### [1.194.0](https://github.com/taiga-family/ci/compare/v1.193.0...v1.194.0) (2026-03-27)
+
+### 🚀 Features
+
+- provide custom compiler options for e2e (#610)
+  [(43c297b)](https://github.com/taiga-family/ci/commit/43c297b9bfd500629d9958f9f73586d95201e8aa)
+
 ### [1.193.0](https://github.com/taiga-family/ci/compare/v1.192.0...v1.193.0) (2026-03-20)
 
 ### [1.192.0](https://github.com/taiga-family/ci/compare/v1.191.0...v1.192.0) (2026-03-12)
