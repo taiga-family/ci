@@ -7,5 +7,5 @@ runs:
     - name: Combine images to get diff reports
       run: |
         npm install --cpu=$(node -p process.arch) --os=$(node -p process.platform) @taiga-ui/testing sharp --no-save --force
-        npx ts-node -e "import { tuiCombinePlaywrightFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();"
+        npx ts-node -O '{"moduleResolution":"node10"}' -e "import { tuiCombinePlaywrightFailedScreenshots as run } from '@taiga-ui/testing/visual-testing'; run();"
       shell: bash
