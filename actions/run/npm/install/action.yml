@@ -12,6 +12,7 @@ runs:
         npm config set audit false
         npm config set loglevel error
         npm config set fund false 
+        npm config set ignore-scripts true 
 
         echo 'TODO: workaround for https://github.com/npm/cli/issues/7019'
         npm i --workspaces --include-workspace-root || npm i
