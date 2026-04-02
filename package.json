@@ -16,12 +16,8 @@
         "@taiga-ui/syncer": "0.447.0"
     },
     "syncer": {
-        "includePaths": [
-            "./package-lock.json"
-        ],
-        "matchPackageNames": [
-            "taiga-ui-ci"
-        ],
-        "ignorePackageNames": []
+        "ignorePackageNames": [],
+        "includePaths": ["./package-lock.json"],
+        "matchPackageNames": ["taiga-ui-ci"]
     }
 }
