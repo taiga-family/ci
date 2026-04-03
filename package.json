@@ -17,7 +17,11 @@
     },
     "syncer": {
         "ignorePackageNames": [],
-        "includePaths": ["./package-lock.json"],
-        "matchPackageNames": ["taiga-ui-ci"]
+        "includePaths": [
+            "./package-lock.json"
+        ],
+        "matchPackageNames": [
+            "taiga-ui-ci"
+        ]
     }
 }
