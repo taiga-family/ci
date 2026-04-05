@@ -87,6 +87,7 @@ runs:
         npm config set fetch-retry-mintimeout 600000
         npm config set fetch-retry-maxtimeout 1200000
         npm config set fetch-timeout 1800000
+        npm config set ignore-scripts true
 
     - name: Clean install dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
