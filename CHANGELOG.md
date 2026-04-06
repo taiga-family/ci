@@ -1,3 +1,5 @@
+### [1.196.0](https://github.com/taiga-family/ci/compare/v1.195.0...v1.196.0) (2026-04-05)
+
 ### [1.195.0](https://github.com/taiga-family/ci/compare/v1.194.0...v1.195.0) (2026-03-27)
 
 ### [1.194.0](https://github.com/taiga-family/ci/compare/v1.193.0...v1.194.0) (2026-03-27)
