@@ -27,7 +27,6 @@ runs:
       id: playwright-cache
       with:
         path: |
-          ~/Library/Caches/ms-playwright
           ~/.cache/ms-playwright
           **/node_modules/playwright
         key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version || inputs.version }}
@@ -35,6 +34,4 @@ runs:
     - name: Clean install Playwright dependencies
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
-      run: |
-        npx playwright install --with-deps ${{ inputs.deps }}
-        npx playwright install-deps
+      run: npx playwright install --with-deps ${{ inputs.deps }}
