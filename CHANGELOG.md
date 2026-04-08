@@ -1,3 +1,12 @@
+### [1.197.0](https://github.com/taiga-family/ci/compare/v1.196.0...v1.197.0) (2026-04-08)
+
+### 🚀 Features
+
+- add `--ignore-scripts` (#613)
+  [(3dbe8ae)](https://github.com/taiga-family/ci/commit/3dbe8ae7931243eac9cea84114e35faa08554b60)
+- optimize playwright install (#628)
+  [(ac15842)](https://github.com/taiga-family/ci/commit/ac15842aae9cea0a6cad6101756b60ef146a09d0)
+
 ### [1.196.0](https://github.com/taiga-family/ci/compare/v1.195.0...v1.196.0) (2026-04-05)
 
 ### [1.195.0](https://github.com/taiga-family/ci/compare/v1.194.0...v1.195.0) (2026-03-27)
