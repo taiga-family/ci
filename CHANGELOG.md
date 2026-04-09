@@ -1,3 +1,9 @@
+### [1.198.0](https://github.com/taiga-family/ci/compare/v1.197.0...v1.198.0) (2026-04-09)
+
+### 🚀 Features
+
+- add cypress setup [(55231b1)](https://github.com/taiga-family/ci/commit/55231b13dba3deaa0b59e0fdddeeac74310bf811)
+
 ### [1.197.0](https://github.com/taiga-family/ci/compare/v1.196.0...v1.197.0) (2026-04-08)
 
 ### 🚀 Features
