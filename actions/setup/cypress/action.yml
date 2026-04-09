@@ -18,7 +18,7 @@ runs:
       shell: bash
       run: |
         VERSION=$(npm ls cypress --all --json 2>/dev/null \
-          | jq -r '.. | objects | select(has("version") and has("resolved")) | select(.resolved | contains("cypress")) | .version // empty' \
+          | jq -r '.. | objects | select(has("version") and has("resolved")) | select(.resolved | test("registry\\.npmjs\\.org/cypress/-/")) | .version // empty' \
           | head -n 1)
 
         echo "version=$VERSION" >> "$GITHUB_OUTPUT"
@@ -29,6 +29,7 @@ runs:
         path: |
           ~/Library/Caches/Cypress
           ~/.cache/Cypress
+          ${{ env.CYPRESS_CACHE_FOLDER }}
         key: ${{ runner.os }}-cypress-${{ steps.detect-cy.outputs.version || inputs.version }}
 
     - name: Clean install Cypress dependencies
