@@ -1,3 +1,9 @@
+### [1.200.0](https://github.com/taiga-family/ci/compare/v1.199.0...v1.200.0) (2026-04-10)
+
+### 🐞 Bug Fixes
+
+- wrong cypress cache [(8055672)](https://github.com/taiga-family/ci/commit/8055672923404f51d5a0cdb4ff6560c001952893)
+
 ### [1.199.0](https://github.com/taiga-family/ci/compare/v1.198.0...v1.199.0) (2026-04-09)
 
 ### [1.198.0](https://github.com/taiga-family/ci/compare/v1.197.0...v1.198.0) (2026-04-09)
