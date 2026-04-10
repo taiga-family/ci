@@ -29,7 +29,7 @@ runs:
         path: |
           ~/.cache/ms-playwright
           **/node_modules/playwright
-        key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version || inputs.version }}
+        key: ${{ runner.os }}-playwright-v${{ steps.detect-pw.outputs.version || inputs.version }}
 
     - name: Clean install Playwright dependencies
       if: steps.playwright-cache.outputs.cache-hit != 'true'

@@ -5,10 +5,6 @@ inputs:
   version:
     description: custom version
     required: true
-  deps:
-    description: Concrete dependencies instead all
-    required: false
-    default: ''
 
 runs:
   using: composite
@@ -30,10 +26,10 @@ runs:
           ~/Library/Caches/Cypress
           ~/.cache/Cypress
           ${{ env.CYPRESS_CACHE_FOLDER }}
-        key: ${{ runner.os }}-cypress-${{ steps.detect-cy.outputs.version || inputs.version }}
+        key: ${{ runner.os }}-cypress-v${{ steps.detect-cy.outputs.version || inputs.version }}
 
     - name: Clean install Cypress dependencies
       if: steps.cypress-cache.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        npx cypress install ${{ inputs.deps }}
+        npx cypress install
