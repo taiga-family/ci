@@ -27,32 +27,25 @@ runs:
 
         if [[ "${{ github.base_ref }}" == "" ]]; then
             echo "Auto push doesn't support when base_ref is empty"
-            exit 0;
+            exit 0
         fi
 
-        if [[ "${{ github.event.pull_request.head.repo.full_name != github.repository }}" == "true" ]]; then
+        if [[ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]]; then
             echo "Auto push doesn't support from fork"
-            exit 0;
+            exit 0
         fi
-
-        git add .
-        git stash || echo 'No local changes to save'
-        git remote update &> /dev/null
-        git fetch &> /dev/null
-        git checkout -t -b ${{ github.head_ref }} origin/${{ github.head_ref }} || echo 'Already exists'
-        git stash pop || echo 'Already updated'
-        git add .
-        git status --porcelain
 
         git config --global user.name "${{ inputs.name }}"
         git config --global user.email "${{ inputs.email }}"
         git remote set-url --push origin https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
 
-        if [[ `git status --porcelain` ]]; then
-           git commit --author="${{ inputs.name }} <${{ inputs.name }}@users.noreply.github.com>" \
-                      -m "chore: ${{ inputs.message }} [bot]" \
-                      --no-verify
-           git push -u origin ${{ github.head_ref }}
+        git fetch origin ${{ github.head_ref }} &> /dev/null
+        git checkout ${{ github.head_ref }}
+        git add .
+
+        if [[ $(git status --porcelain) ]]; then
+            git commit -m "chore: ${{ inputs.message }} [bot]" --no-verify
+            git push -u origin ${{ github.head_ref }}
         else
-           echo "Nothing to update"
+            echo "Nothing to update"
         fi
