@@ -1,3 +1,9 @@
+### [1.201.0](https://github.com/taiga-family/ci/compare/v1.200.0...v1.201.0) (2026-04-10)
+
+### 🚀 Features
+
+- optimize auto push [(1ca5ea1)](https://github.com/taiga-family/ci/commit/1ca5ea1be545aa16909f47df72abab9865551808)
+
 ### [1.200.0](https://github.com/taiga-family/ci/compare/v1.199.0...v1.200.0) (2026-04-10)
 
 ### 🐞 Bug Fixes
