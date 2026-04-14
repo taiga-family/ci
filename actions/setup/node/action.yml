@@ -113,7 +113,7 @@ runs:
           npm ls
         fi
 
-    - id: check-lock-changed
+    - id: lock
       shell: bash
       if: ${{ github.event.pull_request.number && inputs.audit == 'true' }}
       run: |
@@ -127,7 +127,7 @@ runs:
     - id: audit
       continue-on-error: true
       shell: bash
-      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.check-lock-changed.outputs.changed == 'true' }}
+      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.lock.outputs.changed == 'true' }}
       run: |
         set +e
         npm audit --audit-level=critical > npm-audit.txt
@@ -159,7 +159,7 @@ runs:
         } > npm-audit.txt
 
     - uses: peter-evans/find-comment@v3
-      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.check-lock-changed.outputs.changed == 'true' }}
+      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.lock.outputs.changed == 'true' }}
       continue-on-error: true
       id: fc
       with:
@@ -167,7 +167,7 @@ runs:
         body-includes: NPM Audit
 
     - uses: peter-evans/create-or-update-comment@v4
-      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.check-lock-changed.outputs.changed == 'true' }}
+      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.lock.outputs.changed == 'true' }}
       continue-on-error: true
       with:
         issue-number: ${{ github.event.pull_request.number }}
@@ -176,7 +176,7 @@ runs:
         edit-mode: replace
 
     - name: Cleanup audit files
-      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.check-lock-changed.outputs.changed == 'true' }}
+      if: ${{ github.event.pull_request.number && inputs.audit == 'true' && steps.lock.outputs.changed == 'true' }}
       continue-on-error: true
       shell: bash
       run: rm -f npm-audit.txt
