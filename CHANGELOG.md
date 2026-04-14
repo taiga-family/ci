@@ -1,3 +1,11 @@
+### [1.202.0](https://github.com/taiga-family/ci/compare/v1.201.0...v1.202.0) (2026-04-14)
+
+### 🚀 Features
+
+- drop useless action [(12deec8)](https://github.com/taiga-family/ci/commit/12deec823fe3dd96d5c4f44a0df3c919ddf7cc7c)
+- send npm audit when lock files has changed
+  [(48c8750)](https://github.com/taiga-family/ci/commit/48c8750b977fecc374c92cb5d0120372390f6cc8)
+
 ### [1.201.0](https://github.com/taiga-family/ci/compare/v1.200.0...v1.201.0) (2026-04-10)
 
 ### 🚀 Features
