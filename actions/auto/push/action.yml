@@ -17,6 +17,13 @@ inputs:
     description: commit message
     required: false
     default: apply changes after linting
+  exclude:
+    description: newline-separated list of file patterns to unstage before committing
+    required: false
+    default: |
+      terminalOutput
+      *.log
+      *.tsbuildinfo
 
 runs:
   using: composite
@@ -42,6 +49,11 @@ runs:
         git fetch origin ${{ github.head_ref }} &> /dev/null
         git checkout ${{ github.head_ref }}
         git add .
+
+        while IFS= read -r pattern; do
+            [[ -z "$pattern" ]] && continue
+            git ls-files --cached -- "$pattern" | xargs -r git restore --staged
+        done <<< "${{ inputs.exclude }}"
 
         if [[ $(git status --porcelain) ]]; then
             git commit -m "chore: ${{ inputs.message }} [bot]" --no-verify
