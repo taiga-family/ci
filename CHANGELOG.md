@@ -1,3 +1,10 @@
+### [1.205.0](https://github.com/taiga-family/ci/compare/v1.204.0...v1.205.0) (2026-04-22)
+
+### 🚀 Features
+
+- install `@taiga-ui/testing` if there is no local version
+  [(0bc3b64)](https://github.com/taiga-family/ci/commit/0bc3b6450a503ecc054d521ef29614a25f4db943)
+
 ### [1.204.0](https://github.com/taiga-family/ci/compare/v1.203.0...v1.204.0) (2026-04-19)
 
 ### [1.203.0](https://github.com/taiga-family/ci/compare/v1.202.0...v1.203.0) (2026-04-14)
