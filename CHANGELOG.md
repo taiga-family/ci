@@ -1,3 +1,10 @@
+### [1.206.0](https://github.com/taiga-family/ci/compare/v1.205.0...v1.206.0) (2026-04-23)
+
+### 🚀 Features
+
+- auto assign user after merge pull request (#655)
+  [(fac2e28)](https://github.com/taiga-family/ci/commit/fac2e28ad0dcffdeba9d784d0dfad9f9866bcf9e)
+
 ### [1.205.0](https://github.com/taiga-family/ci/compare/v1.204.0...v1.205.0) (2026-04-22)
 
 ### 🚀 Features
