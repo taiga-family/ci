@@ -65,6 +65,15 @@ runs:
             });
           }
 
+          async function assignIssue(issue_number, assignee) {
+            await github.rest.issues.addAssignees({
+              owner,
+              repo,
+              issue_number,
+              assignees: [assignee],
+            });
+          }
+
           async function getPullRequest() {
             const {data} = await github.rest.pulls.get({
               owner,
@@ -188,14 +197,20 @@ runs:
 
           const issues = await getClosingIssues(pr);
 
+          const prAuthor = pr.user?.login;
+
           for (const issue of issues) {
             if (issue?.number) {
               await addLabel(issue.number);
+
+              if (prAuthor) {
+                await assignIssue(issue.number, prAuthor);
+              }
             }
           }
 
           core.info(
-            `Done. PR #${pr.number}, issues: ${
+            `Done. PR #${pr.number} by @${prAuthor}, issues: ${
               issues.map(({number}) => `#${number}`).join(', ') || 'none'
             }`,
           );
