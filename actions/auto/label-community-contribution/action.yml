@@ -65,12 +65,12 @@ runs:
             });
           }
 
-          async function assignIssue(issue_number, assignee) {
-            await github.rest.issues.addAssignees({
+          async function creditContributor(issue_number, prNumber, assignee) {
+            await github.rest.issues.createComment({
               owner,
               repo,
               issue_number,
-              assignees: [assignee],
+              body: `This issue was resolved by @${assignee} in #${prNumber}. 🎉`,
             });
           }
 
@@ -204,7 +204,7 @@ runs:
               await addLabel(issue.number);
 
               if (prAuthor) {
-                await assignIssue(issue.number, prAuthor);
+                await creditContributor(issue.number, pr.number, prAuthor);
               }
             }
           }
