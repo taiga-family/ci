@@ -13,5 +13,10 @@ runs:
       shell: bash
       run: |
         npm config set '//registry.npmjs.org/:_authToken' "${{ inputs.token }}"
-        NPM_WHOAMI_OUTPUT=$(npm whoami)
-        echo "::debug::npm whoami: ${NPM_WHOAMI_OUTPUT}"
+
+        if ! NPM_WHOAMI_OUTPUT=$(npm whoami 2>&1); then
+          echo -e "Token is invalid or expired: ${NPM_WHOAMI_OUTPUT}"
+          exit 1
+        fi
+
+        echo "npm whoami: ${NPM_WHOAMI_OUTPUT}"
