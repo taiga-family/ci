@@ -1,3 +1,12 @@
+### [1.207.0](https://github.com/taiga-family/ci/compare/v1.206.0...v1.207.0) (2026-04-26)
+
+### 🐞 Bug Fixes
+
+- npm should fail for expired token (#657)
+  [(6c5808f)](https://github.com/taiga-family/ci/commit/6c5808fbe6d6f982c0073b415c71bcd0cbb16e4f)
+- replace addAssignees by createComment (#656)
+  [(26a10eb)](https://github.com/taiga-family/ci/commit/26a10eb83a221f7e504186be86abc515027d9f0a)
+
 ### [1.206.0](https://github.com/taiga-family/ci/compare/v1.205.0...v1.206.0) (2026-04-23)
 
 ### 🚀 Features
