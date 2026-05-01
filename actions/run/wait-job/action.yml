@@ -12,7 +12,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: fountainhead/action-wait-for-check@v1.2.0
+    - uses: fountainhead/action-wait-for-check@5a908a24814494009c4bb27c242ea38c93c593be # v1.2.0
       id: waiter
       with:
         token: ${{ inputs.token }}
