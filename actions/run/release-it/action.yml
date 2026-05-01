@@ -27,19 +27,19 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4.3.1
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       with:
         token: ${{ inputs.githubToken }}
         ref: ${{ inputs.ref || github.ref }}
         persist-credentials: false
         fetch-tags: true
         fetch-depth: 0
-    - uses: taiga-family/ci/actions/setup/variables@main
-    - uses: taiga-family/ci/actions/setup/node@main
-    - uses: taiga-family/ci/actions/setup/config/git@main
+    - uses: taiga-family/ci/actions/setup/variables@b50b17b39428cf197348948aa945d564aa2bdf17 # main
+    - uses: taiga-family/ci/actions/setup/node@b50b17b39428cf197348948aa945d564aa2bdf17 # main
+    - uses: taiga-family/ci/actions/setup/config/git@b50b17b39428cf197348948aa945d564aa2bdf17 # main
       with:
         token: ${{ inputs.githubToken }}
-    - uses: taiga-family/ci/actions/setup/config/npm@main
+    - uses: taiga-family/ci/actions/setup/config/npm@b50b17b39428cf197348948aa945d564aa2bdf17 # main
       if: ${{ inputs.npmToken }}
       with:
         token: ${{ inputs.npmToken }}

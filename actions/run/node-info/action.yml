@@ -26,8 +26,8 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: taiga-family/ci/actions/setup/variables@main
-    - uses: taiga-family/ci/actions/setup/node@main
+    - uses: taiga-family/ci/actions/setup/variables@b50b17b39428cf197348948aa945d564aa2bdf17 # main
+    - uses: taiga-family/ci/actions/setup/node@b50b17b39428cf197348948aa945d564aa2bdf17 # main
 
     - id: output
       shell: bash
