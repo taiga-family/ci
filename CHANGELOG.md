@@ -1,3 +1,14 @@
+### [1.208.0](https://github.com/taiga-family/ci/compare/v1.207.0...v1.208.0) (2026-05-03)
+
+### 🐞 Bug Fixes
+
+- update github actions ([#667](https://github.com/taiga-family/ci/pull/667))
+  [(352646a)](https://github.com/taiga-family/ci/commit/352646a60cae9599ad995aaec7afd747f08362f3)
+- pin dependencies ([#665](https://github.com/taiga-family/ci/pull/665))
+  [(6c61267)](https://github.com/taiga-family/ci/commit/6c61267a93c900fa1df2ff7f08be8b3dcb36e726)
+- update github actions ([#666](https://github.com/taiga-family/ci/pull/666))
+  [(b50b17b)](https://github.com/taiga-family/ci/commit/b50b17b39428cf197348948aa945d564aa2bdf17)
+
 ### [1.207.0](https://github.com/taiga-family/ci/compare/v1.206.0...v1.207.0) (2026-04-26)
 
 ### 🐞 Bug Fixes
