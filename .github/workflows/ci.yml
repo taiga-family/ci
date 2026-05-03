@@ -17,7 +17,7 @@ jobs:
 
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
-              npm run lint -- --write
+              npm run lint -- --fix
               npm run prettier -- --write
           else
               npm run lint
