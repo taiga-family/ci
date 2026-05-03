@@ -1,0 +1,5 @@
+{
+    "extends": "@taiga-ui/tsconfig",
+    "include": ["**/*.ts", "**/*.js"],
+    "exclude": ["**/node_modules"]
+}

@@ -1,10 +1,10 @@
-# ci
+# Actions
 
-Ready-made pipelines for continuous integration of taiga projects
+Ready-made actions for continuous integration
 
 ---
 
-### Auto approve action
+## Auto approve action
 
 ```yml
 name: Auto approve
@@ -24,7 +24,7 @@ jobs:
           token2: ${{ secrets.APPROVER2_TOKEN }}
 ```
 
-### Global variables action
+## Global variables action
 
 ```yml
 jobs:
@@ -35,7 +35,7 @@ jobs:
       - uses: taiga-family/ci/actions/setup/variable@v1.24.0
 ```
 
-### Node.js action
+## Node.js action
 
 ```yml
 jobs:
@@ -46,4 +46,6 @@ jobs:
       - uses: taiga-family/ci/actions/setup/node@v1.24.0
 ```
 
-#### You can also see what else actions is inside `actions` directory
+---
+
+You can also see what else actions is inside `actions` directory

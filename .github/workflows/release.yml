@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: taiga-family/ci/actions/run/release-it@67367a61aee4ba80a39e433f0ea82155c0c178bf # main
+      - uses: taiga-family/ci/actions/run/release-it@main # main
         with:
           mode: ${{ github.event.inputs.mode || 'minor' }}
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}

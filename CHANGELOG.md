@@ -2135,7 +2135,7 @@
 
 - bump npm version [(0dca9f4)](https://github.com/taiga-family/ci/commit/0dca9f4e750f9e3f51b5cf1378bf42ac22373dbc)
 
-### [0.0.1]() (2023-08-03)
+### [0.0.1](https://github.com/taiga-family/ci/compare/0.0.1) (2023-08-03)
 
 ### 🚀 Features
 
