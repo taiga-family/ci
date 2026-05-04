@@ -1,3 +1,9 @@
+This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
+
+### [1.210.0](https://github.com/taiga-family/ci/compare/v1.209.0...v1.210.0) (2026-05-03)
+
+This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
+
 ### [1.209.0](https://github.com/taiga-family/ci/compare/v1.208.0...v1.209.0) (2026-05-03)
 
 ### [1.208.0](https://github.com/taiga-family/ci/compare/v1.207.0...v1.208.0) (2026-05-03)
