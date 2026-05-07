@@ -6,9 +6,9 @@ inputs:
     description: custom version
     required: true
   deps:
-    description: Concrete dependencies instead all
+    description: Browsers to install, e.g. "chromium"
     required: false
-    default: ''
+    default: chromium
 
 runs:
   using: composite
@@ -17,21 +17,34 @@ runs:
       id: detect-pw
       shell: bash
       run: |
-        VERSION=$(npm ls @playwright/test --all --json 2>/dev/null \
-          | jq -r '.. | objects | select(has("version") and has("resolved")) | select(.resolved | contains("@playwright/test")) | .version // empty' \
-          | head -n 1)
+        VERSION=$(node -p "require('@playwright/test/package.json').version" 2>/dev/null || true)
+
+        if [ -z "$VERSION" ]; then
+          VERSION="${{ inputs.version }}"
+        fi
 
         echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        echo "Detected Playwright version: $VERSION"
 
-    - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+    - name: Restore Playwright cache
       id: playwright-cache
+      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
       with:
-        path: |
-          ~/.cache/ms-playwright
-          **/node_modules/playwright
-        key: ${{ runner.os }}-playwright-v${{ steps.detect-pw.outputs.version || inputs.version }}
+        path: ~/.cache/ms-playwright
+        key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version }}-${{ inputs.deps }}
 
-    - name: Clean install Playwright dependencies
+    - name: Install Playwright system dependencies
+      shell: bash
+      run: npx playwright install-deps ${{ inputs.deps }}
+
+    - name: Install Playwright browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
-      run: npx playwright install --with-deps ${{ inputs.deps }}
+      run: npx playwright install ${{ inputs.deps }}
+
+    - name: Save Playwright cache
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      with:
+        path: ~/.cache/ms-playwright
+        key: ${{ steps.playwright-cache.outputs.cache-primary-key }}
