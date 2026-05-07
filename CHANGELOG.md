@@ -1,3 +1,15 @@
+### [1.211.0](https://github.com/taiga-family/ci/compare/v1.210.0...v1.211.0) (2026-05-07)
+
+### 🚀 Features
+
+- improve playwright cache
+  [(2f4282e)](https://github.com/taiga-family/ci/commit/2f4282ef29731681f64ea3678d0050b6581cefc6)
+
+### 🐞 Bug Fixes
+
+- update actions/add-to-project action to v2 ([#676](https://github.com/taiga-family/ci/pull/676))
+  [(9a26fd6)](https://github.com/taiga-family/ci/commit/9a26fd615e852836033fb24b9e2f7780de77faec)
+
 This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
 
 ### [1.210.0](https://github.com/taiga-family/ci/compare/v1.209.0...v1.210.0) (2026-05-03)
