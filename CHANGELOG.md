@@ -1,3 +1,10 @@
+### [1.213.0](https://github.com/taiga-family/ci/compare/v1.212.0...v1.213.0) (2026-05-11)
+
+### 🚀 Features
+
+- refactor auto push [(9a516f8)](https://github.com/taiga-family/ci/commit/9a516f876e247f00f8654ade782adf128aee61f9)
+- refactor auto push [(2053c62)](https://github.com/taiga-family/ci/commit/2053c62bccb71431731a46dc0ccd41f910899d28)
+
 ### [1.212.0](https://github.com/taiga-family/ci/compare/v1.211.0...v1.212.0) (2026-05-10)
 
 ### 🐞 Bug Fixes
