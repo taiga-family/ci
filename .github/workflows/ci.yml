@@ -26,7 +26,7 @@ jobs:
 
       - uses: ./actions/auto/push
         with:
-           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
