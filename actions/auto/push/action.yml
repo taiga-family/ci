@@ -47,11 +47,20 @@ runs:
         git config user.email "$EMAIL"
         git remote set-url origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
 
+        if [[ -z "$(git status --porcelain)" ]]; then
+            echo "Nothing to update"
+            exit 0
+        fi
+
+        git stash push -u -m "auto-push changes"
+        git fetch origin "+refs/heads/${HEAD_REF}:refs/remotes/origin/${HEAD_REF}"
+        git switch -C "$HEAD_REF" "refs/remotes/origin/${HEAD_REF}"
+        git stash pop
         git add .
 
         if [[ -n "$(git status --porcelain)" ]]; then
             git commit -m "chore: ${MESSAGE} [bot]" --no-verify
             git push origin "HEAD:${HEAD_REF}"
         else
-            echo "Nothing to update"
+            echo "Nothing to update after switching to ${HEAD_REF}"
         fi
