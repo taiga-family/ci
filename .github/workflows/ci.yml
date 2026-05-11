@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-      - uses: taiga-family/ci/actions/setup/variables@67367a61aee4ba80a39e433f0ea82155c0c178bf # main
-      - uses: taiga-family/ci/actions/setup/node@67367a61aee4ba80a39e433f0ea82155c0c178bf # main
+      - uses: taiga-family/ci/actions/setup/variables@main # main
+      - uses: taiga-family/ci/actions/setup/node@main # main
 
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
@@ -26,7 +26,7 @@ jobs:
 
       - uses: ./actions/auto/push
         with:
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
