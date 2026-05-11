@@ -23,29 +23,35 @@ runs:
   steps:
     - name: Commit and push
       shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+        NAME: ${{ inputs.name }}
+        EMAIL: ${{ inputs.email }}
+        MESSAGE: ${{ inputs.message }}
+        BASE_REF: ${{ github.base_ref }}
+        HEAD_REF: ${{ github.head_ref }}
+        HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+        REPOSITORY: ${{ github.repository }}
       run: |
-
-        if [[ "${{ github.base_ref }}" == "" ]]; then
+        if [[ -z "$BASE_REF" ]]; then
             echo "Auto push doesn't support when base_ref is empty"
             exit 0
         fi
 
-        if [[ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]]; then
+        if [[ "$HEAD_REPO" != "$REPOSITORY" ]]; then
             echo "Auto push doesn't support from fork"
             exit 0
         fi
 
-        git config --global user.name "${{ inputs.name }}"
-        git config --global user.email "${{ inputs.email }}"
-        git remote set-url --push origin https://${{ inputs.name }}:${{ inputs.token }}@github.com/${{ github.repository }}
+        git config user.name "$NAME"
+        git config user.email "$EMAIL"
+        git remote set-url origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
 
-        git fetch origin ${{ github.head_ref }} &> /dev/null
-        git checkout ${{ github.head_ref }}
         git add .
 
-        if [[ $(git status --porcelain) ]]; then
-            git commit -m "chore: ${{ inputs.message }} [bot]" --no-verify
-            git push -u origin ${{ github.head_ref }}
+        if [[ -n "$(git status --porcelain)" ]]; then
+            git commit -m "chore: ${MESSAGE} [bot]" --no-verify
+            git push origin "HEAD:${HEAD_REF}"
         else
             echo "Nothing to update"
         fi
