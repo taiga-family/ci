@@ -1,3 +1,10 @@
+### [1.214.0](https://github.com/taiga-family/ci/compare/v1.213.0...v1.214.0) (2026-05-13)
+
+### 🚀 Features
+
+- remove label after apply
+  [(41a0702)](https://github.com/taiga-family/ci/commit/41a07021ef3d0fd71f20e7c7defbfe72e8fadd04)
+
 ### [1.213.0](https://github.com/taiga-family/ci/compare/v1.212.0...v1.213.0) (2026-05-11)
 
 ### 🚀 Features
