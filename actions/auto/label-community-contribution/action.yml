@@ -12,6 +12,10 @@ inputs:
     description: Label to apply
     required: false
     default: community contribution
+  remove-label-name:
+    description: Label to remove when applying label-name
+    required: false
+    default: contributions welcome
 
 runs:
   using: composite
@@ -21,11 +25,13 @@ runs:
       env:
         PR_NUMBER: ${{ inputs.pr-number }}
         LABEL_NAME: ${{ inputs.label-name }}
+        REMOVE_LABEL_NAME: ${{ inputs.remove-label-name }}
       with:
         github-token: ${{ inputs.github-token }}
         script: |
           const prNumber = Number(process.env.PR_NUMBER);
           const label = process.env.LABEL_NAME || 'community contribution';
+          const removeLabel = process.env.REMOVE_LABEL_NAME || 'contributions welcome';
 
           if (!prNumber) {
             throw new Error('PR_NUMBER is required');
@@ -63,6 +69,21 @@ runs:
               issue_number,
               labels: [label],
             });
+          }
+
+          async function removeLabelIfPresent(issue_number) {
+            try {
+              await github.rest.issues.removeLabel({
+                owner,
+                repo,
+                issue_number,
+                name: removeLabel,
+              });
+            } catch (error) {
+              if (error.status !== 404 && error.status !== 410) {
+                throw error;
+              }
+            }
           }
 
           async function creditContributor(issue_number, prNumber, assignee) {
@@ -194,6 +215,7 @@ runs:
 
           await ensureLabelExists();
           await addLabel(pr.number);
+          await removeLabelIfPresent(pr.number);
 
           const issues = await getClosingIssues(pr);
 
@@ -202,6 +224,7 @@ runs:
           for (const issue of issues) {
             if (issue?.number) {
               await addLabel(issue.number);
+              await removeLabelIfPresent(issue.number);
 
               if (prAuthor) {
                 await creditContributor(issue.number, pr.number, prAuthor);
