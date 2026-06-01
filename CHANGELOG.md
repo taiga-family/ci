@@ -1,3 +1,7 @@
+### [1.217.0](https://github.com/taiga-family/ci/compare/v1.216.0...v1.217.0) (2026-05-31)
+
+This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
+
 ### [1.216.0](https://github.com/taiga-family/ci/compare/v1.215.0...v1.216.0) (2026-05-22)
 
 ### 🐞 Bug Fixes
