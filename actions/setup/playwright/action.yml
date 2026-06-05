@@ -41,6 +41,9 @@ runs:
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
       run: npx playwright install ${{ inputs.deps }}
+      env:
+        DEBUG: pw:install
+        PLAYWRIGHT_SKIP_BROWSER_GC: 1
 
     - name: Save Playwright cache
       if: steps.playwright-cache.outputs.cache-hit != 'true'
