@@ -1,3 +1,18 @@
+### [1.218.0](https://github.com/taiga-family/ci/compare/v1.217.0...v1.218.0) (2026-06-05)
+
+### 🚀 Features
+
+- show debug [(78bcc20)](https://github.com/taiga-family/ci/commit/78bcc204923d66b4a6296d334bd1ab0abdcbea54)
+
+### 🐞 Bug Fixes
+
+- update github actions to v4.36.2 ([#713](https://github.com/taiga-family/ci/pull/713))
+  [(bb007da)](https://github.com/taiga-family/ci/commit/bb007daf2bfad4aef14e07e18aa9f772e2bf6d4a)
+- update github actions to v6.0.3 ([#712](https://github.com/taiga-family/ci/pull/712))
+  [(c476098)](https://github.com/taiga-family/ci/commit/c476098a27380be6ac56f43d1764061d7ce7fd14)
+- update github/codeql-action action to v4.36.1 ([#711](https://github.com/taiga-family/ci/pull/711))
+  [(aa2361a)](https://github.com/taiga-family/ci/commit/aa2361a8eb018612977353c187c9818eba4724d6)
+
 ### [1.217.0](https://github.com/taiga-family/ci/compare/v1.216.0...v1.217.0) (2026-05-31)
 
 This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
