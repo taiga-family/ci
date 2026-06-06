@@ -13,25 +13,31 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Detect Playwright version
-      id: detect-pw
+    - name: Detect Playwright and Node versions
+      id: detect-versions
       shell: bash
       run: |
         VERSION=$(node -p "require('@playwright/test/package.json').version" 2>/dev/null || true)
+        NODE_VERSION=$(node -p "process.versions.node.split('.')[0]")
 
         if [ -z "$VERSION" ]; then
           VERSION="${{ inputs.version }}"
         fi
 
         echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        echo "node-version=$NODE_VERSION" >> "$GITHUB_OUTPUT"
+
         echo "Detected Playwright version: $VERSION"
+        echo "Detected Node version: $NODE_VERSION"
 
     - name: Restore Playwright cache
       id: playwright-cache
       uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
       with:
         path: ~/.cache/ms-playwright
-        key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version }}-${{ inputs.deps }}-only-shell
+        key:
+          ${{ runner.os }}-${{ runner.arch }}-node-${{ steps.detect-versions.outputs.node-version }}-playwright-${{
+          steps.detect-versions.outputs.version }}-${{ inputs.deps }}-only-shell
 
     - name: Install Playwright system dependencies
       shell: bash
