@@ -31,7 +31,7 @@ runs:
       uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
       with:
         path: ~/.cache/ms-playwright
-        key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version }}-${{ inputs.deps }}
+        key: ${{ runner.os }}-playwright-${{ steps.detect-pw.outputs.version }}-${{ inputs.deps }}-only-shell
 
     - name: Install Playwright system dependencies
       shell: bash
@@ -40,7 +40,7 @@ runs:
     - name: Install Playwright browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
-      run: npx playwright install ${{ inputs.deps }}
+      run: npx playwright install --only-shell ${{ inputs.deps }}
       env:
         DEBUG: pw:install
         PLAYWRIGHT_SKIP_BROWSER_GC: 1
