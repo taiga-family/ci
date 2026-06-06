@@ -1,3 +1,10 @@
+### [1.219.0](https://github.com/taiga-family/ci/compare/v1.218.0...v1.219.0) (2026-06-06)
+
+### 🚀 Features
+
+- install only shell chromium image
+  [(6b2ad97)](https://github.com/taiga-family/ci/commit/6b2ad975e03b7030c5f13b25d313f91d6d7b4903)
+
 ### [1.218.0](https://github.com/taiga-family/ci/compare/v1.217.0...v1.218.0) (2026-06-05)
 
 ### 🚀 Features
