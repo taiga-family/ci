@@ -1,3 +1,10 @@
+### [1.220.0](https://github.com/taiga-family/ci/compare/v1.219.0...v1.220.0) (2026-06-06)
+
+### 🚀 Features
+
+- respect node version in key
+  [(e17323e)](https://github.com/taiga-family/ci/commit/e17323ec44fd0961e8318b48de8e7c82f9d81fb3)
+
 ### [1.219.0](https://github.com/taiga-family/ci/compare/v1.218.0...v1.219.0) (2026-06-06)
 
 ### 🚀 Features
