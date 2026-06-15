@@ -1,3 +1,7 @@
+### [1.222.0](https://github.com/taiga-family/ci/compare/v1.221.0...v1.222.0) (2026-06-15)
+
+This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
+
 ### [1.221.0](https://github.com/taiga-family/ci/compare/v1.220.0...v1.221.0) (2026-06-06)
 
 This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
