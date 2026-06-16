@@ -1,3 +1,10 @@
+## [2.0.0](https://github.com/taiga-family/actions/compare/v1.222.0...v2.0.0) (2026-06-16)
+
+### 🚀 Features
+
+- flatten action directories ([#719](https://github.com/taiga-family/actions/pull/719))
+  [(716078b)](https://github.com/taiga-family/actions/commit/716078ba825e96282f98e39caacf18273a7b4a5e)
+
 ### [1.222.0](https://github.com/taiga-family/ci/compare/v1.221.0...v1.222.0) (2026-06-15)
 
 This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
