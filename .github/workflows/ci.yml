@@ -24,7 +24,7 @@ jobs:
               npm run prettier -- --check
           fi
 
-      - uses: ./actions/auto/push
+      - uses: ./auto-push
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
