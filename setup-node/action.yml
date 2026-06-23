@@ -63,13 +63,13 @@ runs:
 
     - name: Restore node_modules from cache
       id: cache-node-modules
-      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
       with:
         path: ${{ inputs.node-path }}
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
     - name: Load Nx cache state for NX_BASE
-      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+      uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
       if: steps.cache-node-modules.outputs.cache-hit == 'true'
       with:
         path: ${{ inputs.nx-path }}
@@ -94,7 +94,7 @@ runs:
 
     - name: Save Nx cache state
       if: github.ref == 'refs/heads/main'
-      uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+      uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
       with:
         path: ${{ inputs.node-path }}
         key: '${{ runner.os }}-node-${{ inputs.node-version }}-nx-caches-${{ github.sha }}'
