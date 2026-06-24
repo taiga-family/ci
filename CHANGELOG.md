@@ -1,3 +1,10 @@
+## [2.3.0](https://github.com/taiga-family/actions/compare/v2.2.0...v2.3.0) (2026-06-24)
+
+### 🚀 Features
+
+- upgrade to node.js 26 ([#726](https://github.com/taiga-family/actions/pull/726))
+  [(27875e2)](https://github.com/taiga-family/actions/commit/27875e2d6934a242440db7f845a3df191858cbe0)
+
 ## [2.2.0](https://github.com/taiga-family/actions/compare/v2.1.0...v2.2.0) (2026-06-24)
 
 ### 🐞 Bug Fixes
