@@ -413,7 +413,7 @@ Sets up Node.js with cached `node_modules` and Nx cache. Optionally runs `npm au
 
 | Input                | Description                  | Default                             |
 | -------------------- | ---------------------------- | ----------------------------------- |
-| `node-version`       | Node.js version              | `24.x`                              |
+| `node-version`       | Node.js version              | `26.x`                              |
 | `node-registry`      | Registry URL                 | `https://registry.npmjs.org`        |
 | `npm-ci-flags`       | Additional npm ci flags      |                                     |
 | `node-path`          | Paths for node_modules cache | `node_modules/`, `**/node_modules/` |
