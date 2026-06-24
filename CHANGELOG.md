@@ -1,3 +1,10 @@
+## [2.2.0](https://github.com/taiga-family/actions/compare/v2.1.0...v2.2.0) (2026-06-24)
+
+### 🐞 Bug Fixes
+
+- wrong node.js cache for workflow ([#724](https://github.com/taiga-family/actions/pull/724))
+  [(c8f5bf2)](https://github.com/taiga-family/actions/commit/c8f5bf285414e8cdc862b7412c135c12fe1e4b33)
+
 ## [2.1.0](https://github.com/taiga-family/actions/compare/v2.0.0...v2.1.0) (2026-06-18)
 
 This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
