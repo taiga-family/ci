@@ -165,6 +165,7 @@ and `setup-node`.
 | `is-release-candidate`       | Whether version includes -rc              |
 
 ```yml
+- uses: taiga-family/actions/setup-node@main
 - uses: taiga-family/actions/get-node-info@main
   id: node-info
 

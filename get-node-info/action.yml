@@ -1,17 +1,6 @@
 name: Action for get info about Node.js workspace
 description: Node.js workspace
 
-inputs:
-  node-version:
-    description: Node.js version
-    deprecationMessage: 'Not relevant'
-    required: false
-    default: 24.x
-  node-registry:
-    description: Registry
-    deprecationMessage: 'Not relevant'
-    required: false
-
 outputs:
   root-package-version:
     description: Full version of root package.json (x.y.z)
@@ -26,9 +15,6 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: taiga-family/ci/actions/setup/variables@b50b17b39428cf197348948aa945d564aa2bdf17 # main
-    - uses: taiga-family/ci/actions/setup/node@b50b17b39428cf197348948aa945d564aa2bdf17 # main
-
     - id: output
       shell: bash
       run: |
